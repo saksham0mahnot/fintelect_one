@@ -1,0 +1,176 @@
+import { useState } from 'react'
+import { motion, AnimatePresence } from 'framer-motion'
+import type { LucideIcon } from 'lucide-react'
+import {
+  TrendingUp, BarChart3, Shield, Globe2, Target, Building2,
+  ChevronRight, ArrowUpRight
+} from 'lucide-react'
+import { services } from '../data/content'
+
+const iconMap: Record<string, LucideIcon> = {
+  TrendingUp, BarChart3, Shield, Globe2, Target, Building2,
+}
+
+const Services = () => {
+  const [hovered, setHovered] = useState<string | null>(null)
+  const [expanded, setExpanded] = useState<string | null>(null)
+
+  return (
+    <section id="services" className="section-padding" style={{ background: '#05070B' }}>
+      <div className="container-premium">
+        {/* Header */}
+        <motion.div
+          className="section-label mb-6"
+          initial={{ opacity: 0, x: -20 }}
+          whileInView={{ opacity: 1, x: 0 }}
+          viewport={{ once: true }}
+        >
+          Our Services
+        </motion.div>
+
+        <div className="flex flex-col md:flex-row md:items-end gap-8 mb-20">
+          <motion.h2
+            className="font-serif text-white"
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
+            style={{
+              fontSize: 'clamp(2rem, 4vw, 4.5rem)',
+              lineHeight: '1.1',
+              letterSpacing: '-0.02em',
+              maxWidth: '16ch',
+            }}
+          >
+            Every service built for institutional-grade outcomes.
+          </motion.h2>
+
+          <motion.p
+            className="text-lg max-w-sm"
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ delay: 0.2 }}
+            style={{ color: '#94A3B8', lineHeight: '1.75' }}
+          >
+            Not products — portfolios. Not advice — architecture.
+          </motion.p>
+        </div>
+
+        {/* Service bands */}
+        <div style={{ borderTop: '1px solid rgba(255,255,255,0.05)' }}>
+          {services.map((service, i) => {
+            const Icon = iconMap[service.icon] || TrendingUp
+            const isHovered = hovered === service.id
+            const isExpanded = expanded === service.id
+
+            return (
+              <motion.div
+                key={service.id}
+                className="service-band"
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true, margin: '-50px' }}
+                transition={{ delay: i * 0.08, duration: 0.6 }}
+                onHoverStart={() => setHovered(service.id)}
+                onHoverEnd={() => setHovered(null)}
+                onClick={() => setExpanded(expanded === service.id ? null : service.id)}
+              >
+                <div className="flex items-center gap-8 py-8 px-2 cursor-pointer">
+                  {/* Number */}
+                  <div
+                    className="hidden md:block flex-shrink-0 text-right"
+                    style={{ width: '2.5rem', color: '#334155', fontFamily: 'Inter, sans-serif', fontSize: '0.75rem', fontWeight: 600 }}
+                  >
+                    {String(i + 1).padStart(2, '0')}
+                  </div>
+
+                  {/* Icon */}
+                  <motion.div
+                    className="flex-shrink-0 w-12 h-12 rounded-sm flex items-center justify-center"
+                    animate={{
+                      background: isHovered ? 'rgba(37,99,235,0.15)' : 'rgba(255,255,255,0.03)',
+                      borderColor: isHovered ? 'rgba(37,99,235,0.4)' : 'rgba(255,255,255,0.06)',
+                    }}
+                    style={{ border: '1px solid rgba(255,255,255,0.06)' }}
+                  >
+                    <Icon
+                      size={18}
+                      strokeWidth={1.5}
+                    />
+                  </motion.div>
+
+                  {/* Title */}
+                  <div className="flex-1 min-w-0">
+                    <motion.h3
+                      className="font-sans font-semibold text-lg md:text-xl"
+                      animate={{ color: isHovered ? '#FFFFFF' : '#CBD5E1' }}
+                    >
+                      {service.title}
+                    </motion.h3>
+                    <div
+                      className="text-sm hidden md:block"
+                      style={{ color: '#475569' }}
+                    >
+                      {service.subtitle}
+                    </div>
+                  </div>
+
+                  {/* Description (desktop) */}
+                  <div className="hidden lg:block flex-1 max-w-sm">
+                    <p style={{ color: '#64748B', fontSize: '0.875rem', lineHeight: '1.6' }}>
+                      {service.description}
+                    </p>
+                  </div>
+
+                  {/* Arrow */}
+                  <motion.div
+                    animate={{ rotate: isExpanded ? 45 : 0, color: isHovered ? '#38BDF8' : '#334155' }}
+                    transition={{ duration: 0.3 }}
+                  >
+                    <ChevronRight size={20} strokeWidth={1.5} />
+                  </motion.div>
+                </div>
+
+                {/* Expanded detail */}
+                <AnimatePresence>
+                  {isExpanded && (
+                    <motion.div
+                      initial={{ height: 0, opacity: 0 }}
+                      animate={{ height: 'auto', opacity: 1 }}
+                      exit={{ height: 0, opacity: 0 }}
+                      transition={{ duration: 0.4, ease: [0.16, 1, 0.3, 1] }}
+                      style={{ overflow: 'hidden' }}
+                    >
+                      <div
+                        className="px-16 pb-8 flex items-start gap-8"
+                        style={{ borderTop: '1px solid rgba(255,255,255,0.04)' }}
+                      >
+                        <div className="pt-6 flex-1">
+                          <p style={{ color: '#94A3B8', lineHeight: '1.8' }}>
+                            {service.detail}
+                          </p>
+                        </div>
+                        <button
+                          className="mt-6 flex items-center gap-2 text-sm text-[#38BDF8] hover:text-white transition-colors"
+                          onClick={(e) => {
+                            e.stopPropagation()
+                            document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' })
+                          }}
+                        >
+                          Enquire <ArrowUpRight size={14} />
+                        </button>
+                      </div>
+                    </motion.div>
+                  )}
+                </AnimatePresence>
+              </motion.div>
+            )
+          })}
+        </div>
+      </div>
+    </section>
+  )
+}
+
+export default Services
