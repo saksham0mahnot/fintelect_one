@@ -1,11 +1,14 @@
 import { useState } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
 import { globalRegions } from '../data/content'
+import WorldPaths from './WorldPaths'
 
-// Latitude/longitude to SVG position on a simple Mercator-ish projection
-const toSVGPos = (lat: number, lng: number, w: number, h: number) => {
+// Latitude/longitude to SVG position on a Mercator projection
+const toSVGPos = (lat: number, lng: number, w: number, _h: number) => {
   const x = ((lng + 180) / 360) * w
-  const y = ((90 - lat) / 180) * h
+  const latRad = (lat * Math.PI) / 180
+  const mercN = Math.log(Math.tan(Math.PI / 4 + latRad / 2))
+  const y = 293.93 - 152.49 * mercN
   return { x, y }
 }
 
@@ -23,7 +26,7 @@ const GlobalMap = () => {
   const india = toSVGPos(20.59, 78.96, SVG_W, SVG_H)
 
   return (
-    <div className="relative" style={{ background: '#0a0d14' }}>
+    <div className="relative" style={{ background: '#EEF3FF' }}>
       {/* SVG World Map */}
       <div className="relative overflow-hidden" style={{ height: '55vh', minHeight: '400px' }}>
         <svg
@@ -31,29 +34,47 @@ const GlobalMap = () => {
           className="w-full h-full"
           style={{ opacity: 0.9 }}
         >
+          <defs>
+            <pattern
+              id="dotPattern"
+              x="0"
+              y="0"
+              width="8"
+              height="8"
+              patternUnits="userSpaceOnUse"
+            >
+              <circle cx="2" cy="2" r="1.1" fill="rgba(37, 99, 235, 0.15)" />
+            </pattern>
+          </defs>
+
           {/* Background rectangle */}
-          <rect width={SVG_W} height={SVG_H} fill="#05070B" />
+          <rect width={SVG_W} height={SVG_H} fill="#EEF3FF" />
+
+          {/* Dotted World Map Background */}
+          <g transform="translate(-37.67, -263.38) scale(1.22437, 1.09021)">
+            <WorldPaths fill="url(#dotPattern)" />
+          </g>
 
           {/* Latitude grid lines */}
           {[-60, -30, 0, 30, 60].map((lat) => {
-            const y = ((90 - lat) / 180) * SVG_H
+            const { y } = toSVGPos(lat, 0, SVG_W, SVG_H)
             return (
               <line
                 key={lat}
                 x1={0} y1={y} x2={SVG_W} y2={y}
-                stroke="rgba(255,255,255,0.04)" strokeWidth="0.5"
+                stroke="rgba(37,99,235,0.08)" strokeWidth="0.5"
               />
             )
           })}
 
           {/* Longitude grid lines */}
           {[-120, -60, 0, 60, 120].map((lng) => {
-            const x = ((lng + 180) / 360) * SVG_W
+            const { x } = toSVGPos(0, lng, SVG_W, SVG_H)
             return (
               <line
                 key={lng}
                 x1={x} y1={0} x2={x} y2={SVG_H}
-                stroke="rgba(255,255,255,0.04)" strokeWidth="0.5"
+                stroke="rgba(37,99,235,0.08)" strokeWidth="0.5"
               />
             )
           })}
@@ -131,7 +152,7 @@ const GlobalMap = () => {
                   x="0"
                   y={isIndia ? -14 : -10}
                   textAnchor="middle"
-                  fill={isIndia ? '#38BDF8' : isActive || isHovered ? '#FFFFFF' : '#64748B'}
+                  fill={isIndia ? '#0284C7' : isActive || isHovered ? '#1E3A8A' : '#94A3B8'}
                   fontSize="9"
                   fontFamily="Inter, sans-serif"
                   fontWeight="600"
@@ -146,44 +167,12 @@ const GlobalMap = () => {
         </svg>
 
         {/* Gradient overlay bottom */}
-        <div className="absolute bottom-0 left-0 right-0 h-24 bg-gradient-to-t from-[#0a0d14] to-transparent" />
+        <div className="absolute bottom-0 left-0 right-0 h-24 bg-gradient-to-t from-[#EEF3FF] to-transparent" />
       </div>
 
       {/* Region info panel */}
-      <div className="container-premium py-12">
+      <div className="container-premium py-12" style={{ marginTop: "50px" }}>
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-start">
-          {/* Active region detail */}
-          <AnimatePresence mode="wait">
-            <motion.div
-              key={activeRegion.id}
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              exit={{ opacity: 0, y: -20 }}
-              transition={{ duration: 0.5, ease: [0.16, 1, 0.3, 1] }}
-              className="glass-premium rounded-sm p-8"
-            >
-              <div className="section-label mb-6">{activeRegion.name}</div>
-              <h3 className="font-serif text-white text-2xl mb-4">{activeRegion.description}</h3>
-              <div className="h-px mb-6" style={{ background: 'linear-gradient(90deg, #2563EB, transparent)' }} />
-              <div className="flex flex-wrap gap-3">
-                {activeRegion.stats.map((stat) => (
-                  <span
-                    key={stat}
-                    className="text-xs font-mono tracking-wider px-3 py-1.5"
-                    style={{
-                      background: 'rgba(37,99,235,0.08)',
-                      border: '1px solid rgba(37,99,235,0.2)',
-                      color: '#94A3B8',
-                      borderRadius: '2px',
-                    }}
-                  >
-                    {stat}
-                  </span>
-                ))}
-              </div>
-            </motion.div>
-          </AnimatePresence>
-
           {/* Region nav */}
           <div>
             <div className="section-label mb-8">Select Market</div>
@@ -205,7 +194,7 @@ const GlobalMap = () => {
                   />
                   <span
                     className="text-sm font-medium"
-                    style={{ color: active === region.id ? '#FFFFFF' : '#94A3B8' }}
+                    style={{ color: active === region.id ? '#1E3A8A' : '#64748B' }}
                   >
                     {region.name}
                   </span>
@@ -216,15 +205,47 @@ const GlobalMap = () => {
               ))}
             </div>
           </div>
+
+          {/* Active region detail */}
+          <AnimatePresence mode="wait">
+            <motion.div
+              key={activeRegion.id}
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              exit={{ opacity: 0, y: -20 }}
+              transition={{ duration: 0.5, ease: [0.16, 1, 0.3, 1] }}
+              className="glass-premium rounded-sm p-8"
+            >
+              <div className="section-label mb-6">{activeRegion.name}</div>
+              <h3 className="font-serif text-slate-900 text-2xl mb-4">{activeRegion.description}</h3>
+              <div className="h-px mb-6" style={{ background: 'linear-gradient(90deg, #2563EB, transparent)' }} />
+              <div className="flex flex-wrap gap-3">
+                {activeRegion.stats.map((stat) => (
+                  <span
+                    key={stat}
+                    className="text-xs font-mono tracking-wider px-3 py-1.5"
+                    style={{
+                      background: 'rgba(37,99,235,0.08)',
+                      border: '1px solid rgba(37,99,235,0.2)',
+                      color: '#475569',
+                      borderRadius: '2px',
+                    }}
+                  >
+                    {stat}
+                  </span>
+                ))}
+              </div>
+            </motion.div>
+          </AnimatePresence>
         </div>
 
         {/* Institutional indicators */}
-        <div className="grid grid-cols-2 md:grid-cols-4 gap-4 mt-12 pt-12" style={{ borderTop: '1px solid rgba(255,255,255,0.05)' }}>
+        <div className="grid grid-cols-2 md:grid-cols-4 gap-4 mt-12 pt-12" style={{ borderTop: '1px solid rgba(37,99,235,0.1)' }}>
           {[
             { label: 'Active Since', value: '2022' },
             { label: 'Track Record', value: '3-Year' },
             { label: 'Research Cycle', value: '12–18 Months' },
-            { label: 'Markets Covered', value: '5 Regions' },
+            { label: 'Markets Covered', value: '5+ Regions' },
           ].map((item) => (
             <motion.div
               key={item.label}
@@ -234,10 +255,10 @@ const GlobalMap = () => {
               transition={{ duration: 0.6 }}
               className="glass rounded-sm p-6"
             >
-              <div className="text-2xl font-bold text-white mb-1" style={{ fontFamily: 'Inter, sans-serif' }}>
+              <div className="text-2xl font-bold text-slate-900 mb-1" style={{ fontFamily: 'Inter, sans-serif' }}>
                 {item.value}
               </div>
-              <div className="text-xs uppercase tracking-widest" style={{ color: '#94A3B8' }}>
+              <div className="text-xs uppercase tracking-widest" style={{ color: '#64748B' }}>
                 {item.label}
               </div>
             </motion.div>

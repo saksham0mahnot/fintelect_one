@@ -4,7 +4,7 @@ import { feeStructure } from '../data/content'
 
 const FeeStructure = () => {
   return (
-    <section id="fees" className="section-padding" style={{ background: '#0F172A' }}>
+    <section id="fees" className="section-padding" style={{ background: '#EEF3FF' }}>
       <div className="container-premium">
         {/* Header */}
         <motion.div
@@ -19,7 +19,7 @@ const FeeStructure = () => {
 
         <div className="flex flex-col md:flex-row md:items-end gap-8 mb-20">
           <motion.h2
-            className="font-serif text-white"
+            className="font-serif text-slate-900"
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
@@ -39,7 +39,7 @@ const FeeStructure = () => {
             whileInView={{ opacity: 1 }}
             viewport={{ once: true }}
             transition={{ delay: 0.3 }}
-            style={{ color: '#94A3B8', lineHeight: '1.75' }}
+            style={{ color: '#475569', lineHeight: '1.75' }}
           >
             All fees are disclosed upfront. We earn when you earn — not when you invest.
           </motion.p>
@@ -56,10 +56,10 @@ const FeeStructure = () => {
               viewport={{ once: true, margin: '-50px' }}
               transition={{ delay: i * 0.1, duration: 0.7, ease: [0.16, 1, 0.3, 1] }}
               style={{
-                background: tier.featured ? 'rgba(37,99,235,0.06)' : '#05070B',
+                background: tier.featured ? 'rgba(37,99,235,0.06)' : '#FFFFFF',
                 border: tier.featured
                   ? '1px solid rgba(37,99,235,0.4)'
-                  : '1px solid rgba(255,255,255,0.05)',
+                  : '1px solid rgba(37,99,235,0.12)',
               }}
             >
               {/* Featured badge */}
@@ -94,7 +94,7 @@ const FeeStructure = () => {
                 </div>
 
                 <h3
-                  className="font-sans font-bold text-white text-lg mb-2"
+                  className="font-sans font-bold text-slate-900 text-lg mb-2"
                   style={{ letterSpacing: '-0.01em' }}
                 >
                   {tier.tier}
@@ -113,7 +113,7 @@ const FeeStructure = () => {
                     className="text-3xl font-bold"
                     style={{
                       fontFamily: 'Inter, sans-serif',
-                      color: tier.featured ? '#38BDF8' : '#FFFFFF',
+                      color: tier.featured ? '#2563EB' : '#1E3A8A',
                     }}
                   >
                     {tier.fee}
@@ -127,7 +127,7 @@ const FeeStructure = () => {
 
                 <div
                   className="h-px mb-6"
-                  style={{ background: 'rgba(255,255,255,0.05)' }}
+                  style={{ background: 'rgba(37,99,235,0.1)' }}
                 />
 
                 {/* Features */}
@@ -144,14 +144,14 @@ const FeeStructure = () => {
                         strokeWidth={2.5}
                         style={{ color: tier.featured ? '#38BDF8' : '#2563EB', marginTop: '2px', flexShrink: 0 }}
                       />
-                      <span className="text-xs leading-relaxed" style={{ color: '#94A3B8' }}>
+                      <span className="text-xs leading-relaxed" style={{ color: '#475569' }}>
                         {f}
                       </span>
                     </div>
                   ))}
                 </div>
 
-                <p className="text-xs mt-6" style={{ color: '#334155', lineHeight: '1.6' }}>
+                <p className="text-xs mt-6" style={{ color: '#64748B', lineHeight: '1.6' }}>
                   {tier.note}
                 </p>
               </div>
@@ -165,7 +165,7 @@ const FeeStructure = () => {
           initial={{ opacity: 0 }}
           whileInView={{ opacity: 1 }}
           viewport={{ once: true }}
-          style={{ color: '#334155', maxWidth: '60ch', margin: '3rem auto 0' }}
+          style={{ color: '#64748B', maxWidth: '60ch', margin: '3rem auto 0' }}
         >
           All fees are negotiable based on portfolio complexity and relationship tenure.
           AMFI-registered distributor. Mutual Fund commissions are disclosed per SEBI regulations.

@@ -14,7 +14,7 @@ const Credentials = () => {
   const { ref, inView } = useInView({ threshold: 0.2, triggerOnce: true })
 
   return (
-    <section id="credentials" className="section-padding" style={{ background: '#05070B' }}>
+    <section id="credentials" className="section-padding" style={{ background: '#F8FAFF' }}>
       <div className="container-premium">
         <motion.div
           className="section-label mb-6"
@@ -26,7 +26,7 @@ const Credentials = () => {
         </motion.div>
 
         <motion.h2
-          className="font-serif text-white mb-20"
+          className="font-serif text-slate-900 mb-20"
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
@@ -45,7 +45,7 @@ const Credentials = () => {
         <div
           ref={ref}
           className="grid grid-cols-2 md:grid-cols-3 gap-0"
-          style={{ border: '1px solid rgba(255,255,255,0.05)' }}
+          style={{ border: '1px solid rgba(37,99,235,0.12)' }}
         >
           {credentials.map((cred, i) => {
             const Icon = iconMap[cred.icon] || Award
@@ -61,8 +61,8 @@ const Credentials = () => {
                 transition={{ delay: i * 0.1, duration: 0.6 }}
                 className="group p-8 md:p-10 relative"
                 style={{
-                  borderRight: col < 2 ? '1px solid rgba(255,255,255,0.05)' : 'none',
-                  borderBottom: row < 1 ? '1px solid rgba(255,255,255,0.05)' : 'none',
+                  borderRight: col < 2 ? '1px solid rgba(37,99,235,0.1)' : 'none',
+                  borderBottom: row < 1 ? '1px solid rgba(37,99,235,0.1)' : 'none',
                   background: 'transparent',
                   transition: 'background 0.4s ease',
                 }}
@@ -83,7 +83,7 @@ const Credentials = () => {
                   {cred.value > 1 ? (
                     <>
                       <span
-                        className="text-4xl font-bold text-white"
+                        className="text-4xl font-bold text-slate-900"
                         style={{ fontFamily: 'Inter, sans-serif', lineHeight: 1 }}
                       >
                         {inView ? (
@@ -91,7 +91,7 @@ const Credentials = () => {
                         ) : '0'}
                       </span>
                       {cred.suffix && (
-                        <span className="text-xl font-bold mb-0.5" style={{ color: '#38BDF8' }}>
+                        <span className="text-xl font-bold mb-0.5" style={{ color: '#2563EB' }}>
                           {cred.suffix}
                         </span>
                       )}
@@ -99,7 +99,7 @@ const Credentials = () => {
                   ) : (
                     <span
                       className="text-sm font-bold tracking-wider uppercase"
-                      style={{ color: '#38BDF8', fontFamily: 'Inter, sans-serif' }}
+                      style={{ color: '#2563EB', fontFamily: 'Inter, sans-serif' }}
                     >
                       ✓ Certified
                     </span>
@@ -107,7 +107,7 @@ const Credentials = () => {
                 </div>
 
                 {/* Label */}
-                <div className="text-white font-semibold mb-1">{cred.label}</div>
+                <div className="text-slate-900 font-semibold mb-1">{cred.label}</div>
                 <div className="text-xs" style={{ color: '#475569' }}>
                   {cred.description}
                 </div>
@@ -129,17 +129,14 @@ const Credentials = () => {
           viewport={{ once: true }}
           transition={{ delay: 0.4 }}
           className="flex flex-wrap items-center gap-8 mt-12 pt-12"
-          style={{ borderTop: '1px solid rgba(255,255,255,0.05)' }}
+          style={{ borderTop: '1px solid rgba(37,99,235,0.1)' }}
         >
           {[
-            'SEBI Compliant Advisory',
-            'AMFI Registered Distributor',
-            'IRDAI Compliant',
-            'RBI FEMA Framework',
+            'AMFI Registered Distributor'
           ].map((badge) => (
             <div key={badge} className="flex items-center gap-2">
               <div className="w-1.5 h-1.5 rounded-full" style={{ background: '#2563EB' }} />
-              <span className="text-xs tracking-wider" style={{ color: '#94A3B8' }}>
+              <span className="text-xs tracking-wider" style={{ color: '#475569' }}>
                 {badge}
               </span>
             </div>

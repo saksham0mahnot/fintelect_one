@@ -16,7 +16,7 @@ const Services = () => {
   const [expanded, setExpanded] = useState<string | null>(null)
 
   return (
-    <section id="services" className="section-padding" style={{ background: '#05070B' }}>
+    <section id="services" className="section-padding" style={{ background: '#F8FAFF' }}>
       <div className="container-premium">
         {/* Header */}
         <motion.div
@@ -30,7 +30,7 @@ const Services = () => {
 
         <div className="flex flex-col md:flex-row md:items-end gap-8 mb-20">
           <motion.h2
-            className="font-serif text-white"
+            className="font-serif text-slate-900"
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
@@ -42,7 +42,7 @@ const Services = () => {
               maxWidth: '16ch',
             }}
           >
-            Every service built for institutional-grade outcomes.
+            Every <span style={{ color: '#2563EB', fontStyle: 'italic' }}>service built </span> for institutional-grade outcomes.
           </motion.h2>
 
           <motion.p
@@ -51,14 +51,14 @@ const Services = () => {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ delay: 0.2 }}
-            style={{ color: '#94A3B8', lineHeight: '1.75' }}
+            style={{ color: '#475569', lineHeight: '1.75' }}
           >
             Not products — portfolios. Not advice — architecture.
           </motion.p>
         </div>
 
         {/* Service bands */}
-        <div style={{ borderTop: '1px solid rgba(255,255,255,0.05)' }}>
+        <div style={{ borderTop: '1px solid rgba(37,99,235,0.1)' }}>
           {services.map((service, i) => {
             const Icon = iconMap[service.icon] || TrendingUp
             const isHovered = hovered === service.id
@@ -80,7 +80,7 @@ const Services = () => {
                   {/* Number */}
                   <div
                     className="hidden md:block flex-shrink-0 text-right"
-                    style={{ width: '2.5rem', color: '#334155', fontFamily: 'Inter, sans-serif', fontSize: '0.75rem', fontWeight: 600 }}
+                    style={{ width: '2.5rem', color: '#94A3B8', fontFamily: 'Inter, sans-serif', fontSize: '0.75rem', fontWeight: 600 }}
                   >
                     {String(i + 1).padStart(2, '0')}
                   </div>
@@ -89,10 +89,10 @@ const Services = () => {
                   <motion.div
                     className="flex-shrink-0 w-12 h-12 rounded-sm flex items-center justify-center"
                     animate={{
-                      background: isHovered ? 'rgba(37,99,235,0.15)' : 'rgba(255,255,255,0.03)',
-                      borderColor: isHovered ? 'rgba(37,99,235,0.4)' : 'rgba(255,255,255,0.06)',
+                      background: isHovered ? 'rgba(37,99,235,0.1)' : 'rgba(37,99,235,0.04)',
+                      borderColor: isHovered ? 'rgba(37,99,235,0.4)' : 'rgba(37,99,235,0.12)',
                     }}
-                    style={{ border: '1px solid rgba(255,255,255,0.06)' }}
+                    style={{ border: '1px solid rgba(37,99,235,0.12)' }}
                   >
                     <Icon
                       size={18}
@@ -104,28 +104,25 @@ const Services = () => {
                   <div className="flex-1 min-w-0">
                     <motion.h3
                       className="font-sans font-semibold text-lg md:text-xl"
-                      animate={{ color: isHovered ? '#FFFFFF' : '#CBD5E1' }}
+                      animate={{ color: isHovered ? '#1E3A8A' : '#334155' }}
                     >
                       {service.title}
                     </motion.h3>
-                    <div
-                      className="text-sm hidden md:block"
-                      style={{ color: '#475569' }}
-                    >
+                    <div className="text-sm hidden md:block" style={{ color: '#64748B' }}>
                       {service.subtitle}
                     </div>
                   </div>
 
                   {/* Description (desktop) */}
                   <div className="hidden lg:block flex-1 max-w-sm">
-                    <p style={{ color: '#64748B', fontSize: '0.875rem', lineHeight: '1.6' }}>
+                    <p style={{ color: '#475569', fontSize: '0.875rem', lineHeight: '1.6' }}>
                       {service.description}
                     </p>
                   </div>
 
                   {/* Arrow */}
                   <motion.div
-                    animate={{ rotate: isExpanded ? 45 : 0, color: isHovered ? '#38BDF8' : '#334155' }}
+                    animate={{ rotate: isExpanded ? 45 : 0, color: isHovered ? '#2563EB' : '#94A3B8' }}
                     transition={{ duration: 0.3 }}
                   >
                     <ChevronRight size={20} strokeWidth={1.5} />
@@ -144,15 +141,15 @@ const Services = () => {
                     >
                       <div
                         className="px-16 pb-8 flex items-start gap-8"
-                        style={{ borderTop: '1px solid rgba(255,255,255,0.04)' }}
+                        style={{ borderTop: '1px solid rgba(37,99,235,0.07)' }}
                       >
                         <div className="pt-6 flex-1">
-                          <p style={{ color: '#94A3B8', lineHeight: '1.8' }}>
+                          <p style={{ color: '#475569', lineHeight: '1.8' }}>
                             {service.detail}
                           </p>
                         </div>
                         <button
-                          className="mt-6 flex items-center gap-2 text-sm text-[#38BDF8] hover:text-white transition-colors"
+                          className="mt-6 flex items-center gap-2 text-sm text-blue-600 hover:text-blue-800 transition-colors"
                           onClick={(e) => {
                             e.stopPropagation()
                             document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' })

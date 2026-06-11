@@ -15,19 +15,19 @@ const Footer = () => {
   return (
     <footer
       style={{
-        background: '#030508',
-        borderTop: '1px solid rgba(255,255,255,0.04)',
+        background: '#EEF3FF',
+        borderTop: '1px solid rgba(37,99,235,0.1)',
       }}
     >
       <div className="container-premium py-16">
         {/* Top row */}
         <div className="flex flex-col md:flex-row md:items-start justify-between gap-12 mb-16 pb-16"
-          style={{ borderBottom: '1px solid rgba(255,255,255,0.04)' }}>
+          style={{ borderBottom: '1px solid rgba(37,99,235,0.1)' }}>
 
           {/* Brand */}
           <div className="max-w-sm">
             <div
-              className="text-xl font-bold text-white mb-4"
+              className="text-xl font-bold text-slate-900 mb-4"
               style={{ fontFamily: 'Inter, sans-serif', letterSpacing: '-0.02em' }}
             >
               Fintelect One
@@ -35,7 +35,7 @@ const Footer = () => {
             <p className="text-sm leading-relaxed mb-6" style={{ color: '#475569' }}>
               Institutional discipline. Personal trust. Serving HNIs and NRI families across 5 geographies.
             </p>
-            <div className="text-xs" style={{ color: '#334155' }}>
+            <div className="text-xs" style={{ color: '#64748B' }}>
               {brand.email}
             </div>
           </div>
@@ -46,8 +46,8 @@ const Footer = () => {
               <a
                 key={item.label}
                 href={item.href}
-                className="text-sm transition-colors duration-300 hover:text-white"
-                style={{ color: '#475569' }}
+                className="text-sm transition-colors duration-300 hover:text-blue-600"
+                style={{ color: '#64748B' }}
                 onClick={(e) => {
                   e.preventDefault()
                   document.querySelector(item.href)?.scrollIntoView({ behavior: 'smooth' })
@@ -61,7 +61,7 @@ const Footer = () => {
 
         {/* Bottom row */}
         <div className="flex flex-col md:flex-row md:items-center justify-between gap-6">
-          <div className="text-xs" style={{ color: '#334155' }}>
+          <div className="text-xs" style={{ color: '#64748B' }}>
             © {year} {brand.name}. All rights reserved.
           </div>
 
@@ -70,7 +70,7 @@ const Footer = () => {
               <span
                 key={badge}
                 className="text-xs tracking-wider"
-                style={{ color: '#1e293b', textTransform: 'uppercase', letterSpacing: '0.08em' }}
+                style={{ color: '#2563EB', textTransform: 'uppercase', letterSpacing: '0.08em' }}
               >
                 {badge}
               </span>
@@ -82,8 +82,8 @@ const Footer = () => {
         <div
           className="mt-8 pt-8 text-xs leading-relaxed"
           style={{
-            color: '#1e293b',
-            borderTop: '1px solid rgba(255,255,255,0.03)',
+            color: '#94A3B8',
+            borderTop: '1px solid rgba(37,99,235,0.08)',
             maxWidth: '80ch',
           }}
         >

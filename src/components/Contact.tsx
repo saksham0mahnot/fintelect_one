@@ -33,7 +33,7 @@ const Contact = () => {
 
       offset = (offset + 0.15) % gridSize
 
-      ctx.strokeStyle = 'rgba(37,99,235,0.06)'
+      ctx.strokeStyle = 'rgba(37,99,235,0.08)'
       ctx.lineWidth = 0.5
 
       for (let x = 0; x <= cols; x++) {
@@ -80,7 +80,7 @@ const Contact = () => {
   }
 
   return (
-    <section id="contact" className="section-padding relative overflow-hidden" style={{ background: '#05070B' }}>
+    <section id="contact" className="section-padding relative overflow-hidden" style={{ background: '#F8FAFF' }}>
       {/* Grid canvas */}
       <canvas
         ref={canvasRef}
@@ -103,7 +103,7 @@ const Contact = () => {
           {/* Left — Info */}
           <div>
             <motion.h2
-              className="font-serif text-white mb-8"
+              className="font-serif text-slate-900 mb-8"
               initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
@@ -123,7 +123,7 @@ const Contact = () => {
               viewport={{ once: true }}
               transition={{ delay: 0.2 }}
               className="text-lg mb-12"
-              style={{ color: '#94A3B8', lineHeight: '1.75', maxWidth: '42ch' }}
+              style={{ color: '#475569', lineHeight: '1.75', maxWidth: '42ch' }}
             >
               A 45-minute discovery call. No pitch. No obligation.
               Just an honest conversation about your financial future.
@@ -172,13 +172,13 @@ const Contact = () => {
                     {href ? (
                       <a
                         href={href}
-                        className="text-white hover:text-[#38BDF8] transition-colors duration-300"
+                        className="text-slate-800 hover:text-blue-600 transition-colors duration-300"
                         style={{ fontSize: '0.9375rem' }}
                       >
                         {value}
                       </a>
                     ) : (
-                      <div className="text-white" style={{ fontSize: '0.9375rem' }}>{value}</div>
+                      <div className="text-slate-800" style={{ fontSize: '0.9375rem' }}>{value}</div>
                     )}
                   </div>
                 </div>
@@ -195,12 +195,12 @@ const Contact = () => {
           >
             {submitted ? (
               <div
-                className="glass-premium rounded-sm p-12 flex flex-col items-start justify-center h-full"
+                className="glass-premium rounded-sm p-12 flex flex-col items-start justify-center h-full text-slate-900"
                 style={{ minHeight: '400px' }}
               >
-                <div className="text-5xl mb-6">✓</div>
-                <h3 className="font-serif text-white text-2xl mb-4">Message received.</h3>
-                <p style={{ color: '#94A3B8', lineHeight: '1.75' }}>
+                <div className="text-5xl mb-6" style={{ color: '#2563EB' }}>✓</div>
+                <h3 className="font-serif text-slate-900 text-2xl mb-4">Message received.</h3>
+                <p style={{ color: '#475569', lineHeight: '1.75' }}>
                   We'll be in touch within 24 hours to schedule your discovery call.
                   Thank you for choosing Fintelect One.
                 </p>
@@ -219,16 +219,16 @@ const Contact = () => {
                     required
                     value={formData.name}
                     onChange={(e) => setFormData({ ...formData, name: e.target.value })}
-                    className="w-full px-4 py-3 text-white text-sm outline-none transition-all duration-300"
+                    className="w-full px-4 py-3 text-slate-900 text-sm outline-none transition-all duration-300"
                     style={{
-                      background: 'rgba(255,255,255,0.03)',
-                      border: '1px solid rgba(255,255,255,0.08)',
-                      borderRadius: '2px',
+                      background: 'rgba(37,99,235,0.04)',
+                      border: '1px solid rgba(37,99,235,0.15)',
+                      borderRadius: '6px',
                       fontFamily: 'DM Sans, sans-serif',
                     }}
                     placeholder="Your full name"
                     onFocus={(e) => { e.target.style.borderColor = 'rgba(37,99,235,0.5)' }}
-                    onBlur={(e) => { e.target.style.borderColor = 'rgba(255,255,255,0.08)' }}
+                    onBlur={(e) => { e.target.style.borderColor = 'rgba(37,99,235,0.15)' }}
                   />
                 </div>
 
@@ -241,16 +241,16 @@ const Contact = () => {
                     required
                     value={formData.email}
                     onChange={(e) => setFormData({ ...formData, email: e.target.value })}
-                    className="w-full px-4 py-3 text-white text-sm outline-none transition-all duration-300"
+                    className="w-full px-4 py-3 text-slate-900 text-sm outline-none transition-all duration-300"
                     style={{
-                      background: 'rgba(255,255,255,0.03)',
-                      border: '1px solid rgba(255,255,255,0.08)',
-                      borderRadius: '2px',
+                      background: 'rgba(37,99,235,0.04)',
+                      border: '1px solid rgba(37,99,235,0.15)',
+                      borderRadius: '6px',
                       fontFamily: 'DM Sans, sans-serif',
                     }}
                     placeholder="your@email.com"
                     onFocus={(e) => { e.target.style.borderColor = 'rgba(37,99,235,0.5)' }}
-                    onBlur={(e) => { e.target.style.borderColor = 'rgba(255,255,255,0.08)' }}
+                    onBlur={(e) => { e.target.style.borderColor = 'rgba(37,99,235,0.15)' }}
                   />
                 </div>
 
@@ -262,16 +262,16 @@ const Contact = () => {
                     value={formData.message}
                     onChange={(e) => setFormData({ ...formData, message: e.target.value })}
                     rows={4}
-                    className="w-full px-4 py-3 text-white text-sm outline-none transition-all duration-300 resize-none"
+                    className="w-full px-4 py-3 text-slate-900 text-sm outline-none transition-all duration-300 resize-none"
                     style={{
-                      background: 'rgba(255,255,255,0.03)',
-                      border: '1px solid rgba(255,255,255,0.08)',
-                      borderRadius: '2px',
+                      background: 'rgba(37,99,235,0.04)',
+                      border: '1px solid rgba(37,99,235,0.15)',
+                      borderRadius: '6px',
                       fontFamily: 'DM Sans, sans-serif',
                     }}
                     placeholder="Tell us about your goals..."
                     onFocus={(e) => { e.target.style.borderColor = 'rgba(37,99,235,0.5)' }}
-                    onBlur={(e) => { e.target.style.borderColor = 'rgba(255,255,255,0.08)' }}
+                    onBlur={(e) => { e.target.style.borderColor = 'rgba(37,99,235,0.15)' }}
                   />
                 </div>
 
@@ -283,7 +283,7 @@ const Contact = () => {
                   <ArrowUpRight size={16} />
                 </button>
 
-                <p className="text-xs text-center" style={{ color: '#334155' }}>
+                <p className="text-xs text-center" style={{ color: '#94A3B8' }}>
                   Your data is secure and will never be shared.
                 </p>
               </form>

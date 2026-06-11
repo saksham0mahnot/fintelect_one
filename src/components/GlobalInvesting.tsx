@@ -3,7 +3,7 @@ import GlobalMap from './GlobalMap'
 
 const GlobalInvesting = () => {
   return (
-    <section id="global" className="section-padding" style={{ background: '#05070B' }}>
+    <section id="global" className="section-padding" style={{ background: '#EEF3FF' }}>
       {/* Header */}
       <div className="container-premium mb-16">
         <motion.div
@@ -18,7 +18,7 @@ const GlobalInvesting = () => {
 
         <div className="flex flex-col md:flex-row md:items-end gap-8 md:gap-16">
           <motion.h2
-            className="font-serif text-white"
+            className="font-serif text-slate-900"
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
@@ -39,9 +39,9 @@ const GlobalInvesting = () => {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.7, delay: 0.2 }}
-            style={{ color: '#94A3B8', lineHeight: '1.75' }}
+            style={{ color: '#475569', lineHeight: '1.75' }}
           >
-            We invest across 5 global regions using institutional research,
+            We invest across 7 global regions using institutional research,
             thematic conviction, and LRS-compliant execution.
           </motion.p>
         </div>

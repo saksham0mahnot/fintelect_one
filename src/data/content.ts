@@ -13,32 +13,42 @@ export const brand = {
 }
 
 export const trustMetrics = [
-  { label: "AUM Managed", value: 500, prefix: "₹", suffix: "Cr+", decimals: 0 },
-  { label: "HNI Clients", value: 150, prefix: "", suffix: "+", decimals: 0 },
-  { label: "Years Experience", value: 10, prefix: "", suffix: "+", decimals: 0 },
-  { label: "Countries Served", value: 5, prefix: "", suffix: "", decimals: 0 },
+  { label: "Years in markets", value: 10, prefix: "", suffix: "+", decimals: 0 },
+  { label: "Qualified team", value: "CA • MBA", prefix: "", suffix: "", decimals: 0 },
+  { label: "Asset classes ", value: 4, prefix: "", suffix: "+", decimals: 0 },
+  { label: "Global track record", value: 3, prefix: "", suffix: "yrs", decimals: 0 },
 ]
 
 export const differentiators = [
   {
     number: "01",
-    title: "Private-Equity Rigour",
-    description: "We apply institutional-grade due diligence to every portfolio decision — the same frameworks used by global PE funds, brought to personal wealth management.",
+    title: "Institutional insight, personal scale",
+    description: "Our team operates at the intersection of global private equity and Indian markets — frameworks typically reserved for institutions, now accessible at your level.",
   },
   {
     number: "02",
-    title: "Research-Driven Conviction",
-    description: "12–18 month thematic research cycles. We don't react to markets — we anticipate them with a structured, independent research process.",
+    title: "Conflict-aware transparency",
+    description: "We openly disclose how we earn — trail commissions, advisory fees, all of it. You always know what we make and why we recommend what we recommend.",
   },
   {
     number: "03",
-    title: "Conflict-Free Advisory",
-    description: "No product push. No commissions driving recommendations. Our advice is governed entirely by your financial goals.",
+    title: "A decade of market cycles",
+    description: "Through bull runs, corrections, demonetisation, COVID, rate cycle reversals. Judgment earned by navigating real adversity with real client portfolios.",
   },
   {
     number: "04",
-    title: "Global Perspective",
-    description: "We invest where the best opportunities are — India, US equities, European bonds, Asia-Pacific, and frontier markets.",
+    title: "Early movers in global investing",
+    description: "Three years of live international portfolio management — already generating alpha for clients who moved early, before it became a mainstream conversation.",
+  },
+  {
+    number: "05",
+    title: "Multi-asset, one relationship",
+    description: "Mutual funds, PMS, bonds, direct equities, global markets — managed cohesively. No fragmented advisors, no conflicting recommendations, no information gaps.",
+  },
+  {
+    number: "06",
+    title: "CA-led, tax-integrated planning",
+    description: "Every portfolio decision accounts for LTCG, STCG, and indexation — ensuring the after-tax outcome, which is the only number that truly matters to you.",
   },
 ]
 
@@ -46,24 +56,28 @@ export const philosophyPillars = [
   {
     number: "I",
     title: "Capital Preservation First",
-    description: "Before seeking returns, we protect what you've built. Asymmetric risk management is the foundation of every portfolio we construct.",
+    description:
+      "Growth means little if it cannot survive adversity. Every portfolio is stress-tested against drawdowns, liquidity events, and market uncertainty before seeking returns.",
   },
   {
     number: "II",
-    title: "Conviction Over Diversification",
-    description: "We don't scatter capital across 50 positions. We make concentrated, high-conviction bets backed by deep research and genuine insight.",
+    title: "Asset Allocation Drives Outcomes",
+    description:
+      "Long-term performance is shaped more by portfolio architecture than individual security selection. We focus on building resilient allocations, not chasing market noise.",
   },
   {
     number: "III",
-    title: "Long-Duration Thinking",
-    description: "We think in decades, not quarters. Compounding works only when you have the discipline to stay invested through short-term volatility.",
+    title: "Behaviour Management Is Alpha",
+    description:
+      "The greatest threat to investment success is often emotional decision-making. We help clients remain disciplined when markets test conviction and patience.",
   },
   {
     number: "IV",
-    title: "Transparency Without Compromise",
-    description: "Every fee, every decision, every trade — explained clearly. We believe institutional-grade transparency builds generational trust.",
+    title: "Global Diversification Is Essential",
+    description:
+      "Concentrating wealth in a single market creates unnecessary risk. A modern portfolio should capture opportunities across geographies, sectors, and economic cycles.",
   },
-]
+];
 
 export const globalRegions = [
   {
@@ -97,6 +111,22 @@ export const globalRegions = [
     lat: 34.0479,
     lng: 100.6197,
     stats: ["Japan", "Korea", "ASEAN Growth"],
+  },
+  {
+    id: "middle-east",
+    name: "Middle East",
+    description: "GCC Equities, Fixed Income",
+    lat: 23.4241,
+    lng: 53.8478,
+    stats: ["UAE", "Saudi Arabia", "Qatar"],
+  },
+  {
+    id: "australia",
+    name: "Australia",
+    description: "Australian Equities, Fixed Income",
+    lat: -25.2744,
+    lng: 133.7751,
+    stats: ["ASX 200", "Australian Bonds", "ETF exposure"],
   },
   {
     id: "emerging",
@@ -196,6 +226,15 @@ export const services = [
     icon: "Building2",
     detail: "Serving UK, UAE, USA, Singapore. Tax-efficient. Fully compliant.",
   },
+  {
+    id: "AIF",
+    title: "AIF incomplete",
+    subtitle: "Cross-border wealth architecture",
+    description: "NRE/NRO planning, DTAA benefits, FEMA compliance, and international remittance advisory for globally mobile HNIs.",
+    icon: "Building2",
+    detail: "Serving UK, UAE, USA, Singapore. Tax-efficient. Fully compliant.",
+  },
+
 ]
 
 export const feeStructure = [
@@ -251,13 +290,13 @@ export const credentials = [
   { label: "CFA Qualified", value: 1, suffix: "", icon: "GraduationCap", description: "CFA Institute, USA" },
   { label: "Years Experience", value: 10, suffix: "+", icon: "Clock", description: "Across PE, Asset Management & Wealth" },
   { label: "PE Experience", value: 1, suffix: "", icon: "Building", description: "Private Equity Investment Analysis" },
-  { label: "Global AUM", value: 500, suffix: "Cr+", icon: "TrendingUp", description: "Assets Under Advisory" },
+  { label: "Global AUM", value: 5, suffix: "Cr+", icon: "TrendingUp", description: "Assets Under Advisory" },
   { label: "AMFI Registered", value: 1, suffix: "", icon: "Shield", description: "ARN Certified Mutual Fund Advisor" },
 ]
 
 export const founderQuote = {
   quote: "Wealth management is not about picking the right stocks. It is about building the right framework — one that survives every market cycle, protects what matters most, and compounds quietly over decades.",
-  attribution: "Lokesh Kumar",
+  attribution: "",
   title: "Founder & Chief Investment Officer, Fintelect One",
   credentials: "CA | CFA | 10+ Years",
 }

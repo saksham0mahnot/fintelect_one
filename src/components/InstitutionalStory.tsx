@@ -98,8 +98,8 @@ const InstitutionalStory = () => {
               display: 'flex',
               alignItems: 'center',
               padding: '4rem 6rem',
-              borderRight: '1px solid rgba(255,255,255,0.04)',
-              background: i % 2 === 0 ? '#05070B' : '#0a0d14',
+              borderRight: '1px solid rgba(37,99,235,0.08)',
+              background: i % 2 === 0 ? '#F8FAFF' : '#EEF3FF',
             }}
           >
             <div className="max-w-2xl">
@@ -107,7 +107,7 @@ const InstitutionalStory = () => {
                 {panel.label}
               </div>
               <h2
-                className="panel-content font-serif text-white mb-8"
+                className="panel-content font-serif text-slate-900 mb-8"
                 style={{
                   fontSize: 'clamp(2.5rem, 4.5vw, 5rem)',
                   lineHeight: '1.1',
@@ -126,7 +126,7 @@ const InstitutionalStory = () => {
               />
               <p
                 className="panel-content text-xl"
-                style={{ color: '#94A3B8', lineHeight: '1.75', maxWidth: '45ch' }}
+                style={{ color: '#475569', lineHeight: '1.75', maxWidth: '45ch' }}
               >
                 {panel.body}
               </p>
@@ -138,7 +138,7 @@ const InstitutionalStory = () => {
               style={{
                 fontSize: 'clamp(6rem, 12vw, 14rem)',
                 color: 'transparent',
-                WebkitTextStroke: '1px rgba(255,255,255,0.04)',
+                WebkitTextStroke: '1px rgba(37,99,235,0.07)',
                 letterSpacing: '-0.04em',
                 lineHeight: 1,
                 userSelect: 'none',
@@ -153,8 +153,8 @@ const InstitutionalStory = () => {
       {/* Timeline below the scroll */}
       <div
         style={{
-          background: '#0F172A',
-          borderTop: '1px solid rgba(255,255,255,0.05)',
+          background: '#EEF3FF',
+          borderTop: '1px solid rgba(37,99,235,0.1)',
           padding: '5rem 0',
         }}
       >
@@ -164,7 +164,7 @@ const InstitutionalStory = () => {
             {/* Timeline line */}
             <div
               className="absolute top-3 left-0 right-0 h-px"
-              style={{ background: 'rgba(255,255,255,0.06)' }}
+              style={{ background: 'rgba(37,99,235,0.1)' }}
             />
             <div className="grid grid-cols-2 md:grid-cols-5 gap-8">
               {institutionalTimeline.map((item, i) => (
@@ -178,11 +178,11 @@ const InstitutionalStory = () => {
                   <div className="timeline-dot mb-4" />
                   <div
                     className="text-sm font-bold mb-2"
-                    style={{ color: '#38BDF8', fontFamily: 'Inter, sans-serif' }}
+                    style={{ color: '#2563EB', fontFamily: 'Inter, sans-serif' }}
                   >
                     {item.year}
                   </div>
-                  <p className="text-sm" style={{ color: '#94A3B8', lineHeight: '1.6' }}>
+                  <p className="text-sm" style={{ color: '#475569', lineHeight: '1.6' }}>
                     {item.event}
                   </p>
                 </motion.div>

@@ -1,7 +1,7 @@
 import { useRef, useEffect, Suspense, lazy } from 'react'
 import { motion } from 'framer-motion'
 import { gsap } from 'gsap'
-import { brand, trustMetrics } from '../data/content'
+import { trustMetrics } from '../data/content'
 import TrustBar from './TrustBar'
 
 // Lazy load heavy 3D component
@@ -84,7 +84,7 @@ const Hero = () => {
 
         ctx.save()
         ctx.globalAlpha = p.opacity
-        ctx.fillStyle = Math.random() > 0.7 ? '#38BDF8' : '#94A3B8'
+        ctx.fillStyle = Math.random() > 0.7 ? '#0284c7' : '#94a3b8'
         ctx.font = `${p.size}px "Inter", monospace`
         ctx.fillText(p.text, p.x, p.y)
         ctx.restore()
@@ -161,7 +161,7 @@ const Hero = () => {
     <section
       ref={containerRef}
       className="relative min-h-screen flex flex-col justify-center overflow-hidden"
-      style={{ background: '#05070B' }}
+      style={{ background: '#FFFFFF' }}
     >
       {/* Particle canvas */}
       <canvas ref={canvasRef} className="absolute inset-0 pointer-events-none z-0" />
@@ -174,25 +174,25 @@ const Hero = () => {
       </div>
 
       {/* Gradient overlays */}
-      <div className="absolute inset-0 bg-gradient-radial from-transparent via-transparent to-[#05070B] opacity-80 z-0" />
-      <div className="absolute bottom-0 left-0 right-0 h-48 bg-gradient-to-t from-[#05070B] to-transparent z-0" />
+      <div className="absolute inset-0 bg-gradient-radial from-transparent via-transparent to-[#FFFFFF] opacity-80 z-0" />
+      <div className="absolute bottom-0 left-0 right-0 h-48 bg-gradient-to-t from-[#FFFFFF] to-transparent z-0" />
 
       {/* Content */}
-      <div className="relative z-10 container-premium pt-32 pb-20">
+      <div className="relative z-10 container-premium pt-64 pb-20">
         {/* Label */}
-        <motion.div
-          className="section-label mb-10"
+        {/* <motion.div
+          className="section-label mb-10 mt-14"
           initial={{ opacity: 0, x: -20 }}
           animate={{ opacity: 1, x: 0 }}
           transition={{ delay: 0.1, duration: 0.6 }}
         >
           {brand.name}
-        </motion.div>
+        </motion.div> */}
 
         {/* Headline */}
         <h1
           ref={headlineRef}
-          className="font-serif text-white mb-8"
+          className="font-serif text-slate-900 mb-8 mt-24"
           style={{
             fontSize: 'clamp(3rem, 6vw, 7rem)',
             lineHeight: '1.05',
@@ -200,18 +200,27 @@ const Hero = () => {
             maxWidth: '14ch',
           }}
         >
-          {words.map((word, i) => (
-            <span key={i} className="inline-block overflow-hidden mr-[0.25em]">
-              <span className="word inline-block">{word}</span>
-            </span>
-          ))}
+          {words.map((word, i) => {
+            const cleanWord = word.replace(/[.,]/g, '').toLowerCase()
+            const isHighlighted = cleanWord === 'discipline' || cleanWord === 'trust'
+            return (
+              <span key={i} className="inline-block overflow-hidden mr-[0.25em]">
+                <span
+                  className="word inline-block"
+                  style={isHighlighted ? { fontStyle: 'italic', color: '#2563EB' } : {}}
+                >
+                  {word}
+                </span>
+              </span>
+            )
+          })}
         </h1>
 
         {/* Subheadline */}
         <p
           ref={subRef}
           className="text-lg md:text-xl max-w-2xl mb-12"
-          style={{ color: '#94A3B8', lineHeight: '1.7', opacity: 0 }}
+          style={{ color: '#475569', lineHeight: '1.7', opacity: 0 }}
         >
           We bring private-equity thinking to personal wealth — serving discerning investors
           and NRI families across India, UK, UAE, USA, and Singapore.
@@ -246,7 +255,7 @@ const Hero = () => {
         animate={{ opacity: 1 }}
         transition={{ delay: 2, duration: 0.8 }}
       >
-        <span className="text-xs tracking-widest text-[#94A3B8] uppercase">Scroll</span>
+        {/* <span className="text-xs tracking-widest text-slate-500 uppercase">Scroll</span> */}
         <motion.div
           className="w-px h-12 bg-gradient-to-b from-[#2563EB] to-transparent"
           animate={{ scaleY: [1, 0.3, 1] }}

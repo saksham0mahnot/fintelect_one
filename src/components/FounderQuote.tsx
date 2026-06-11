@@ -71,9 +71,9 @@ const FounderQuote = () => {
       id="founder"
       className="section-padding"
       style={{
-        background: '#05070B',
-        borderTop: '1px solid rgba(255,255,255,0.04)',
-        borderBottom: '1px solid rgba(255,255,255,0.04)',
+        background: '#FFFFFF',
+        borderTop: '1px solid rgba(37,99,235,0.1)',
+        borderBottom: '1px solid rgba(37,99,235,0.1)',
       }}
     >
       <div className="container-premium">
@@ -100,7 +100,7 @@ const FounderQuote = () => {
                 style={{ marginBottom: i < quoteLines.length - 1 ? '0' : '0' }}
               >
                 <div
-                  className="quote-line founder-quote text-white"
+                  className="quote-line founder-quote text-slate-900"
                   style={{
                     fontSize: 'clamp(2rem, 5vw, 5.5rem)',
                     lineHeight: '1.1',
@@ -137,13 +137,13 @@ const FounderQuote = () => {
             viewport={{ once: true }}
             transition={{ delay: 0.8, duration: 0.6 }}
           >
-            <div className="text-white font-semibold text-lg mb-1">
+            <div className="text-slate-900 font-semibold text-lg mb-1">
               {founderQuote.attribution}
             </div>
-            <div className="text-sm mb-0.5" style={{ color: '#94A3B8' }}>
+            <div className="text-sm mb-0.5" style={{ color: '#475569' }}>
               {founderQuote.title}
             </div>
-            <div className="text-xs tracking-wider" style={{ color: '#475569' }}>
+            <div className="text-xs tracking-wider" style={{ color: '#64748B' }}>
               {founderQuote.credentials}
             </div>
           </motion.div>

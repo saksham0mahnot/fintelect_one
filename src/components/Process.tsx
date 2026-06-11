@@ -37,7 +37,7 @@ const Process = () => {
   }, [])
 
   return (
-    <section ref={sectionRef} id="process" className="section-padding" style={{ background: '#0F172A' }}>
+    <section ref={sectionRef} id="process" className="section-padding" style={{ background: '#F8FAFF' }}>
       <div className="container-premium">
         {/* Header */}
         <motion.div
@@ -50,7 +50,7 @@ const Process = () => {
         </motion.div>
 
         <motion.h2
-          className="font-serif text-white mb-20"
+          className="font-serif text-slate-900 mb-20"
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
@@ -104,7 +104,7 @@ const Process = () => {
                     <div
                       className="relative w-8 h-8 rounded-full flex items-center justify-center flex-shrink-0"
                       style={{
-                        background: '#05070B',
+                        background: 'white',
                         border: '1px solid rgba(37,99,235,0.5)',
                         boxShadow: '0 0 20px rgba(37,99,235,0.2)',
                       }}
@@ -124,16 +124,16 @@ const Process = () => {
 
                   {/* Icon */}
                   <div className="mb-4">
-                    <Icon size={20} strokeWidth={1.5} style={{ color: '#94A3B8' }} />
+                    <Icon size={20} strokeWidth={1.5} style={{ color: '#64748B' }} />
                   </div>
 
                   {/* Title */}
-                  <h3 className="text-white font-semibold text-lg mb-3" style={{ letterSpacing: '-0.01em' }}>
+                  <h3 className="text-slate-900 font-semibold text-lg mb-3" style={{ letterSpacing: '-0.01em' }}>
                     {step.title}
                   </h3>
 
                   {/* Description */}
-                  <p className="text-sm leading-relaxed flex-1" style={{ color: '#94A3B8' }}>
+                  <p className="text-sm leading-relaxed flex-1" style={{ color: '#475569' }}>
                     {step.description}
                   </p>
 
@@ -144,7 +144,7 @@ const Process = () => {
                       color: '#2563EB',
                       fontFamily: 'Inter, sans-serif',
                       paddingTop: '1rem',
-                      borderTop: '1px solid rgba(255,255,255,0.05)',
+                      borderTop: '1px solid rgba(37,99,235,0.1)',
                     }}
                   >
                     {step.duration}
@@ -163,7 +163,7 @@ const Process = () => {
           viewport={{ once: true }}
           transition={{ delay: 0.5 }}
         >
-          <p className="mb-8 text-lg" style={{ color: '#94A3B8' }}>
+          <p className="mb-8 text-lg" style={{ color: '#475569' }}>
             Ready to begin your journey?
           </p>
           <button

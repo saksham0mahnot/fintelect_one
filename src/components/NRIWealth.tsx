@@ -8,7 +8,7 @@ const NRIWealth = () => {
   const country = nriCountries[active]
 
   return (
-    <section id="nri" className="section-padding" style={{ background: '#0F172A' }}>
+    <section id="nri" className="section-padding" style={{ background: '#EEF3FF' }}>
       <div className="container-premium">
         {/* Header */}
         <motion.div
@@ -23,7 +23,7 @@ const NRIWealth = () => {
 
         <div className="flex flex-col lg:flex-row lg:items-end gap-12 mb-20">
           <motion.h2
-            className="font-serif text-white"
+            className="font-serif text-slate-900"
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
@@ -44,7 +44,7 @@ const NRIWealth = () => {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.7, delay: 0.2 }}
-            style={{ color: '#94A3B8', lineHeight: '1.75' }}
+            style={{ color: '#475569', lineHeight: '1.75' }}
           >
             Whether you live in London, Dubai, New York, or Singapore —
             your Indian wealth is managed with precision, compliance, and care.
@@ -54,7 +54,7 @@ const NRIWealth = () => {
         {/* Country selector + panel */}
         <div className="grid grid-cols-1 lg:grid-cols-3 gap-0">
           {/* Country tabs (left) */}
-          <div className="flex flex-row lg:flex-col gap-0 border-b lg:border-b-0 lg:border-r" style={{ borderColor: 'rgba(255,255,255,0.05)' }}>
+          <div className="flex flex-row lg:flex-col gap-0 border-b lg:border-b-0 lg:border-r" style={{ borderColor: 'rgba(37,99,235,0.15)' }}>
             {nriCountries.map((c, i) => (
               <button
                 key={c.code}
@@ -62,7 +62,7 @@ const NRIWealth = () => {
                 className="flex items-center gap-4 py-6 px-8 text-left w-full transition-all duration-300 relative"
                 style={{
                   background: active === i ? 'rgba(37,99,235,0.06)' : 'transparent',
-                  borderBottom: i < nriCountries.length - 1 ? '1px solid rgba(255,255,255,0.05)' : 'none',
+                  borderBottom: i < nriCountries.length - 1 ? '1px solid rgba(37,99,235,0.1)' : 'none',
                 }}
               >
                 {/* Active indicator */}
@@ -79,11 +79,11 @@ const NRIWealth = () => {
                 <div>
                   <div
                     className="text-sm font-semibold"
-                    style={{ color: active === i ? '#FFFFFF' : '#94A3B8' }}
+                    style={{ color: active === i ? '#1E3A8A' : '#64748B' }}
                   >
                     {c.name}
                   </div>
-                  <div className="text-xs" style={{ color: '#475569' }}>
+                  <div className="text-xs" style={{ color: '#94A3B8' }}>
                     {c.city}
                   </div>
                 </div>
@@ -114,7 +114,7 @@ const NRIWealth = () => {
                 </div>
 
                 <h3
-                  className="font-serif text-white mb-6"
+                  className="font-serif text-slate-900 mb-6"
                   style={{
                     fontSize: 'clamp(1.5rem, 2.5vw, 2.5rem)',
                     lineHeight: '1.25',
@@ -143,7 +143,7 @@ const NRIWealth = () => {
                         className="w-1.5 h-1.5 rounded-full flex-shrink-0"
                         style={{ background: country.color }}
                       />
-                      <span style={{ color: '#CBD5E1', fontSize: '1rem' }}>{service}</span>
+                      <span style={{ color: '#475569', fontSize: '1rem' }}>{service}</span>
                     </motion.div>
                   ))}
                 </div>
@@ -166,7 +166,7 @@ const NRIWealth = () => {
         {/* Global features row */}
         <div
           className="grid grid-cols-1 md:grid-cols-3 gap-0 mt-20 pt-12"
-          style={{ borderTop: '1px solid rgba(255,255,255,0.05)' }}
+          style={{ borderTop: '1px solid rgba(37,99,235,0.1)' }}
         >
           {[
             { title: 'DTAA Expertise', desc: 'Navigate double taxation agreements across jurisdictions to maximize your post-tax returns.' },
@@ -180,10 +180,10 @@ const NRIWealth = () => {
               viewport={{ once: true }}
               transition={{ delay: i * 0.15, duration: 0.6 }}
               className="p-8"
-              style={{ borderRight: i < 2 ? '1px solid rgba(255,255,255,0.05)' : 'none' }}
+              style={{ borderRight: i < 2 ? '1px solid rgba(37,99,235,0.1)' : 'none' }}
             >
-              <h4 className="text-white font-semibold mb-3 text-lg">{f.title}</h4>
-              <p style={{ color: '#94A3B8', lineHeight: '1.7', fontSize: '0.9rem' }}>{f.desc}</p>
+              <h4 className="text-slate-900 font-semibold mb-3 text-lg">{f.title}</h4>
+              <p style={{ color: '#475569', lineHeight: '1.7', fontSize: '0.9rem' }}>{f.desc}</p>
             </motion.div>
           ))}
         </div>

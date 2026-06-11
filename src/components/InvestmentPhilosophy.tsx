@@ -1,5 +1,4 @@
-import { useRef, useEffect, useState } from 'react'
-import { motion, AnimatePresence } from 'framer-motion'
+import { useRef, useEffect } from 'react'
 import { gsap } from 'gsap'
 import { ScrollTrigger } from 'gsap/ScrollTrigger'
 import { philosophyPillars } from '../data/content'
@@ -9,7 +8,6 @@ gsap.registerPlugin(ScrollTrigger)
 const InvestmentPhilosophy = () => {
   const sectionRef = useRef<HTMLDivElement>(null)
   const pinnedRef = useRef<HTMLDivElement>(null)
-  const [activeIndex, setActiveIndex] = useState(0)
 
   useEffect(() => {
     if (!sectionRef.current || !pinnedRef.current) return
@@ -17,31 +15,44 @@ const InvestmentPhilosophy = () => {
     const totalHeight = philosophyPillars.length * window.innerHeight
 
     const ctx = gsap.context(() => {
-      // Pin the section
-      ScrollTrigger.create({
-        trigger: sectionRef.current,
-        start: 'top top',
-        end: () => `+=${totalHeight}`,
-        pin: pinnedRef.current,
-        anticipatePin: 1,
+      const cards = gsap.utils.toArray<HTMLElement>('.philosophy-card')
+      const progressFills = gsap.utils.toArray<HTMLElement>('.progress-fill')
+      const indicators = gsap.utils.toArray<HTMLElement>('.progress-indicator-container')
+
+      // Initial state
+      gsap.set(cards, { opacity: 0, y: 30, x: 15, pointerEvents: 'none' })
+      gsap.set(cards[0], { opacity: 1, y: 0, x: 0, pointerEvents: 'auto' })
+      gsap.set(progressFills, { width: '0%' })
+      gsap.set(indicators, { width: '1.5rem' })
+      gsap.set(indicators[0], { width: '3rem' })
+
+      const tl = gsap.timeline({
+        scrollTrigger: {
+          trigger: sectionRef.current,
+          start: 'top top',
+          end: () => `+=${totalHeight}`,
+          pin: pinnedRef.current,
+          scrub: 1,
+          anticipatePin: 1,
+        }
       })
 
-      // Update active pillar index on scroll
       philosophyPillars.forEach((_, i) => {
-        ScrollTrigger.create({
-          trigger: sectionRef.current,
-          start: () => `+=${i * window.innerHeight * 0.9}`,
-          end: () => `+=${(i + 1) * window.innerHeight * 0.9}`,
-          onEnter: () => setActiveIndex(i),
-          onEnterBack: () => setActiveIndex(i),
-        })
+        // 1. Fill current progress bar
+        tl.to(progressFills[i], { width: '100%', ease: 'none', duration: 1 })
+
+        // 2. Transition to next card (if not the last one)
+        if (i < philosophyPillars.length - 1) {
+          tl.to(cards[i], { opacity: 0, y: -30, x: -15, pointerEvents: 'none', duration: 0.3 }, '+=0.1')
+            .to(cards[i + 1], { opacity: 1, y: 0, x: 0, pointerEvents: 'auto', duration: 0.3 }, '<')
+            .to(indicators[i], { width: '1.5rem', duration: 0.3 }, '<')
+            .to(indicators[i + 1], { width: '3rem', duration: 0.3 }, '<')
+        }
       })
     }, sectionRef.current || undefined)
 
     return () => ctx.revert()
   }, [])
-
-  const pillar = philosophyPillars[activeIndex]
 
   return (
     <section
@@ -49,40 +60,36 @@ const InvestmentPhilosophy = () => {
       id="philosophy"
       style={{
         height: `${(philosophyPillars.length + 1) * 100}vh`,
-        background: '#05070B',
+        background: '#F8FAFF',
       }}
     >
       <div
         ref={pinnedRef}
         className="h-screen flex items-center"
-        style={{ background: '#05070B' }}
+        style={{ background: '#F8FAFF' }}
       >
         <div className="container-premium w-full">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
             {/* Left — Static statement */}
             <div>
-              <motion.div
-                className="section-label mb-8"
-                initial={{ opacity: 0 }}
-                animate={{ opacity: 1 }}
-              >
+              <div className="section-label mb-8">
                 Investment Philosophy
-              </motion.div>
+              </div>
 
               <h2
-                className="font-serif text-white mb-8"
+                className="font-serif text-slate-900 mb-8"
                 style={{
                   fontSize: 'clamp(2rem, 4vw, 5rem)',
                   lineHeight: '1.08',
                   letterSpacing: '-0.02em',
                 }}
               >
-                Four pillars that govern every decision we make.
+                We do not chase returns.<br /><span style={{ color: '#2563EB', fontStyle: 'italic' }}>We engineer them</span>
               </h2>
 
               <div className="h-px mb-8" style={{ background: 'linear-gradient(90deg, #2563EB, transparent)', width: '6rem' }} />
 
-              <p style={{ color: '#94A3B8', fontSize: '1.1rem', lineHeight: '1.75', maxWidth: '42ch' }}>
+              <p style={{ color: '#475569', fontSize: '1.1rem', lineHeight: '1.75', maxWidth: '42ch' }}>
                 Our investment framework is not a product. It is a system of beliefs built over a decade of institutional investing.
               </p>
 
@@ -91,29 +98,38 @@ const InvestmentPhilosophy = () => {
                 {philosophyPillars.map((_, i) => (
                   <div
                     key={i}
-                    className="transition-all duration-500"
+                    className="progress-indicator-container relative"
                     style={{
                       height: '2px',
-                      width: i === activeIndex ? '3rem' : '1.5rem',
-                      background: i === activeIndex ? '#2563EB' : 'rgba(255,255,255,0.12)',
+                      background: 'rgba(37,99,235,0.15)',
                       borderRadius: '1px',
+                      overflow: 'hidden',
+                      width: i === 0 ? '3rem' : '1.5rem',
+                      transition: 'background-color 0.3s ease',
                     }}
-                  />
+                  >
+                    <div
+                      className="progress-fill absolute left-0 top-0 h-full"
+                      style={{
+                        background: '#2563EB',
+                        width: '0%',
+                      }}
+                    />
+                  </div>
                 ))}
               </div>
             </div>
 
             {/* Right — Dynamic pillars */}
-            <div className="relative min-h-64">
-              <AnimatePresence mode="wait">
-                <motion.div
-                  key={activeIndex}
-                  initial={{ opacity: 0, y: 40, x: 20 }}
-                  animate={{ opacity: 1, y: 0, x: 0 }}
-                  exit={{ opacity: 0, y: -30, x: -20 }}
-                  transition={{ duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
-                  className="glass-premium rounded-sm"
-                  style={{ padding: '3rem' }}
+            <div className="relative min-h-[400px] w-full flex items-center">
+              {philosophyPillars.map((pillar, i) => (
+                <div
+                  key={i}
+                  className="philosophy-card glass-premium rounded-sm absolute left-0 right-0"
+                  style={{
+                    padding: '3rem',
+                    boxSizing: 'border-box',
+                  }}
                 >
                   {/* Roman numeral */}
                   <div
@@ -130,7 +146,7 @@ const InvestmentPhilosophy = () => {
                   </div>
 
                   <h3
-                    className="font-serif text-white mb-6"
+                    className="font-serif text-slate-900 mb-6"
                     style={{ fontSize: 'clamp(1.5rem, 2.5vw, 2.25rem)', lineHeight: '1.2', letterSpacing: '-0.01em' }}
                   >
                     {pillar.title}
@@ -141,7 +157,7 @@ const InvestmentPhilosophy = () => {
                     style={{ background: 'linear-gradient(90deg, #2563EB, transparent)' }}
                   />
 
-                  <p style={{ color: '#94A3B8', fontSize: '1.05rem', lineHeight: '1.8' }}>
+                  <p style={{ color: '#475569', fontSize: '1.05rem', lineHeight: '1.8', margin: 0 }}>
                     {pillar.description}
                   </p>
 
@@ -150,8 +166,8 @@ const InvestmentPhilosophy = () => {
                     className="absolute -bottom-px left-0 right-0 h-px"
                     style={{ background: 'linear-gradient(90deg, transparent, #2563EB, transparent)' }}
                   />
-                </motion.div>
-              </AnimatePresence>
+                </div>
+              ))}
             </div>
           </div>
         </div>
