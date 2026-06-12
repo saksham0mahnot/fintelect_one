@@ -2,13 +2,13 @@ import { useState } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
 import type { LucideIcon } from 'lucide-react'
 import {
-  TrendingUp, BarChart3, Shield, Globe2, Target, Building2,
+  TrendingUp, BarChart3, Shield, Globe2, Target, Building2, Vault,
   ChevronRight, ArrowUpRight
 } from 'lucide-react'
 import { services } from '../data/content'
 
 const iconMap: Record<string, LucideIcon> = {
-  TrendingUp, BarChart3, Shield, Globe2, Target, Building2,
+  TrendingUp, BarChart3, Shield, Globe2, Target, Building2, Vault,
 }
 
 const Services = () => {

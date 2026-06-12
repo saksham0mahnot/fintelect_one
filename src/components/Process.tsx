@@ -68,7 +68,7 @@ const Process = () => {
         {/* Process steps */}
         <div className="relative">
           {/* Animated SVG connecting path (desktop) */}
-          <div className="hidden lg:block absolute inset-x-0 top-8 pointer-events-none" style={{ overflow: 'visible', height: '0' }}>
+          <div className="hidden lg:block absolute inset-x-0 top-4 pointer-events-none" style={{ overflow: 'visible', height: '0' }}>
             <svg
               viewBox="0 0 1000 20"
               preserveAspectRatio="none"

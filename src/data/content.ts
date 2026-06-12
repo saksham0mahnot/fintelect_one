@@ -145,7 +145,7 @@ export const nriCountries = [
     flag: "🇬🇧",
     city: "London",
     tagline: "Cross-border tax efficiency for UK residents",
-    services: ["DTAA Planning", "Remittance Advisory", "UK-India Portfolio Bridge"],
+    services: ["Individual Savings Accounts (ISAs)", "Stocks and shares ISA", "Cash ISA", "Lifetime ISA", "Workplace and SIPPs"],
     color: "#1D4ED8",
   },
   {
@@ -214,7 +214,7 @@ export const services = [
     id: "equities",
     title: "Direct Equities",
     subtitle: "Concentrated high-conviction portfolios",
-    description: "15–20 stock portfolios built on 12–18 month thematic research. PE-style diligence. Long-term compounding.",
+    description: "Upto 100 stocks stock portfolios built on 12–18 month thematic research. PE-style diligence. Long-term compounding.",
     icon: "Target",
     detail: "Fundamental research. Sectoral rotation. Bottom-up stock selection.",
   },
@@ -228,11 +228,11 @@ export const services = [
   },
   {
     id: "AIF",
-    title: "AIF incomplete",
-    subtitle: "Cross-border wealth architecture",
-    description: "NRE/NRO planning, DTAA benefits, FEMA compliance, and international remittance advisory for globally mobile HNIs.",
-    icon: "Building2",
-    detail: "Serving UK, UAE, USA, Singapore. Tax-efficient. Fully compliant.",
+    title: "Alternative Investment Funds (AIF)",
+    subtitle: "Beyond traditional asset allocation",
+    description: "Exclusive access to private market opportunities",
+    icon: "Vault",
+    detail: "AIFs are premium, privately pooled investment vehicles regulated by SEBI, tailored exclusively for sophisticated investors (minimum investment of ₹1 Crore). By strategically allocating capital to unlisted equities, private debt, and complex market instruments, AIFs provide our wealth management clients with deep portfolio diversification and access to unique, high-alpha growth engines outside of traditional public markets.",
   },
 
 ]
@@ -342,9 +342,9 @@ export const processSteps = [
 export const coverageCountries = ["India", "United Kingdom", "United Arab Emirates", "United States", "Singapore"]
 
 export const institutionalTimeline = [
-  { year: "2022", event: "Founded with PE-backed investment philosophy" },
-  { year: "2023", event: "Achieved AMFI registration. Launched direct equity advisory." },
-  { year: "2024", event: "Crossed ₹100Cr AUM. Launched Global Investing desk." },
-  { year: "2025", event: "Expanded to NRI advisory across 4 countries." },
-  { year: "2026", event: "₹500Cr+ AUM. 150+ HNI families. 5 geographies." },
+  { year: "2016", event: "Founded with AMFI registration." },
+  { year: "2023", event: "Converted into Corporate Structure. Launched direct equity advisory." },
+  { year: "2024", event: "Crossed ₹5 Cr AUM. Launched the Global Investing desk, cleared RIA." },
+  { year: "2025", event: "Expanded to NRI advisory across continents." },
+  { year: "2026", event: "₹Entered into AIF, PMS, and Fixed Income Securities." },
 ]

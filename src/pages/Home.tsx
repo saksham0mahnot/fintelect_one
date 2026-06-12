@@ -1,5 +1,5 @@
 import Hero from '../components/Hero'
-// import InstitutionalStory from '../components/InstitutionalStory'
+import InstitutionalStory from '../components/InstitutionalStory'
 import WhyFintelect from '../components/WhyFintelect'
 import InvestmentPhilosophy from '../components/InvestmentPhilosophy'
 import GlobalInvesting from '../components/GlobalInvesting'
@@ -16,7 +16,7 @@ const Home = () => {
   return (
     <main>
       <Hero />
-      {/* <InstitutionalStory /> */}
+      <InstitutionalStory />
       <WhyFintelect />
       <InvestmentPhilosophy />
       <Services />
