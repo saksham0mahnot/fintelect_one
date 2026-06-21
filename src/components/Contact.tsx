@@ -114,7 +114,7 @@ const Contact = () => {
                 letterSpacing: '-0.02em',
               }}
             >
-              Let's build your wealth framework.
+              Let's build your <span style={{ color: '#0d3ec2', fontStyle: 'italic' }}>wealth framework.</span>
             </motion.h2>
 
             <motion.p
@@ -125,7 +125,7 @@ const Contact = () => {
               className="text-lg mb-12"
               style={{ color: '#475569', lineHeight: '1.75', maxWidth: '42ch' }}
             >
-              A 45-minute discovery call. No pitch. No obligation.
+              A 45 minutes discovery call. No pitch. No obligation.
               Just an honest conversation about your financial future.
             </motion.p>
 
@@ -152,7 +152,7 @@ const Contact = () => {
                 {
                   icon: Clock,
                   label: 'Response Time',
-                  value: 'Within 24 hours',
+                  value: 'Within 48 hours',
                 },
               ].map(({ icon: Icon, label, value, href }) => (
                 <div key={label} className="flex items-start gap-4">
@@ -201,7 +201,7 @@ const Contact = () => {
                 <div className="text-5xl mb-6" style={{ color: '#2563EB' }}>✓</div>
                 <h3 className="font-serif text-slate-900 text-2xl mb-4">Message received.</h3>
                 <p style={{ color: '#475569', lineHeight: '1.75' }}>
-                  We'll be in touch within 24 hours to schedule your discovery call.
+                  We'll be in touch within 48 hours to schedule your discovery call.
                   Thank you for choosing Fintelect One.
                 </p>
               </div>
@@ -291,7 +291,7 @@ const Contact = () => {
           </motion.div>
         </div>
       </div>
-    </section>
+    </section >
   )
 }
 

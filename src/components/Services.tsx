@@ -42,7 +42,7 @@ const Services = () => {
               maxWidth: '16ch',
             }}
           >
-            Every <span style={{ color: '#2563EB', fontStyle: 'italic' }}>service built </span> for institutional-grade outcomes.
+            Every <span style={{ color: '#2563EB', fontStyle: 'italic' }}>service built </span> for institutional grade outcomes.
           </motion.h2>
 
           <motion.p
@@ -53,7 +53,7 @@ const Services = () => {
             transition={{ delay: 0.2 }}
             style={{ color: '#475569', lineHeight: '1.75' }}
           >
-            Not products — portfolios. Not advice — architecture.
+            Not products portfolios. Not advice architecture.
           </motion.p>
         </div>
 

@@ -62,7 +62,7 @@ const Process = () => {
             maxWidth: '20ch',
           }}
         >
-          A 5-step journey from conversation to stewardship.
+          A 5 Step journey from conversation to stewardship.
         </motion.h2>
 
         {/* Process steps */}

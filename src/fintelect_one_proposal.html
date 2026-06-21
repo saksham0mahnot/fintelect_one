@@ -1,0 +1,2771 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Fintelect One Wealth Advisory Proposal</title>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Inter:wght@300;400;500;600&display=swap"
+    rel="stylesheet">
+  <style>
+    :root {
+      --navy: #1C2B4A;
+      --navy-soft: #2A3F6A;
+      --blue: #5B8DD9;
+      --blue-mid: #7AAEE8;
+      --blue-pale: #EAF2FB;
+      --blue-soft: #D4E7F8;
+
+      --sage: #8BAF8E;
+      --sage-pale: #EAF2EA;
+      --rose: #D98C8C;
+      --rose-pale: #FAF0F0;
+      --peach: #E8B48A;
+      --peach-pale: #FDF3EB;
+      --lavender: #9B8EC4;
+      --lav-pale: #F0EEFB;
+      --gold: #C9A84C;
+      --gold-pale: #FBF6E8;
+      --mint: #76BFA8;
+      --mint-pale: #E8F6F2;
+
+      --ink: #1A2035;
+      --ink-mid: #3D4A6A;
+      --ink-soft: #6B789A;
+      --ink-muted: #98A3BC;
+      --surface: #F7F8FC;
+      --white: #FFFFFF;
+      --border: rgba(91, 141, 217, 0.14);
+      --border-md: rgba(91, 141, 217, 0.28);
+    }
+
+    *,
+    *::before,
+    *::after {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0
+    }
+
+    html {
+      scroll-behavior: smooth;
+      font-size: 16px
+    }
+
+    body {
+      font-family: 'Inter', sans-serif;
+      background: var(--surface);
+      color: var(--ink);
+      line-height: 1.7;
+      -webkit-font-smoothing: antialiased
+    }
+
+    /* ─── SCROLLBAR ─── */
+    ::-webkit-scrollbar {
+      width: 5px
+    }
+
+    ::-webkit-scrollbar-track {
+      background: var(--surface)
+    }
+
+    ::-webkit-scrollbar-thumb {
+      background: var(--blue-mid);
+      border-radius: 10px
+    }
+
+    /* ─── NAV ─── */
+    nav {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      z-index: 200;
+      height: 64px;
+      padding: 0 3.5rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      background: rgba(247, 248, 252, 0.92);
+      backdrop-filter: blur(20px);
+      border-bottom: 1px solid var(--border);
+      transition: box-shadow 0.3s;
+    }
+
+    nav.scrolled {
+      box-shadow: 0 4px 30px rgba(28, 43, 74, 0.08)
+    }
+
+    .logo {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      text-decoration: none
+    }
+
+    .logo-mark {
+      width: 36px;
+      height: 36px;
+      border-radius: 9px;
+      background: linear-gradient(135deg, var(--navy) 0%, var(--navy-soft) 100%);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-family: 'Playfair Display', serif;
+      font-size: 17px;
+      font-weight: 600;
+      color: var(--gold);
+      box-shadow: 0 4px 12px rgba(28, 43, 74, 0.25);
+    }
+
+    .logo-text {
+      font-family: 'Playfair Display', serif;
+      font-size: 18px;
+      font-weight: 600;
+      color: var(--navy);
+      letter-spacing: 0.02em
+    }
+
+    .logo-text span {
+      color: var(--blue)
+    }
+
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 2.25rem
+    }
+
+    .nav-links a {
+      font-size: 12px;
+      letter-spacing: 0.09em;
+      text-transform: uppercase;
+      font-weight: 500;
+      color: var(--ink-soft);
+      text-decoration: none;
+      transition: color 0.2s
+    }
+
+    .nav-links a:hover {
+      color: var(--navy)
+    }
+
+    .nav-btn {
+      background: var(--navy);
+      color: var(--white) !important;
+      padding: 9px 20px;
+      border-radius: 8px;
+      font-size: 12px !important;
+      letter-spacing: 0.07em !important;
+      transition: background 0.2s, transform 0.15s !important;
+    }
+
+    .nav-btn:hover {
+      background: var(--navy-soft) !important;
+      transform: translateY(-1px) !important
+    }
+
+    /* ─── HERO ─── */
+    .hero {
+      min-height: 100vh;
+      padding: 110px 3.5rem 80px;
+      display: flex;
+      align-items: center;
+      position: relative;
+      overflow: hidden;
+      background: linear-gradient(145deg, #F7F8FC 0%, #EDF4FD 45%, #F5EDF9 75%, #FDF3EB 100%);
+    }
+
+    .hero-orb {
+      position: absolute;
+      border-radius: 50%;
+      pointer-events: none;
+      animation: float 8s ease-in-out infinite
+    }
+
+    .orb-1 {
+      width: 420px;
+      height: 420px;
+      background: radial-gradient(circle, rgba(91, 141, 217, 0.12), transparent 70%);
+      top: -80px;
+      right: -60px;
+      animation-delay: 0s
+    }
+
+    .orb-2 {
+      width: 320px;
+      height: 320px;
+      background: radial-gradient(circle, rgba(201, 168, 76, 0.09), transparent 70%);
+      bottom: 60px;
+      left: 120px;
+      animation-delay: -3s
+    }
+
+    .orb-3 {
+      width: 260px;
+      height: 260px;
+      background: radial-gradient(circle, rgba(155, 142, 196, 0.1), transparent 70%);
+      top: 180px;
+      right: 380px;
+      animation-delay: -5s
+    }
+
+    .orb-4 {
+      width: 200px;
+      height: 200px;
+      background: radial-gradient(circle, rgba(118, 191, 168, 0.1), transparent 70%);
+      bottom: 120px;
+      right: 180px;
+      animation-delay: -2s
+    }
+
+    @keyframes float {
+
+      0%,
+      100% {
+        transform: translateY(0)
+      }
+
+      50% {
+        transform: translateY(-18px)
+      }
+    }
+
+    .hero-inner {
+      max-width: 1100px;
+      margin: 0 auto;
+      width: 100%;
+      display: grid;
+      grid-template-columns: 1.15fr 0.85fr;
+      gap: 5rem;
+      align-items: center;
+      position: relative;
+      z-index: 1
+    }
+
+    .hero-tag {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: var(--white);
+      border: 1px solid var(--border-md);
+      border-radius: 20px;
+      padding: 6px 14px;
+      margin-bottom: 1.75rem;
+      font-size: 11px;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      font-weight: 600;
+      color: var(--blue)
+    }
+
+    .hero-tag-dot {
+      width: 7px;
+      height: 7px;
+      border-radius: 50%;
+      background: var(--blue);
+      animation: pulse 2s infinite
+    }
+
+    @keyframes pulse {
+
+      0%,
+      100% {
+        opacity: 1;
+        transform: scale(1)
+      }
+
+      50% {
+        opacity: 0.4;
+        transform: scale(1.4)
+      }
+    }
+
+    .hero h1 {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(44px, 5.5vw, 70px);
+      font-weight: 400;
+      line-height: 1.08;
+      color: var(--navy);
+      margin-bottom: 1.5rem
+    }
+
+    .hero h1 em {
+      font-style: italic;
+      color: var(--blue)
+    }
+
+    .hero h1 .accent {
+      color: var(--gold);
+      font-style: normal
+    }
+
+    .hero-lead {
+      font-size: 16px;
+      color: var(--ink-mid);
+      line-height: 1.9;
+      font-weight: 300;
+      margin-bottom: 2.5rem;
+      max-width: 500px
+    }
+
+    .hero-actions {
+      display: flex;
+      gap: 12px;
+      flex-wrap: wrap
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      font-family: 'Inter', sans-serif;
+      font-weight: 500;
+      font-size: 13px;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      text-decoration: none;
+      border-radius: 9px;
+      padding: 13px 26px;
+      transition: all 0.2s;
+      cursor: pointer;
+      border: none
+    }
+
+    .btn-dark {
+      background: var(--navy);
+      color: var(--white)
+    }
+
+    .btn-dark:hover {
+      background: var(--navy-soft);
+      transform: translateY(-2px);
+      box-shadow: 0 8px 24px rgba(28, 43, 74, 0.2)
+    }
+
+    .btn-outline {
+      background: transparent;
+      color: var(--navy);
+      border: 1.5px solid var(--border-md)
+    }
+
+    .btn-outline:hover {
+      background: var(--blue-pale);
+      border-color: var(--blue);
+      transform: translateY(-1px)
+    }
+
+    .hero-stats {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 10px
+    }
+
+    .stat-card {
+      background: var(--white);
+      border: 1px solid var(--border);
+      border-radius: 14px;
+      padding: 1.6rem 1.4rem;
+      position: relative;
+      overflow: hidden;
+      transition: transform 0.3s, box-shadow 0.3s;
+    }
+
+    .stat-card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 14px 36px rgba(28, 43, 74, 0.09)
+    }
+
+    .stat-card-bar {
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 3px;
+      border-radius: 14px 14px 0 0
+    }
+
+    .stat-num {
+      font-family: 'Playfair Display', serif;
+      font-size: 38px;
+      font-weight: 400;
+      line-height: 1;
+      color: var(--navy)
+    }
+
+    .stat-label {
+      font-size: 11px;
+      color: var(--ink-muted);
+      letter-spacing: 0.09em;
+      text-transform: uppercase;
+      font-weight: 500;
+      margin-top: 5px
+    }
+
+    /* ─── SECTIONS BASE ─── */
+    section {
+      padding: 90px 3.5rem
+    }
+
+    .inner {
+      max-width: 1100px;
+      margin: 0 auto
+    }
+
+    .eyebrow {
+      font-size: 11px;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      font-weight: 600;
+      color: var(--blue);
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      margin-bottom: 12px
+    }
+
+    .eyebrow::before {
+      content: '';
+      display: block;
+      width: 20px;
+      height: 1.5px;
+      background: var(--blue);
+      flex-shrink: 0
+    }
+
+    .section-title {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(30px, 3.6vw, 46px);
+      font-weight: 400;
+      line-height: 1.15;
+      color: var(--navy);
+      margin-bottom: 1.1rem
+    }
+
+    .section-title em {
+      font-style: italic;
+      color: var(--blue)
+    }
+
+    .section-title strong {
+      font-weight: 600;
+      color: var(--gold);
+      font-style: normal
+    }
+
+    .section-lead {
+      font-size: 15.5px;
+      color: var(--ink-mid);
+      line-height: 1.9;
+      font-weight: 300;
+      max-width: 600px;
+      margin-bottom: 3.5rem
+    }
+
+    /* ─── WHY US ─── */
+    #why {
+      background: var(--white)
+    }
+
+    .why-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 14px
+    }
+
+    .why-card {
+      border-radius: 16px;
+      padding: 2rem 1.75rem;
+      border: 1px solid var(--border);
+      background: var(--surface);
+      position: relative;
+      overflow: hidden;
+      transition: transform 0.3s, box-shadow 0.3s, background 0.3s;
+    }
+
+    .why-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 16px 44px rgba(28, 43, 74, 0.09);
+      background: var(--white)
+    }
+
+    .why-top-bar {
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 3px;
+      border-radius: 16px 16px 0 0;
+      opacity: 0;
+      transition: opacity 0.3s
+    }
+
+    .why-card:hover .why-top-bar {
+      opacity: 1
+    }
+
+    .why-ico {
+      width: 46px;
+      height: 46px;
+      border-radius: 12px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 20px;
+      margin-bottom: 1.25rem
+    }
+
+    .why-card h3 {
+      font-family: 'Playfair Display', serif;
+      font-size: 19px;
+      font-weight: 500;
+      color: var(--navy);
+      margin-bottom: 0.6rem
+    }
+
+    .why-card p {
+      font-size: 13.5px;
+      color: var(--ink-soft);
+      line-height: 1.8
+    }
+
+    /* ─── PHILOSOPHY ─── */
+    #philosophy {
+      background: var(--navy)
+    }
+
+    #philosophy .eyebrow {
+      color: var(--blue-mid)
+    }
+
+    #philosophy .eyebrow::before {
+      background: var(--blue-mid)
+    }
+
+    #philosophy .section-title {
+      color: var(--white)
+    }
+
+    #philosophy .section-title em {
+      color: var(--blue-mid)
+    }
+
+    #philosophy .section-lead {
+      color: rgba(255, 255, 255, 0.45)
+    }
+
+    .pillars {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 14px
+    }
+
+    .pillar {
+      border: 1px solid rgba(91, 141, 217, 0.18);
+      border-radius: 16px;
+      padding: 2rem;
+      background: rgba(255, 255, 255, 0.03);
+      position: relative;
+      overflow: hidden;
+      transition: border-color 0.3s, background 0.3s, transform 0.3s;
+    }
+
+    .pillar:hover {
+      border-color: rgba(91, 141, 217, 0.4);
+      background: rgba(91, 141, 217, 0.06);
+      transform: translateY(-3px)
+    }
+
+    .pillar-n {
+      font-family: 'Playfair Display', serif;
+      font-size: 64px;
+      font-weight: 400;
+      color: rgba(91, 141, 217, 0.1);
+      position: absolute;
+      top: 4px;
+      right: 14px;
+      line-height: 1
+    }
+
+    .pillar h3 {
+      font-family: 'Playfair Display', serif;
+      font-size: 20px;
+      font-weight: 500;
+      color: var(--white);
+      margin-bottom: 0.65rem
+    }
+
+    .pillar p {
+      font-size: 13px;
+      color: rgba(255, 255, 255, 0.45);
+      line-height: 1.85
+    }
+
+    /* ─── GLOBAL ─── */
+    #global {
+      background: linear-gradient(150deg, #EAF2FB 0%, var(--surface) 50%, #F5EDF9 100%)
+    }
+
+    .global-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 3.5rem;
+      align-items: start;
+      margin-bottom: 3rem
+    }
+
+    .live-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: var(--navy);
+      color: var(--gold);
+      padding: 6px 16px;
+      border-radius: 20px;
+      font-size: 11px;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      font-weight: 600;
+      margin-bottom: 1.25rem
+    }
+
+    .live-badge .dot {
+      width: 7px;
+      height: 7px;
+      border-radius: 50%;
+      background: var(--gold);
+      animation: pulse 1.8s infinite
+    }
+
+    .global-body p {
+      font-size: 15px;
+      color: var(--ink-mid);
+      line-height: 1.9;
+      font-weight: 300;
+      margin-bottom: 1.1rem
+    }
+
+    .global-body strong {
+      color: var(--navy);
+      font-weight: 600
+    }
+
+    .g-stats {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 10px;
+      margin-top: 2rem
+    }
+
+    .g-stat {
+      background: var(--white);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 1.25rem 1rem;
+      text-align: center
+    }
+
+    .g-stat-n {
+      font-family: 'Playfair Display', serif;
+      font-size: 32px;
+      font-weight: 400;
+      color: var(--blue);
+      line-height: 1
+    }
+
+    .g-stat-l {
+      font-size: 11px;
+      color: var(--ink-muted);
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      margin-top: 5px
+    }
+
+    .early-box {
+      background: var(--navy);
+      border-radius: 18px;
+      padding: 2.25rem 2rem;
+      border-left: 4px solid var(--gold);
+    }
+
+    .early-tag {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      background: rgba(201, 168, 76, 0.15);
+      color: var(--gold);
+      border: 1px solid rgba(201, 168, 76, 0.3);
+      padding: 5px 12px;
+      border-radius: 20px;
+      font-size: 10px;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      font-weight: 600;
+      margin-bottom: 1.1rem
+    }
+
+    .early-box h3 {
+      font-family: 'Playfair Display', serif;
+      font-size: 24px;
+      font-weight: 500;
+      color: var(--white);
+      margin-bottom: 1rem;
+      line-height: 1.3
+    }
+
+    .early-box p {
+      font-size: 13.5px;
+      color: rgba(255, 255, 255, 0.52);
+      line-height: 1.85;
+      margin-bottom: 0.85rem
+    }
+
+    .regions {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 12px;
+      margin-top: 2rem
+    }
+
+    .region {
+      background: var(--white);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 1.25rem 1rem;
+      transition: transform 0.3s, box-shadow 0.3s
+    }
+
+    .region:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 10px 28px rgba(28, 43, 74, 0.09)
+    }
+
+    .region-flag {
+      font-size: 26px;
+      margin-bottom: 8px
+    }
+
+    .region-name {
+      font-size: 13px;
+      font-weight: 600;
+      color: var(--navy);
+      margin-bottom: 4px
+    }
+
+    .region-desc {
+      font-size: 12px;
+      color: var(--ink-soft);
+      line-height: 1.65
+    }
+
+    .compliance-note {
+      background: var(--blue-pale);
+      border: 1px solid var(--border-md);
+      border-left: 3px solid var(--blue);
+      border-radius: 0 10px 10px 0;
+      padding: 1.1rem 1.5rem;
+      font-size: 13px;
+      color: var(--ink-mid);
+      line-height: 1.8;
+      margin-top: 1.5rem
+    }
+
+    /* ─── NRI ─── */
+    #nri {
+      background: var(--white)
+    }
+
+    .nri-layout {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 4rem;
+      align-items: start
+    }
+
+    .nri-cards {
+      display: flex;
+      flex-direction: column;
+      gap: 12px
+    }
+
+    .nri-card {
+      display: flex;
+      gap: 14px;
+      align-items: flex-start;
+      padding: 1.25rem 1.5rem;
+      border-radius: 14px;
+      border: 1px solid var(--border);
+      background: var(--surface);
+      transition: background 0.3s, border-color 0.3s, transform 0.3s;
+    }
+
+    .nri-card:hover {
+      background: var(--blue-pale);
+      border-color: var(--border-md);
+      transform: translateX(4px)
+    }
+
+    .nri-ico {
+      width: 42px;
+      height: 42px;
+      border-radius: 10px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 18px;
+      flex-shrink: 0
+    }
+
+    .nri-card h4 {
+      font-size: 14px;
+      font-weight: 600;
+      color: var(--navy);
+      margin-bottom: 4px
+    }
+
+    .nri-card p {
+      font-size: 13px;
+      color: var(--ink-soft);
+      line-height: 1.75
+    }
+
+    .nri-panel {
+      background: linear-gradient(150deg, var(--navy) 0%, var(--navy-soft) 100%);
+      border-radius: 18px;
+      padding: 2.5rem;
+      color: var(--white);
+    }
+
+    .nri-panel h3 {
+      font-family: 'Playfair Display', serif;
+      font-size: 26px;
+      font-weight: 400;
+      line-height: 1.3;
+      margin-bottom: 1.5rem
+    }
+
+    .nri-panel h3 em {
+      font-style: italic;
+      color: var(--blue-mid)
+    }
+
+    .nri-pt {
+      display: flex;
+      gap: 12px;
+      align-items: flex-start;
+      margin-bottom: 1rem
+    }
+
+    .nri-dot {
+      width: 6px;
+      height: 6px;
+      border-radius: 50%;
+      background: var(--gold);
+      flex-shrink: 0;
+      margin-top: 8px
+    }
+
+    .nri-pt p {
+      font-size: 13.5px;
+      color: rgba(255, 255, 255, 0.6);
+      line-height: 1.75
+    }
+
+    .nri-countries {
+      margin-top: 2rem;
+      padding-top: 1.5rem;
+      border-top: 1px solid rgba(255, 255, 255, 0.1)
+    }
+
+    .nri-countries p:first-child {
+      font-size: 11px;
+      color: rgba(255, 255, 255, 0.35);
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      margin-bottom: 8px
+    }
+
+    .nri-countries p:last-child {
+      font-size: 15px;
+      color: rgba(255, 255, 255, 0.75);
+      font-weight: 500;
+      letter-spacing: 0.05em
+    }
+
+    /* ─── SERVICES ─── */
+    #services {
+      background: var(--surface)
+    }
+
+    .services-header {
+      display: flex;
+      align-items: flex-end;
+      justify-content: space-between;
+      margin-bottom: 2.5rem;
+      flex-wrap: wrap;
+      gap: 1rem
+    }
+
+    .service-tabs {
+      display: flex;
+      gap: 6px;
+      flex-wrap: wrap
+    }
+
+    .stab {
+      font-size: 12px;
+      font-weight: 500;
+      letter-spacing: 0.06em;
+      padding: 7px 16px;
+      border-radius: 20px;
+      cursor: pointer;
+      border: 1px solid var(--border-md);
+      color: var(--ink-soft);
+      background: var(--white);
+      transition: all 0.2s;
+      text-transform: uppercase;
+    }
+
+    .stab.active,
+    .stab:hover {
+      background: var(--navy);
+      color: var(--white);
+      border-color: var(--navy)
+    }
+
+    .service-cards {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 16px
+    }
+
+    .service-card {
+      background: var(--white);
+      border: 1px solid var(--border);
+      border-radius: 18px;
+      overflow: hidden;
+      transition: transform 0.35s, box-shadow 0.35s;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .service-card:hover {
+      transform: translateY(-6px);
+      box-shadow: 0 20px 50px rgba(28, 43, 74, 0.1)
+    }
+
+    .sc-top {
+      padding: 1.75rem 1.75rem 1.25rem;
+      flex: 1
+    }
+
+    .sc-bar {
+      height: 4px;
+      width: 100%;
+      border-radius: 0
+    }
+
+    .sc-icon-row {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: 1.1rem;
+      margin-top: 1.25rem
+    }
+
+    .sc-ico {
+      width: 48px;
+      height: 48px;
+      border-radius: 13px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 22px
+    }
+
+    .sc-badge {
+      font-size: 10px;
+      font-weight: 600;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      padding: 4px 12px;
+      border-radius: 20px
+    }
+
+    .sc-title {
+      font-family: 'Playfair Display', serif;
+      font-size: 20px;
+      font-weight: 500;
+      color: var(--navy);
+      margin-bottom: 0.35rem
+    }
+
+    .sc-sub {
+      font-size: 11px;
+      font-weight: 600;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--blue);
+      margin-bottom: 0.85rem
+    }
+
+    .sc-desc {
+      font-size: 13.5px;
+      color: var(--ink-soft);
+      line-height: 1.8;
+      margin-bottom: 1rem
+    }
+
+    .sc-features {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 6px
+    }
+
+    .sc-features li {
+      display: flex;
+      align-items: flex-start;
+      gap: 8px;
+      font-size: 12.5px;
+      color: var(--ink-mid);
+      line-height: 1.6
+    }
+
+    .sc-features li::before {
+      content: '✦';
+      color: var(--blue);
+      font-size: 10px;
+      flex-shrink: 0;
+      margin-top: 3px
+    }
+
+    .sc-bottom {
+      padding: 1.1rem 1.75rem;
+      border-top: 1px solid var(--border);
+      display: flex;
+      align-items: center;
+      justify-content: space-between
+    }
+
+    .sc-fee-label {
+      font-size: 11px;
+      font-weight: 600;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--ink-muted)
+    }
+
+    .sc-fee-val {
+      font-family: 'Playfair Display', serif;
+      font-size: 20px;
+      font-weight: 400;
+      color: var(--navy)
+    }
+
+    /* ─── FEES ─── */
+    #fees {
+      background: var(--white)
+    }
+
+    .fees-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 16px;
+      margin-bottom: 1.75rem
+    }
+
+    .fee-card {
+      border: 1.5px solid var(--border);
+      border-radius: 18px;
+      padding: 2.25rem 2rem;
+      background: var(--surface);
+      position: relative;
+      overflow: hidden;
+      transition: transform 0.3s, box-shadow 0.3s;
+    }
+
+    .fee-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 18px 44px rgba(28, 43, 74, 0.1)
+    }
+
+    .fee-card.feat {
+      background: var(--navy);
+      border-color: var(--gold)
+    }
+
+    .fee-ribbon {
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 4px;
+      border-radius: 18px 18px 0 0
+    }
+
+    .fee-tier {
+      font-size: 10px;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      font-weight: 700;
+      color: var(--blue);
+      margin-bottom: 0.9rem
+    }
+
+    .fee-card.feat .fee-tier {
+      color: var(--gold)
+    }
+
+    .fee-pct {
+      font-family: 'Playfair Display', serif;
+      font-size: 56px;
+      font-weight: 400;
+      color: var(--navy);
+      line-height: 1
+    }
+
+    .fee-card.feat .fee-pct {
+      color: var(--white)
+    }
+
+    .fee-pct sup {
+      font-size: 22px;
+      vertical-align: super;
+      color: var(--blue)
+    }
+
+    .fee-card.feat .fee-pct sup {
+      color: var(--blue-mid)
+    }
+
+    .fee-corpus {
+      font-size: 12.5px;
+      color: var(--ink-soft);
+      margin-top: 6px;
+      margin-bottom: 1.5rem
+    }
+
+    .fee-card.feat .fee-corpus {
+      color: rgba(255, 255, 255, 0.4)
+    }
+
+    .fee-list {
+      font-size: 12.5px;
+      color: var(--ink-mid);
+      line-height: 2.1;
+      border-top: 1px solid var(--border);
+      padding-top: 1.25rem
+    }
+
+    .fee-card.feat .fee-list {
+      color: rgba(255, 255, 255, 0.5);
+      border-color: rgba(201, 168, 76, 0.2)
+    }
+
+    .fee-chk {
+      color: var(--blue);
+      margin-right: 7px
+    }
+
+    .fee-card.feat .fee-chk {
+      color: var(--gold)
+    }
+
+    .mf-note {
+      background: var(--blue-pale);
+      border-left: 3px solid var(--blue);
+      border-radius: 0 10px 10px 0;
+      padding: 1.25rem 1.5rem;
+      font-size: 13px;
+      color: var(--ink-mid);
+      line-height: 1.85;
+      margin-bottom: 1.5rem
+    }
+
+    .mf-note strong {
+      color: var(--navy);
+      font-weight: 600
+    }
+
+    .bond-row {
+      border: 1.5px solid rgba(201, 168, 76, 0.3);
+      border-radius: 16px;
+      padding: 1.75rem 2.25rem;
+      display: flex;
+      align-items: center;
+      gap: 2.5rem;
+      background: var(--gold-pale);
+    }
+
+    .bond-pct {
+      font-family: 'Playfair Display', serif;
+      font-size: 50px;
+      font-weight: 400;
+      color: var(--gold);
+      line-height: 1;
+      white-space: nowrap
+    }
+
+    .bond-info h4 {
+      font-family: 'Playfair Display', serif;
+      font-size: 22px;
+      font-weight: 500;
+      color: var(--navy);
+      margin-bottom: 6px
+    }
+
+    .bond-info p {
+      font-size: 13.5px;
+      color: var(--ink-soft);
+      line-height: 1.8
+    }
+
+    /* ─── CREDENTIALS ─── */
+    #creds {
+      background: var(--surface)
+    }
+
+    .creds-layout {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 3rem;
+      align-items: start
+    }
+
+    .cred-stack {
+      display: flex;
+      flex-direction: column;
+      gap: 12px
+    }
+
+    .cred-tile {
+      display: flex;
+      gap: 1.25rem;
+      align-items: flex-start;
+      padding: 1.25rem 1.5rem;
+      border-radius: 14px;
+      border: 1px solid var(--border);
+      background: var(--white);
+      transition: border-color 0.3s, transform 0.3s;
+    }
+
+    .cred-tile:hover {
+      border-color: var(--border-md);
+      transform: translateX(4px)
+    }
+
+    .cred-abbr {
+      font-family: 'Playfair Display', serif;
+      font-size: 30px;
+      font-weight: 400;
+      color: var(--blue);
+      line-height: 1;
+      min-width: 54px;
+      padding-top: 2px
+    }
+
+    .cred-tile h4 {
+      font-size: 14px;
+      font-weight: 600;
+      color: var(--navy);
+      margin-bottom: 4px
+    }
+
+    .cred-tile p {
+      font-size: 13px;
+      color: var(--ink-soft);
+      line-height: 1.7
+    }
+
+    .amfi-strip {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      margin-top: 0.5rem;
+      background: var(--blue-pale);
+      border: 1px solid var(--border-md);
+      border-radius: 10px;
+      padding: 12px 16px;
+    }
+
+    .amfi-strip span:first-child {
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--blue)
+    }
+
+    .amfi-strip span:last-child {
+      font-size: 14px;
+      font-weight: 600;
+      color: var(--navy)
+    }
+
+    .cred-quote-box {
+      background: var(--navy);
+      border-radius: 18px;
+      padding: 3rem;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .cred-quote-box::before {
+      content: '\201C';
+      font-family: 'Playfair Display', serif;
+      font-size: 130px;
+      color: rgba(91, 141, 217, 0.12);
+      position: absolute;
+      top: -10px;
+      left: 14px;
+      line-height: 1;
+    }
+
+    .cred-quote-box blockquote {
+      font-family: 'Playfair Display', serif;
+      font-size: 21px;
+      font-weight: 400;
+      font-style: italic;
+      color: var(--white);
+      line-height: 1.65;
+      position: relative;
+      z-index: 1;
+      margin-bottom: 2rem
+    }
+
+    .cred-quote-box cite {
+      font-size: 11px;
+      letter-spacing: 0.13em;
+      text-transform: uppercase;
+      color: var(--blue-mid);
+      font-style: normal
+    }
+
+    .lic-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-top: 2rem;
+      padding-top: 2rem;
+      border-top: 1px solid rgba(255, 255, 255, 0.08)
+    }
+
+    .lic-tag {
+      background: rgba(91, 141, 217, 0.1);
+      color: var(--blue-mid);
+      border: 1px solid rgba(91, 141, 217, 0.2);
+      border-radius: 6px;
+      padding: 5px 14px;
+      font-size: 12px;
+      font-weight: 500
+    }
+
+    /* ─── PROCESS ─── */
+    #process {
+      background: var(--white)
+    }
+
+    .process-track {
+      display: grid;
+      grid-template-columns: repeat(5, 1fr);
+      gap: 8px;
+      position: relative
+    }
+
+    .process-track::before {
+      content: '';
+      position: absolute;
+      top: 23px;
+      left: 9%;
+      right: 9%;
+      height: 1px;
+      background: linear-gradient(90deg, transparent, var(--border-md), transparent)
+    }
+
+    .p-step {
+      text-align: center;
+      padding: 0 0.5rem
+    }
+
+    .p-dot {
+      width: 46px;
+      height: 46px;
+      border-radius: 50%;
+      border: 1.5px solid var(--border-md);
+      background: var(--white);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin: 0 auto 1.25rem;
+      position: relative;
+      z-index: 1;
+      font-family: 'Playfair Display', serif;
+      font-size: 19px;
+      font-weight: 500;
+      color: var(--blue);
+      transition: background 0.3s, border-color 0.3s, color 0.3s, transform 0.3s;
+    }
+
+    .p-step:hover .p-dot {
+      background: var(--navy);
+      color: var(--white);
+      border-color: var(--navy);
+      transform: scale(1.1)
+    }
+
+    .p-step h4 {
+      font-size: 13px;
+      font-weight: 600;
+      color: var(--navy);
+      margin-bottom: 5px
+    }
+
+    .p-step p {
+      font-size: 12px;
+      color: var(--ink-soft);
+      line-height: 1.7
+    }
+
+    /* ─── ENQUIRY ─── */
+    #enquiry {
+      background: linear-gradient(150deg, var(--blue-pale) 0%, var(--surface) 60%, var(--gold-pale) 100%)
+    }
+
+    .enquiry-layout {
+      display: grid;
+      grid-template-columns: 1fr 1.45fr;
+      gap: 4.5rem;
+      align-items: start
+    }
+
+    .eq-left h2 {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(30px, 3.5vw, 44px);
+      font-weight: 400;
+      color: var(--navy);
+      line-height: 1.2;
+      margin-bottom: 1.1rem
+    }
+
+    .eq-left h2 em {
+      font-style: italic;
+      color: var(--blue)
+    }
+
+    .eq-left p {
+      font-size: 15px;
+      color: var(--ink-mid);
+      line-height: 1.9;
+      font-weight: 300;
+      margin-bottom: 2rem
+    }
+
+    .contact-items {
+      display: flex;
+      flex-direction: column;
+      gap: 12px
+    }
+
+    .ci {
+      display: flex;
+      gap: 12px;
+      align-items: center
+    }
+
+    .ci-ico {
+      width: 38px;
+      height: 38px;
+      border-radius: 9px;
+      background: var(--blue-pale);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 16px;
+      flex-shrink: 0
+    }
+
+    .ci p {
+      font-size: 14px;
+      color: var(--ink-mid)
+    }
+
+    .ci a {
+      color: var(--blue);
+      text-decoration: none;
+      font-weight: 500
+    }
+
+    .ci a:hover {
+      text-decoration: underline
+    }
+
+    .eq-form {
+      background: var(--white);
+      border: 1px solid var(--border);
+      border-radius: 22px;
+      padding: 2.5rem;
+      box-shadow: 0 24px 64px rgba(28, 43, 74, 0.08)
+    }
+
+    .eq-form h3 {
+      font-family: 'Playfair Display', serif;
+      font-size: 26px;
+      font-weight: 500;
+      color: var(--navy);
+      margin-bottom: 1.75rem
+    }
+
+    .frow {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 12px;
+      margin-bottom: 0
+    }
+
+    .fg {
+      display: flex;
+      flex-direction: column;
+      gap: 5px;
+      margin-bottom: 14px
+    }
+
+    .fg label {
+      font-size: 12px;
+      font-weight: 600;
+      color: var(--ink-mid);
+      letter-spacing: 0.04em
+    }
+
+    .fg input,
+    .fg select,
+    .fg textarea {
+      padding: 10px 14px;
+      border-radius: 9px;
+      font-family: 'Inter', sans-serif;
+      font-size: 13.5px;
+      border: 1.5px solid rgba(91, 141, 217, 0.2);
+      color: var(--ink);
+      background: var(--surface);
+      outline: none;
+      transition: border-color 0.2s, background 0.2s;
+    }
+
+    .fg input:focus,
+    .fg select:focus,
+    .fg textarea:focus {
+      border-color: var(--blue);
+      background: var(--white)
+    }
+
+    .fg textarea {
+      min-height: 88px;
+      resize: vertical
+    }
+
+    .fg select {
+      cursor: pointer;
+      appearance: none;
+      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'%3E%3Cpath d='M1 1l5 5 5-5' stroke='%236B789A' stroke-width='1.5' fill='none' stroke-linecap='round'/%3E%3C/svg%3E");
+      background-repeat: no-repeat;
+      background-position: right 14px center;
+      padding-right: 36px
+    }
+
+    .fg input::placeholder,
+    .fg textarea::placeholder {
+      color: var(--ink-muted)
+    }
+
+    .submit-btn {
+      width: 100%;
+      background: var(--navy);
+      color: var(--white);
+      border: none;
+      border-radius: 10px;
+      padding: 14px;
+      font-family: 'Inter', sans-serif;
+      font-size: 12px;
+      font-weight: 600;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      cursor: pointer;
+      transition: background 0.2s, transform 0.15s;
+      margin-top: 4px;
+    }
+
+    .submit-btn:hover {
+      background: var(--navy-soft);
+      transform: translateY(-2px)
+    }
+
+    .form-msg {
+      display: none;
+      margin-top: 12px;
+      padding: 12px 16px;
+      border-radius: 9px;
+      font-size: 13px;
+      font-weight: 500;
+      text-align: center
+    }
+
+    .form-msg.ok {
+      background: var(--mint-pale);
+      color: #1A5E3A;
+      display: block
+    }
+
+    .form-msg.err {
+      background: var(--rose-pale);
+      color: #8B2020;
+      display: block
+    }
+
+    /* ─── FOOTER ─── */
+    footer {
+      background: var(--navy);
+      padding: 4rem 3.5rem 3rem
+    }
+
+    .footer-inner {
+      max-width: 1100px;
+      margin: 0 auto
+    }
+
+    .footer-top {
+      display: grid;
+      grid-template-columns: 1.6fr 1fr 1fr;
+      gap: 3rem;
+      margin-bottom: 3rem
+    }
+
+    .fl-logo {
+      font-family: 'Playfair Display', serif;
+      font-size: 24px;
+      font-weight: 600;
+      color: var(--white);
+      margin-bottom: 0.75rem
+    }
+
+    .fl-logo span {
+      color: var(--blue-mid)
+    }
+
+    .fl-desc {
+      font-size: 13px;
+      color: rgba(255, 255, 255, 0.32);
+      line-height: 1.8
+    }
+
+    .fc h5 {
+      font-size: 11px;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--blue-mid);
+      font-weight: 600;
+      margin-bottom: 1rem
+    }
+
+    .fc a {
+      display: block;
+      font-size: 13px;
+      color: rgba(255, 255, 255, 0.38);
+      text-decoration: none;
+      margin-bottom: 8px;
+      transition: color 0.2s
+    }
+
+    .fc a:hover {
+      color: var(--white)
+    }
+
+    .footer-bottom {
+      border-top: 1px solid rgba(255, 255, 255, 0.07);
+      padding-top: 2rem;
+      display: flex;
+      gap: 2rem;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      align-items: flex-start
+    }
+
+    .f-reg {
+      font-size: 12px;
+      color: rgba(255, 255, 255, 0.38);
+      line-height: 1.8
+    }
+
+    .f-reg strong {
+      color: rgba(255, 255, 255, 0.6)
+    }
+
+    .f-disc {
+      font-size: 11px;
+      color: rgba(255, 255, 255, 0.2);
+      max-width: 500px;
+      line-height: 1.85
+    }
+
+    /* ─── ANIMATIONS ─── */
+    .reveal {
+      opacity: 0;
+      transform: translateY(22px);
+      transition: opacity 0.7s ease, transform 0.7s ease
+    }
+
+    .reveal.in {
+      opacity: 1;
+      transform: translateY(0)
+    }
+
+    .reveal-d1 {
+      transition-delay: 0.1s
+    }
+
+    .reveal-d2 {
+      transition-delay: 0.2s
+    }
+
+    .reveal-d3 {
+      transition-delay: 0.3s
+    }
+
+    .reveal-d4 {
+      transition-delay: 0.4s
+    }
+
+    .reveal-left {
+      opacity: 0;
+      transform: translateX(-22px);
+      transition: opacity 0.7s ease, transform 0.7s ease
+    }
+
+    .reveal-left.in {
+      opacity: 1;
+      transform: translateX(0)
+    }
+
+    .reveal-right {
+      opacity: 0;
+      transform: translateX(22px);
+      transition: opacity 0.7s ease, transform 0.7s ease
+    }
+
+    .reveal-right.in {
+      opacity: 1;
+      transform: translateX(0)
+    }
+
+    /* number counter */
+    .count-num {
+      display: inline-block
+    }
+
+    /* ─── COLOUR HELPERS ─── */
+    .bg-blue-pale {
+      background: var(--blue-pale)
+    }
+
+    .bg-gold-pale {
+      background: var(--gold-pale)
+    }
+
+    .bg-sage-pale {
+      background: var(--sage-pale)
+    }
+
+    .bg-rose-pale {
+      background: var(--rose-pale)
+    }
+
+    .bg-lav-pale {
+      background: var(--lav-pale)
+    }
+
+    .bg-peach-pale {
+      background: var(--peach-pale)
+    }
+
+    .bg-mint-pale {
+      background: var(--mint-pale)
+    }
+
+    .c-blue {
+      color: var(--blue)
+    }
+
+    .c-sage {
+      color: var(--sage)
+    }
+
+    .c-rose {
+      color: var(--rose)
+    }
+
+    .c-peach {
+      color: var(--peach)
+    }
+
+    .c-lav {
+      color: var(--lavender)
+    }
+
+    .c-gold {
+      color: var(--gold)
+    }
+
+    .c-mint {
+      color: var(--mint)
+    }
+
+    .bar-blue {
+      background: linear-gradient(90deg, var(--blue), var(--blue-mid))
+    }
+
+    .bar-gold {
+      background: linear-gradient(90deg, var(--gold), var(--peach))
+    }
+
+    .bar-sage {
+      background: linear-gradient(90deg, var(--sage), var(--mint))
+    }
+
+    .bar-rose {
+      background: linear-gradient(90deg, #D98C8C, #E8B4B4)
+    }
+
+    .bar-lav {
+      background: linear-gradient(90deg, var(--lavender), #BEB6E0)
+    }
+
+    .bar-mint {
+      background: linear-gradient(90deg, var(--mint), #A8DECE)
+    }
+
+    /* ─── RESPONSIVE ─── */
+    @media(max-width:960px) {
+      nav {
+        padding: 0 1.25rem
+      }
+
+      .nav-links {
+        display: none
+      }
+
+      section {
+        padding: 64px 1.25rem
+      }
+
+      .hero {
+        padding: 100px 1.25rem 60px
+      }
+
+      .hero-inner,
+      .global-grid,
+      .nri-layout,
+      .creds-layout,
+      .enquiry-layout,
+      .footer-top {
+        grid-template-columns: 1fr;
+        gap: 2.5rem
+      }
+
+      .hero-stats,
+      .pillars,
+      .fees-grid {
+        grid-template-columns: 1fr 1fr
+      }
+
+      .why-grid,
+      .service-cards,
+      .regions {
+        grid-template-columns: 1fr 1fr
+      }
+
+      .process-track {
+        grid-template-columns: 1fr 1fr;
+        gap: 1.5rem
+      }
+
+      .process-track::before {
+        display: none
+      }
+
+      .bond-row {
+        flex-direction: column;
+        gap: 1rem
+      }
+
+      .g-stats {
+        grid-template-columns: repeat(3, 1fr)
+      }
+
+      .frow {
+        grid-template-columns: 1fr
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- NAV -->
+  <nav id="nav">
+    <a class="logo" href="#">
+      <div class="logo-mark">F</div>
+      <span class="logo-text">Fintelect <span>One</span></span>
+    </a>
+    <div class="nav-links">
+      <a href="#global">Global</a>
+      <a href="#nri">NRI</a>
+      <a href="#services">Services</a>
+      <a href="#fees">Fees</a>
+      <a href="#creds">About</a>
+      <a href="#enquiry" class="nav-btn">Get in touch</a>
+    </div>
+  </nav>
+
+  <!-- ═══ HERO ═══ -->
+  <section class="hero">
+    <div class="hero-orb orb-1"></div>
+    <div class="hero-orb orb-2"></div>
+    <div class="hero-orb orb-3"></div>
+    <div class="hero-orb orb-4"></div>
+    <div class="hero-inner">
+      <div>
+        <div class="hero-tag"><span class="hero-tag-dot"></span>Confidential Wealth Proposal</div>
+        <h1>Institutional <em>discipline.</em><br>Personal <span class="accent">trust.</span></h1>
+        <p class="hero-lead">We bring the rigour of global private equity and a decade of Indian market experience to
+          your personal portfolio building strategies that compound wealth with clarity, across every cycle.</p>
+        <div class="hero-actions">
+          <a href="#services" class="btn btn-dark">Explore services →</a>
+          <a href="#enquiry" class="btn btn-outline">Start a conversation</a>
+        </div>
+      </div>
+      <div class="hero-stats reveal reveal-d1">
+        <div class="stat-card">
+          <div class="stat-card-bar bar-blue"></div>
+          <div class="stat-num count-num" data-target="10">0</div>
+          <div class="stat-label">Years in markets</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-card-bar bar-gold"></div>
+          <div class="stat-num">CA · CFA</div>
+          <div class="stat-label">Qualified team</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-card-bar bar-rose"></div>
+          <div class="stat-num count-num" data-target="4">0</div>
+          <div class="stat-label">Asset classes</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-card-bar bar-mint"></div>
+          <div class="stat-num">3 yrs</div>
+          <div class="stat-label">Global track record</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══ WHY US ═══ -->
+  <section id="why">
+    <div class="inner">
+      <div class="eyebrow">Why Fintelect One</div>
+      <h2 class="section-title">A different kind of<br><em>wealth relationship</em></h2>
+      <p class="section-lead">Most advisors sell products. We build portfolios. There is a profound difference one
+        that compounds over years, not just months.</p>
+      <div class="why-grid reveal">
+        <div class="why-card">
+          <div class="why-top-bar bar-blue"></div>
+          <div class="why-ico bg-blue-pale c-blue">⬡</div>
+          <h3>Institutional insight, personal scale</h3>
+          <p>Our team operates at the intersection of global private equity and Indian markets — frameworks typically
+            reserved for institutions, now accessible at your level.</p>
+        </div>
+        <div class="why-card">
+          <div class="why-top-bar bar-gold"></div>
+          <div class="why-ico bg-gold-pale c-gold">◈</div>
+          <h3>Conflict-aware transparency</h3>
+          <p>We openly disclose how we earn — trail commissions, advisory fees, all of it. You always know what we make
+            and why we recommend what we recommend.</p>
+        </div>
+        <div class="why-card">
+          <div class="why-top-bar bar-rose"></div>
+          <div class="why-ico bg-rose-pale c-rose">◎</div>
+          <h3>A decade of market cycles</h3>
+          <p>Through bull runs, corrections, demonetisation, COVID, rate cycle reversals. Judgment earned by navigating
+            real adversity with real client portfolios.</p>
+        </div>
+        <div class="why-card">
+          <div class="why-top-bar bar-mint"></div>
+          <div class="why-ico bg-mint-pale c-mint">🌐</div>
+          <h3>Early movers in global investing</h3>
+          <p>Three years of live international portfolio management — already generating alpha for clients who moved
+            early, before it became a mainstream conversation.</p>
+        </div>
+        <div class="why-card">
+          <div class="why-top-bar bar-lav"></div>
+          <div class="why-ico bg-lav-pale c-lav">◇</div>
+          <h3>Multi-asset, one relationship</h3>
+          <p>Mutual funds, PMS, bonds, direct equities, global markets — managed cohesively. No fragmented advisors, no
+            conflicting recommendations, no information gaps.</p>
+        </div>
+        <div class="why-card">
+          <div class="why-top-bar bar-sage"></div>
+          <div class="why-ico bg-sage-pale c-sage">△</div>
+          <h3>CA-led, tax-integrated planning</h3>
+          <p>Every portfolio decision accounts for LTCG, STCG, and indexation — ensuring the after-tax outcome, which is
+            the only number that truly matters to you.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══ PHILOSOPHY ═══ -->
+  <section id="philosophy">
+    <div class="inner">
+      <div class="eyebrow">Investment philosophy</div>
+      <h2 class="section-title">We do not chase returns.<br><em>We engineer them.</em></h2>
+      <p class="section-lead">Our framework has guided client portfolios across more than a decade of Indian and global
+        market cycles.</p>
+      <div class="pillars reveal">
+        <div class="pillar">
+          <div class="pillar-n">01</div>
+          <h3>Capital preservation first</h3>
+          <p>Before pursuing growth, we stress-test every portfolio against drawdown scenarios, liquidity needs, and
+            sequence-of-returns risk. Growth means nothing if it cannot be defended in adversity.</p>
+        </div>
+        <div class="pillar">
+          <div class="pillar-n">02</div>
+          <h3>Asset allocation drives 90% of outcomes</h3>
+          <p>How you divide capital across asset classes — not which fund you pick — determines your long-term result.
+            We obsess over allocation architecture, not fund rankings or stock tips.</p>
+        </div>
+        <div class="pillar">
+          <div class="pillar-n">03</div>
+          <h3>Behaviour management is alpha</h3>
+          <p>The biggest enemy of investor returns is the investor. Our role is partly psychological — anchoring you to
+            your long-term plan when markets test conviction. Emotional discipline compounds silently.</p>
+        </div>
+        <div class="pillar">
+          <div class="pillar-n">04</div>
+          <h3>Geographic diversification is not optional</h3>
+          <p>Concentrating all wealth in one economy — however strong — is a structural risk. Global diversification is
+            no longer a luxury; it is a necessity for any serious portfolio.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══ GLOBAL INVESTING ═══ -->
+  <section id="global">
+    <div class="inner">
+      <div class="eyebrow">Global investing</div>
+      <h2 class="section-title">We moved <em>early.</em><br>Our clients moved with us.</h2>
+      <div class="global-grid">
+        <div class="global-body reveal-left">
+          <div class="live-badge"><span class="dot"></span>Active since 2022 · 3-year live track record</div>
+          <p>When most Indian advisors were still explaining why global investing was "complicated," we were already
+            building and managing international portfolios for our clients. That three-year head start is not merely
+            experience — it is <strong>documented alpha</strong>, navigated through rate hike cycles, geopolitical
+            volatility, and currency movements most Indian investors had never had to think about before.</p>
+          <p>We research and identify opportunities <strong>before</strong> they surface in mainstream financial media.
+            By the time a theme appears on Moneycontrol or the Economic Times, the early returns have already been
+            captured. Our institutional research process — drawn from global private equity and asset management — gives
+            us visibility into trends <strong>12 to 18 months ahead</strong> of the general market conversation.</p>
+          <p>This is what institutional discipline looks like applied to personal wealth. Not reactionary. Anticipatory.
+          </p>
+          <div class="g-stats">
+            <div class="g-stat">
+              <div class="g-stat-n">3+</div>
+              <div class="g-stat-l">Years active</div>
+            </div>
+            <div class="g-stat">
+              <div class="g-stat-n">US · EU</div>
+              <div class="g-stat-l">Core markets</div>
+            </div>
+            <div class="g-stat">
+              <div class="g-stat-n">LRS</div>
+              <div class="g-stat-l">RBI compliant</div>
+            </div>
+          </div>
+        </div>
+        <div class="reveal-right">
+          <div class="early-box">
+            <div class="early-tag">⚡ Early mover advantage</div>
+            <h3>We hear it before the market does.</h3>
+            <p>Our global investing thesis rests on a single principle: <em>by the time a trend is popular, it is priced
+                in.</em> We conduct independent thematic research — not driven by what is trending on social media or
+              pitched at distributor conferences.</p>
+            <p>In the last three years, we have positioned clients in technology shifts, global sector rotations, and
+              international fixed income opportunities — all before these became mainstream advisory conversations in
+              India.</p>
+            <p>This is what being early looks like. And being early is where real returns are born.</p>
+          </div>
+        </div>
+      </div>
+      <h3
+        style="font-family:'Playfair Display',serif;font-size:22px;font-weight:500;color:var(--navy);margin-bottom:1.1rem">
+        Markets we access for you</h3>
+      <div class="regions reveal">
+        <div class="region">
+          <div class="region-flag">🇺🇸</div>
+          <div class="region-name">United States</div>
+          <div class="region-desc">S&amp;P 500, Nasdaq themes, sector ETFs, US treasury exposure via feeder funds and
+            international debt funds.</div>
+        </div>
+        <div class="region">
+          <div class="region-flag">🇪🇺</div>
+          <div class="region-name">Europe</div>
+          <div class="region-desc">European equity exposure through diversified international funds — capturing value
+            opportunities outside the US growth narrative.</div>
+        </div>
+        <div class="region">
+          <div class="region-flag">🌏</div>
+          <div class="region-name">Asia-Pacific</div>
+          <div class="region-desc">Selective exposure to Japan, South Korea, and Vietnam through thematic and regional
+            funds with strong structural tailwinds.</div>
+        </div>
+        <div class="region">
+          <div class="region-flag">🌍</div>
+          <div class="region-name">Emerging Markets</div>
+          <div class="region-desc">Strategic EM allocation beyond India — capturing diversified growth in Latin America,
+            Southeast Asia, and frontier markets.</div>
+        </div>
+      </div>
+      <div class="compliance-note"><strong style="color:var(--navy)">Regulatory note:</strong> All international
+        investments are structured through RBI-approved channels — Liberalised Remittance Scheme (LRS), SEBI-registered
+        international mutual funds, and feeder funds. Full FEMA compliance maintained, with documentation support from
+        our CA team.</div>
+    </div>
+  </section>
+
+  <!-- ═══ NRI SERVICES ═══ -->
+  <section id="nri">
+    <div class="inner">
+      <div class="eyebrow">NRI services</div>
+      <h2 class="section-title">You live abroad.<br><em>Your wealth works in India.</em></h2>
+      <p class="section-lead">We don't just serve NRIs — we understand the NRI financial experience from the inside.
+        Cross-border wealth management requires a different level of fluency.</p>
+      <div class="nri-layout">
+        <div class="nri-cards reveal-left">
+          <div class="nri-card">
+            <div class="nri-ico bg-blue-pale">🏦</div>
+            <div>
+              <h4>NRE / NRO account management</h4>
+              <p>Full portfolio management across NRE and NRO accounts, with deep understanding of repatriation rules,
+                tax treatment differences, and optimal asset placement between accounts.</p>
+            </div>
+          </div>
+          <div class="nri-card">
+            <div class="nri-ico bg-sage-pale">📋</div>
+            <div>
+              <h4>FEMA & tax compliance</h4>
+              <p>Navigating FEMA regulations, TDS on NRO income, DTAA benefits, and Indian income tax filing for
+                overseas residents — our CA team ensures you are always fully compliant.</p>
+            </div>
+          </div>
+          <div class="nri-card">
+            <div class="nri-ico bg-gold-pale">💱</div>
+            <div>
+              <h4>Repatriation planning</h4>
+              <p>Structured guidance on repatriating funds from India — investment profits, inherited property proceeds,
+                or rental income — with full documentation and CA sign-off.</p>
+            </div>
+          </div>
+          <div class="nri-card">
+            <div class="nri-ico bg-lav-pale">🏠</div>
+            <div>
+              <h4>Real estate & succession</h4>
+              <p>For NRIs with Indian property holdings — coordination with legal advisors on succession planning, power
+                of attorney structuring, and estate management across borders.</p>
+            </div>
+          </div>
+          <div class="nri-card">
+            <div class="nri-ico bg-peach-pale">🌐</div>
+            <div>
+              <h4>Bi-directional global investing</h4>
+              <p>Uniquely for NRIs — we advise on deploying India-based corpus in global markets via LRS, and on
+                deploying foreign income back into India through optimal instruments.</p>
+            </div>
+          </div>
+        </div>
+        <div class="nri-panel reveal-right">
+          <h3>Why NRIs trust <em>Fintelect One</em></h3>
+          <div class="nri-pt">
+            <div class="nri-dot"></div>
+            <p>We are physically present in London — the same city as thousands of Indian diaspora investors. We
+              understand what it means to manage India wealth from abroad, not as an abstract exercise but as a lived
+              experience.</p>
+          </div>
+          <div class="nri-pt">
+            <div class="nri-dot"></div>
+            <p>Most Indian IFAs are unfamiliar with UK-India tax treaties, pension implications of India investments for
+              UK residents, and FEMA documentation for overseas clients. We are not.</p>
+          </div>
+          <div class="nri-pt">
+            <div class="nri-dot"></div>
+            <p>We offer remote-first portfolio management with digital KYC, e-mandates, and quarterly video reviews —
+              your India investments managed seamlessly from wherever in the world you are.</p>
+          </div>
+          <div class="nri-pt">
+            <div class="nri-dot"></div>
+            <p>For clients in the UK, Europe, US, and the Gulf — we serve the Indian diaspora with the same rigour we
+              apply to domestic HNI clients. Distance is not a barrier. It is our speciality.</p>
+          </div>
+          <div class="nri-countries">
+            <p>Serving clients across</p>
+            <p>🇬🇧 UK &nbsp;&nbsp; 🇦🇪 UAE &nbsp;&nbsp; 🇺🇸 USA &nbsp;&nbsp; 🇸🇬 Singapore</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══ SERVICES ═══ -->
+  <section id="services">
+    <div class="inner">
+      <div class="services-header">
+        <div>
+          <div class="eyebrow">Our services</div>
+          <h2 class="section-title" style="margin-bottom:0">Everything your wealth<br><em>needs. In one place.</em></h2>
+        </div>
+        <div class="service-tabs" id="stabs">
+          <div class="stab active" onclick="filterCards('all',this)">All services</div>
+          <div class="stab" onclick="filterCards('india',this)">India markets</div>
+          <div class="stab" onclick="filterCards('global',this)">Global</div>
+          <div class="stab" onclick="filterCards('nri',this)">NRI</div>
+        </div>
+      </div>
+      <div class="service-cards reveal" id="service-grid">
+
+        <!-- MF -->
+        <div class="service-card" data-cat="india">
+          <div class="sc-bar bar-blue"></div>
+          <div class="sc-top">
+            <div class="sc-icon-row">
+              <div class="sc-ico bg-blue-pale">📊</div>
+              <span class="sc-badge bg-sage-pale c-sage">No advisory charge</span>
+            </div>
+            <div class="sc-sub">Mutual Funds</div>
+            <div class="sc-title">Equity & Debt Fund Advisory</div>
+            <p class="sc-desc">Full access to all AMCs with independent fund selection — driven by factor analysis,
+              rolling return consistency, and fund manager track record, not distributor relationships or commission
+              incentives.</p>
+            <ul class="sc-features">
+              <li>Quantitative fund screening across all major AMCs and categories</li>
+              <li>Goal-linked SIP structuring with inflation-adjusted projections</li>
+              <li>Quarterly portfolio rebalancing and tax-loss harvesting</li>
+              <li>Debt fund strategy: duration management and credit quality review</li>
+              <li>ELSS and tax-saving fund recommendations integrated with CA advice</li>
+              <li>Regular plan distribution with full trail commission disclosure</li>
+            </ul>
+          </div>
+          <div class="sc-bottom">
+            <span class="sc-fee-label">Advisory fee</span>
+            <span class="sc-fee-val" style="color:var(--sage);font-size:15px;font-weight:600">Included via trail</span>
+          </div>
+        </div>
+
+        <!-- PMS -->
+        <div class="service-card" data-cat="india">
+          <div class="sc-bar bar-lav"></div>
+          <div class="sc-top">
+            <div class="sc-icon-row">
+              <div class="sc-ico bg-lav-pale">💎</div>
+              <span class="sc-badge bg-lav-pale c-lav">₹50L+ minimum</span>
+            </div>
+            <div class="sc-sub">PMS Distribution</div>
+            <div class="sc-title">Portfolio Management Services</div>
+            <p class="sc-desc">Curated access to India's top PMS providers — selected on strategy integrity, drawdown
+              history, manager philosophy, and attribution analysis, not just headline return figures.</p>
+            <ul class="sc-features">
+              <li>Independent evaluation of 30+ PMS strategies across styles</li>
+              <li>Manager interview and philosophy alignment review</li>
+              <li>Risk-adjusted return analysis and drawdown scenario modelling</li>
+              <li>Multi-manager PMS allocation for diversified mandates</li>
+              <li>Ongoing performance monitoring with quarterly attribution reports</li>
+              <li>Seamless onboarding and documentation assistance</li>
+            </ul>
+          </div>
+          <div class="sc-bottom">
+            <span class="sc-fee-label">Distribution fee</span>
+            <span class="sc-fee-val">Per mandate</span>
+          </div>
+        </div>
+
+        <!-- BONDS -->
+        <div class="service-card" data-cat="india">
+          <div class="sc-bar bar-gold"></div>
+          <div class="sc-top">
+            <div class="sc-icon-row">
+              <div class="sc-ico bg-gold-pale">🏛️</div>
+              <span class="sc-badge bg-gold-pale c-gold">Fixed income</span>
+            </div>
+            <div class="sc-sub">Fixed Income</div>
+            <div class="sc-title">Bond Portfolio Management</div>
+            <p class="sc-desc">Empanelled with leading bond platforms for corporate bonds, G-Secs, SDLs, and structured
+              debt instruments — assessed in the context of your full portfolio, not as a standalone yield-chasing
+              exercise.</p>
+            <ul class="sc-features">
+              <li>Credit quality screening and issuer due diligence across ratings</li>
+              <li>Yield-to-maturity analysis relative to risk-free benchmarks</li>
+              <li>Duration laddering for predictable cash flow matching</li>
+              <li>Tax-efficient bond structuring (indexation, LTCG planning)</li>
+              <li>Sovereign Gold Bonds and RBI Floating Rate Savings Bonds</li>
+              <li>Ongoing credit event monitoring and alert management</li>
+            </ul>
+          </div>
+          <div class="sc-bottom">
+            <span class="sc-fee-label">Management fee</span>
+            <span class="sc-fee-val">0.50% p.a.</span>
+          </div>
+        </div>
+
+        <!-- GLOBAL -->
+        <div class="service-card" data-cat="global">
+          <div class="sc-bar bar-mint"></div>
+          <div class="sc-top">
+            <div class="sc-icon-row">
+              <div class="sc-ico bg-mint-pale">🌐</div>
+              <span class="sc-badge bg-mint-pale c-mint">3-yr track record</span>
+            </div>
+            <div class="sc-sub">Global Markets</div>
+            <div class="sc-title">International Equity & Debt</div>
+            <p class="sc-desc">Three years of live international portfolio management — US, European, and Asia-Pacific
+              exposure via LRS, international MFs, and feeder funds. Thematic positioning ahead of the mainstream
+              conversation.</p>
+            <ul class="sc-features">
+              <li>US equity exposure: S&P 500 core, Nasdaq thematic, sector rotation</li>
+              <li>International debt: developed market sovereign and IG corporate bonds</li>
+              <li>Currency-hedged and unhedged strategies based on INR outlook</li>
+              <li>LRS structuring — full RBI compliance and remittance documentation</li>
+              <li>Early-mover thematic positioning: AI, energy transition, demographics</li>
+              <li>Quarterly global macro review with portfolio implications</li>
+            </ul>
+          </div>
+          <div class="sc-bottom">
+            <span class="sc-fee-label">Management fee</span>
+            <span class="sc-fee-val">AUM slab applies</span>
+          </div>
+        </div>
+
+        <!-- EQUITIES -->
+        <div class="service-card" data-cat="india">
+          <div class="sc-bar bar-rose"></div>
+          <div class="sc-top">
+            <div class="sc-icon-row">
+              <div class="sc-ico bg-rose-pale">📈</div>
+              <span class="sc-badge bg-rose-pale c-rose">Via Nuvama</span>
+            </div>
+            <div class="sc-sub">Direct Equities</div>
+            <div class="sc-title">Stock Brokerage & Advisory</div>
+            <p class="sc-desc">Direct equity execution through Nuvama Wealth Management — one of India's leading
+              institutional brokers — with a research-backed approach focused on quality businesses at reasonable
+              valuations.</p>
+            <ul class="sc-features">
+              <li>Fundamental equity research and valuation framework</li>
+              <li>Quality-focused stock selection: return on capital, cash flows, moats</li>
+              <li>Portfolio construction with position sizing and sector exposure limits</li>
+              <li>Integration with overall asset allocation to avoid equity over-concentration</li>
+              <li>Tax-efficient entry and exit planning coordinated with CA</li>
+              <li>Execution through Nuvama institutional desk at competitive brokerage</li>
+            </ul>
+          </div>
+          <div class="sc-bottom">
+            <span class="sc-fee-label">Brokerage</span>
+            <span class="sc-fee-val">Via Nuvama</span>
+          </div>
+        </div>
+
+        <!-- WEALTH PLANNING -->
+        <div class="service-card" data-cat="nri">
+          <div class="sc-bar" style="background:linear-gradient(90deg,var(--peach),#F0C8A0)"></div>
+          <div class="sc-top">
+            <div class="sc-icon-row">
+              <div class="sc-ico bg-peach-pale">🏗️</div>
+              <span class="sc-badge bg-peach-pale c-peach">All clients</span>
+            </div>
+            <div class="sc-sub">Comprehensive Planning</div>
+            <div class="sc-title">Wealth Structuring & NRI Advisory</div>
+            <p class="sc-desc">Beyond investments: the complete financial architecture — estate planning, tax
+              structuring, NRI repatriation, succession frameworks, and cross-border compliance, coordinated
+              holistically by our CA-led team.</p>
+            <ul class="sc-features">
+              <li>Comprehensive net worth mapping and financial health assessment</li>
+              <li>NRE / NRO account optimisation and repatriation planning</li>
+              <li>FEMA compliance, TDS advisory, and DTAA benefit structuring</li>
+              <li>Will drafting coordination and estate / succession planning</li>
+              <li>Insurance adequacy review and term / health cover optimisation</li>
+              <li>Annual financial planning review integrated across all asset classes</li>
+            </ul>
+          </div>
+          <div class="sc-bottom">
+            <span class="sc-fee-label">Included for</span>
+            <span class="sc-fee-val" style="font-size:15px;font-weight:600">AUM clients</span>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══ FEES ═══ -->
+  <section id="fees">
+    <div class="inner">
+      <div class="eyebrow">Fee structure</div>
+      <h2 class="section-title">Simple. Transparent.<br><em>Aligned with you.</em></h2>
+      <p class="section-lead">Our fees reward larger commitments with lower rates. We earn more only when you invest
+        more — complete alignment by design.</p>
+      <div class="fees-grid reveal">
+        <div class="fee-card">
+          <div class="fee-ribbon bar-blue"></div>
+          <div class="fee-tier">Emerging wealth</div>
+          <div class="fee-pct"><sup>%</sup>1.00</div>
+          <div class="fee-corpus">On AUM up to ₹1 Crore</div>
+          <div class="fee-list">
+            <div><span class="fee-chk">✦</span>Full portfolio management</div>
+            <div><span class="fee-chk">✦</span>Quarterly portfolio reviews</div>
+            <div><span class="fee-chk">✦</span>Goal planning & scenario maps</div>
+            <div><span class="fee-chk">✦</span>Tax efficiency advisory</div>
+            <div><span class="fee-chk">✦</span>Dedicated relationship manager</div>
+          </div>
+        </div>
+        <div class="fee-card feat">
+          <div class="fee-ribbon bar-gold"></div>
+          <div class="fee-tier">Established wealth · Most popular</div>
+          <div class="fee-pct"><sup>%</sup>0.75</div>
+          <div class="fee-corpus">On AUM ₹1 Crore to ₹5 Crore</div>
+          <div class="fee-list">
+            <div><span class="fee-chk">✦</span>Everything in Emerging, plus</div>
+            <div><span class="fee-chk">✦</span>PMS access & curation</div>
+            <div><span class="fee-chk">✦</span>Global investing access</div>
+            <div><span class="fee-chk">✦</span>Bi-annual in-depth reviews</div>
+            <div><span class="fee-chk">✦</span>NRI & cross-border planning</div>
+          </div>
+        </div>
+        <div class="fee-card">
+          <div class="fee-ribbon bar-mint"></div>
+          <div class="fee-tier">Significant wealth</div>
+          <div class="fee-pct"><sup>%</sup>0.50</div>
+          <div class="fee-corpus">On AUM above ₹5 Crore</div>
+          <div class="fee-list">
+            <div><span class="fee-chk">✦</span>Everything in Established, plus</div>
+            <div><span class="fee-chk">✦</span>Alternative investment access</div>
+            <div><span class="fee-chk">✦</span>Family office services</div>
+            <div><span class="fee-chk">✦</span>Estate & succession planning</div>
+            <div><span class="fee-chk">✦</span>Priority senior advisor access</div>
+          </div>
+        </div>
+      </div>
+      <div class="mf-note reveal"><strong>Mutual Fund distribution:</strong> For regular mutual fund investments, no
+        separate advisory fee is charged to you. We receive a trail commission directly from the AMC (typically 0.5–1%
+        embedded in the scheme expense ratio). This is disclosed transparently in our engagement letter. Direct plan
+        investors are welcome too — the AUM fee structure above will apply.</div>
+      <div class="bond-row reveal">
+        <div class="bond-pct">0.50%</div>
+        <div class="bond-info">
+          <h4>Fixed Income & Bond Portfolio</h4>
+          <p>A flat 0.50% per annum management fee on all bond and fixed income allocations — corporate bonds,
+            government securities, and structured debt. Covers credit analysis, duration management, platform execution,
+            and ongoing credit event monitoring.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══ CREDENTIALS ═══ -->
+  <section id="creds">
+    <div class="inner">
+      <div class="eyebrow">Credentials & team</div>
+      <h2 class="section-title">Built on a decade of<br><em>institutional experience</em></h2>
+      <div class="creds-layout">
+        <div class="cred-stack reveal-left">
+          <div class="cred-tile">
+            <div class="cred-abbr">CA</div>
+            <div>
+              <h4>Chartered Accountants</h4>
+              <p>Tax-integrated investment planning. We manage the after-tax outcome — the only number that actually
+                matters in your hands.</p>
+            </div>
+          </div>
+          <div class="cred-tile">
+            <div class="cred-abbr">CFA</div>
+            <div>
+              <h4>CFA Charterholders</h4>
+              <p>The global gold standard in investment analysis. Institutional-grade financial modelling applied to
+                every client portfolio.</p>
+            </div>
+          </div>
+          <div class="cred-tile">
+            <div class="cred-abbr">10+</div>
+            <div>
+              <h4>Years in Indian markets</h4>
+              <p>Through bull runs, corrections, demonetisation, COVID, and rate cycles. Judgment earned across real
+                adversity.</p>
+            </div>
+          </div>
+          <div class="cred-tile">
+            <div class="cred-abbr">PE</div>
+            <div>
+              <h4>Private equity & global asset management</h4>
+              <p>Operational experience in global PE fund accounting and private assets product control — a rare
+                institutional vantage point.</p>
+            </div>
+          </div>
+          <div class="amfi-strip"><span>AMFI Reg. No.</span><span>319077</span></div>
+        </div>
+        <div class="cred-quote-box reveal-right">
+          <blockquote>"Wealth management is not about picking the best stock this quarter. It is about building a
+            financial architecture that allows you to live the life you intend — without anxiety about markets, taxes,
+            or timing."</blockquote>
+          <cite>— Fintelect One · Investment philosophy</cite>
+          <div class="lic-tags">
+            <span class="lic-tag">AMFI · MFD</span>
+            <span class="lic-tag">SEBI PMS</span>
+            <span class="lic-tag">Nuvama Wealth</span>
+            <span class="lic-tag">Bond Platforms</span>
+            <span class="lic-tag">LRS · Global Investing</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══ PROCESS ═══ -->
+  <section id="process">
+    <div class="inner">
+      <div class="eyebrow">Our process</div>
+      <h2 class="section-title">How we begin<br><em>working together</em></h2>
+      <p class="section-lead">A structured onboarding ensures your portfolio is built on deep understanding — not
+        assumptions.</p>
+      <div class="process-track reveal">
+        <div class="p-step">
+          <div class="p-dot">1</div>
+          <h4>Discovery call</h4>
+          <p>60 minutes. No paperwork. An honest conversation about your wealth, goals, and life plans.</p>
+        </div>
+        <div class="p-step">
+          <div class="p-dot">2</div>
+          <h4>Financial diagnosis</h4>
+          <p>We map your holdings, income, liabilities, tax situation, and risk temperament before recommending
+            anything.</p>
+        </div>
+        <div class="p-step">
+          <div class="p-dot">3</div>
+          <h4>Portfolio blueprint</h4>
+          <p>A written investment policy and asset allocation plan — presented before a single rupee moves. You approve
+            it.</p>
+        </div>
+        <div class="p-step">
+          <div class="p-dot">4</div>
+          <h4>Seamless onboarding</h4>
+          <p>Digital KYC, account setup, and investment execution. Our team handles all the paperwork for you.</p>
+        </div>
+        <div class="p-step">
+          <div class="p-dot">5</div>
+          <h4>Ongoing stewardship</h4>
+          <p>Quarterly reviews. Annual deep-dives. A relationship manager available whenever markets — or life — moves.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══ ENQUIRY ═══ -->
+  <section id="enquiry">
+    <div class="inner">
+      <div class="enquiry-layout">
+        <div class="eq-left reveal-left">
+          <div class="eyebrow">Get in touch</div>
+          <h2>Start your <em>wealth journey</em> with us.</h2>
+          <p>Whether you are a first-time investor, an HNI looking to consolidate your advisory relationship, or an NRI
+            seeking trusted India portfolio management — we would love to hear from you.</p>
+          <div class="contact-items">
+            <div class="ci">
+              <div class="ci-ico">✉️</div>
+              <p><a href="mailto:info.fintelect@gmail.com">info.fintelect@gmail.com</a></p>
+            </div>
+            <div class="ci">
+              <div class="ci-ico">🏛️</div>
+              <p>AMFI Registration No. 319077</p>
+            </div>
+            <div class="ci">
+              <div class="ci-ico">🌐</div>
+              <p>Serving clients across India, UK, UAE, USA &amp; Singapore</p>
+            </div>
+            <div class="ci">
+              <div class="ci-ico">⏱️</div>
+              <p>We respond within 24 hours</p>
+            </div>
+          </div>
+        </div>
+        <div class="eq-form reveal-right">
+          <h3>Send us an enquiry</h3>
+          <div class="frow">
+            <div class="fg"><label>First name</label><input type="text" id="fn" placeholder="Rahul"></div>
+            <div class="fg"><label>Last name</label><input type="text" id="ln" placeholder="Sharma"></div>
+          </div>
+          <div class="fg"><label>Email address</label><input type="email" id="em" placeholder="rahul@example.com"></div>
+          <div class="frow">
+            <div class="fg"><label>Phone / WhatsApp</label><input type="tel" id="ph" placeholder="+91 98XXX XXXXX">
+            </div>
+            <div class="fg"><label>Where are you based?</label>
+              <select id="loc">
+                <option value="">Select location</option>
+                <option>India</option>
+                <option>United Kingdom</option>
+                <option>UAE / Middle East</option>
+                <option>United States</option>
+                <option>Singapore / Asia</option>
+                <option>Other</option>
+              </select>
+            </div>
+          </div>
+          <div class="fg"><label>Primary area of interest</label>
+            <select id="int">
+              <option value="">Select area</option>
+              <option>Mutual Fund Portfolio Management</option>
+              <option>PMS / Structured Products</option>
+              <option>Global Investing (International Markets)</option>
+              <option>Bond / Fixed Income Portfolio</option>
+              <option>NRI Wealth Management</option>
+              <option>Comprehensive Wealth Planning</option>
+              <option>Not sure — general enquiry</option>
+            </select>
+          </div>
+          <div class="fg"><label>Approximate investable corpus</label>
+            <select id="aum">
+              <option value="">Select range</option>
+              <option>Under ₹25 Lakhs</option>
+              <option>₹25L – ₹1 Crore</option>
+              <option>₹1 Crore – ₹5 Crore</option>
+              <option>₹5 Crore+</option>
+              <option>Prefer not to say</option>
+            </select>
+          </div>
+          <div class="fg"><label>Your message (optional)</label><textarea id="msg"
+              placeholder="Tell us a little about what you're looking for…"></textarea></div>
+          <button class="submit-btn" onclick="doSubmit()">Submit enquiry →</button>
+          <div class="form-msg" id="fmsg"></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══ FOOTER ═══ -->
+  <footer>
+    <div class="footer-inner">
+      <div class="footer-top">
+        <div>
+          <div class="fl-logo">Fintelect <span>One</span></div>
+          <p class="fl-desc">Institutional-grade wealth management for HNIs, retail investors, and the Indian diaspora —
+            built on a decade of market experience, global perspective, and CA &amp; CFA expertise.</p>
+        </div>
+        <div class="fc">
+          <h5>Services</h5>
+          <a href="#services">Mutual Fund Advisory</a>
+          <a href="#services">PMS Distribution</a>
+          <a href="#services">Bond Management</a>
+          <a href="#global">Global Investing</a>
+          <a href="#nri">NRI Services</a>
+        </div>
+        <div class="fc">
+          <h5>Company</h5>
+          <a href="#why">Our edge</a>
+          <a href="#philosophy">Philosophy</a>
+          <a href="#creds">Credentials</a>
+          <a href="#process">Our process</a>
+          <a href="#enquiry">Contact us</a>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <div class="f-reg"><strong>Fintelect One</strong> · AMFI Registration No. <strong>319077</strong><br>Registered
+          MF Distributor · Empanelled with SEBI-registered PMS providers<br>Email:
+          <strong>info.fintelect@gmail.com</strong>
+        </div>
+        <p class="f-disc">This document is confidential and intended solely for the recipient. Past performance does not
+          guarantee future results. Mutual fund investments are subject to market risks — please read all scheme
+          documents carefully. All global investments are structured through RBI-approved LRS and SEBI-regulated
+          channels. This does not constitute an offer to buy or sell any security. All fees are subject to a formal
+          engagement agreement.</p>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    /* ── SCROLL ANIMATIONS ── */
+    const io = new IntersectionObserver((entries) => {
+      entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('in') });
+    }, { threshold: 0.08 });
+    document.querySelectorAll('.reveal,.reveal-left,.reveal-right').forEach(el => io.observe(el));
+
+    /* ── NAV SHADOW ON SCROLL ── */
+    window.addEventListener('scroll', () => {
+      document.getElementById('nav').classList.toggle('scrolled', window.scrollY > 30);
+    });
+
+    /* ── COUNTER ANIMATION ── */
+    function animateCount(el) {
+      const target = parseInt(el.dataset.target);
+      const dur = 1200, steps = 40;
+      let current = 0;
+      const inc = target / steps;
+      const timer = setInterval(() => {
+        current = Math.min(current + inc, target);
+        el.textContent = Math.round(current) + (target === 10 ? '+' : '+');
+        if (current >= target) clearInterval(timer);
+      }, dur / steps);
+    }
+    const cio = new IntersectionObserver((entries) => {
+      entries.forEach(e => {
+        if (e.isIntersecting) {
+          e.target.querySelectorAll('.count-num[data-target]').forEach(animateCount);
+          cio.unobserve(e.target);
+        }
+      });
+    }, { threshold: 0.3 });
+    document.querySelectorAll('.hero-stats').forEach(el => cio.observe(el));
+
+    /* ── SERVICE FILTER ── */
+    function filterCards(cat, btn) {
+      document.querySelectorAll('.stab').forEach(b => b.classList.remove('active'));
+      btn.classList.add('active');
+      document.querySelectorAll('.service-card').forEach(card => {
+        const show = cat === 'all' || card.dataset.cat === cat;
+        card.style.opacity = show ? '1' : '0.25';
+        card.style.transform = show ? '' : 'scale(0.97)';
+        card.style.pointerEvents = show ? '' : 'none';
+        card.style.transition = 'opacity 0.35s, transform 0.35s';
+      });
+    }
+
+    /* ── FORM SUBMIT ── */
+    function doSubmit() {
+      const fn = document.getElementById('fn').value.trim();
+      const ln = document.getElementById('ln').value.trim();
+      const em = document.getElementById('em').value.trim();
+      const ph = document.getElementById('ph').value.trim();
+      const loc = document.getElementById('loc').value;
+      const int = document.getElementById('int').value;
+      const aum = document.getElementById('aum').value;
+      const msg = document.getElementById('msg').value.trim();
+      const fmsg = document.getElementById('fmsg');
+      if (!fn || !em) { fmsg.className = 'form-msg err'; fmsg.textContent = 'Please enter at least your name and email address.'; return; }
+      if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(em)) { fmsg.className = 'form-msg err'; fmsg.textContent = 'Please enter a valid email address.'; return; }
+      const sub = encodeURIComponent('Wealth Advisory Enquiry — ' + fn + ' ' + ln);
+      const body = encodeURIComponent(
+        'New enquiry from Fintelect One proposal\n\n' +
+        'Name: ' + fn + ' ' + ln + '\nEmail: ' + em + '\nPhone: ' + (ph || 'N/A') +
+        '\nLocation: ' + (loc || 'N/A') + '\nInterest: ' + (int || 'N/A') +
+        '\nCorpus: ' + (aum || 'N/A') + '\n\nMessage:\n' + (msg || 'No message')
+      );
+      window.location.href = 'mailto:info.fintelect@gmail.com?subject=' + sub + '&body=' + body;
+      fmsg.className = 'form-msg ok';
+      fmsg.textContent = '✓ Your email client has opened with the enquiry pre-filled. Please send it to complete your submission — we will respond within 24 hours.';
+    }
+  </script>
+</body>
+
+</html>

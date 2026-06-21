@@ -16,19 +16,19 @@ export const trustMetrics = [
   { label: "Years in markets", value: 10, prefix: "", suffix: "+", decimals: 0 },
   { label: "Qualified team", value: "CA • MBA", prefix: "", suffix: "", decimals: 0 },
   { label: "Asset classes ", value: 4, prefix: "", suffix: "+", decimals: 0 },
-  { label: "Global track record", value: 3, prefix: "", suffix: "yrs", decimals: 0 },
+  { label: "Global track record", value: 3, prefix: "", suffix: "+ yrs", decimals: 0 },
 ]
 
 export const differentiators = [
   {
     number: "01",
     title: "Institutional insight, personal scale",
-    description: "Our team operates at the intersection of global private equity and Indian markets — frameworks typically reserved for institutions, now accessible at your level.",
+    description: "Our team operates at the intersection of global private equity and Indian markets frameworks typically reserved for institutions, now accessible at your level.",
   },
   {
     number: "02",
-    title: "Conflict-aware transparency",
-    description: "We openly disclose how we earn — trail commissions, advisory fees, all of it. You always know what we make and why we recommend what we recommend.",
+    title: "Conflict aware transparency",
+    description: "We openly disclose how we earn trail commissions, advisory fees, all of it. You always know what we make and why we recommend what we recommend.",
   },
   {
     number: "03",
@@ -38,17 +38,17 @@ export const differentiators = [
   {
     number: "04",
     title: "Early movers in global investing",
-    description: "Three years of live international portfolio management — already generating alpha for clients who moved early, before it became a mainstream conversation.",
+    description: "Three years of live international portfolio management already generating alpha for clients who moved early, before it became a mainstream conversation.",
   },
   {
     number: "05",
-    title: "Multi-asset, one relationship",
-    description: "Mutual funds, PMS, bonds, direct equities, global markets — managed cohesively. No fragmented advisors, no conflicting recommendations, no information gaps.",
+    title: "Multiasset, one relationship",
+    description: "Mutual funds, PMS, bonds, direct equities, global markets managed cohesively. No fragmented advisors, no conflicting recommendations, no information gaps.",
   },
   {
     number: "06",
     title: "CA-led, tax-integrated planning",
-    description: "Every portfolio decision accounts for LTCG, STCG, and indexation — ensuring the after-tax outcome, which is the only number that truly matters to you.",
+    description: "Every portfolio decision accounts for LTCG, STCG, and indexation ensuring the after tax outcome, which is the only number that truly matters to you.",
   },
 ]
 
@@ -57,19 +57,19 @@ export const philosophyPillars = [
     number: "I",
     title: "Capital Preservation First",
     description:
-      "Growth means little if it cannot survive adversity. Every portfolio is stress-tested against drawdowns, liquidity events, and market uncertainty before seeking returns.",
+      "Growth means little if it cannot survive adversity. Every portfolio is stress tested against drawdowns, liquidity events, and market uncertainty before seeking returns.",
   },
   {
     number: "II",
     title: "Asset Allocation Drives Outcomes",
     description:
-      "Long-term performance is shaped more by portfolio architecture than individual security selection. We focus on building resilient allocations, not chasing market noise.",
+      "Longterm performance is shaped more by portfolio architecture than individual security selection. We focus on building resilient allocations, not chasing market noise.",
   },
   {
     number: "III",
     title: "Behaviour Management Is Alpha",
     description:
-      "The greatest threat to investment success is often emotional decision-making. We help clients remain disciplined when markets test conviction and patience.",
+      "The greatest threat to investment success is often emotional decision making. We help clients remain disciplined when markets test conviction and patience.",
   },
   {
     number: "IV",
@@ -106,7 +106,7 @@ export const globalRegions = [
   },
   {
     id: "apac",
-    name: "Asia-Pacific",
+    name: "Asia Pacific",
     description: "APAC equities, EM exposure",
     lat: 34.0479,
     lng: 100.6197,
@@ -131,7 +131,7 @@ export const globalRegions = [
   {
     id: "emerging",
     name: "Emerging Markets",
-    description: "High-growth frontier opportunities",
+    description: "Highgrowth frontier opportunities",
     lat: -14.2350,
     lng: -51.9253,
     stats: ["Brazil", "Indonesia", "Vietnam"],
@@ -144,7 +144,7 @@ export const nriCountries = [
     name: "United Kingdom",
     flag: "🇬🇧",
     city: "London",
-    tagline: "Cross-border tax efficiency for UK residents",
+    tagline: "Cross border tax efficiency for UK residents",
     services: ["Individual Savings Accounts (ISAs)", "Stocks and shares ISA", "Cash ISA", "Lifetime ISA", "Workplace and SIPPs"],
     color: "#1D4ED8",
   },
@@ -153,7 +153,7 @@ export const nriCountries = [
     name: "United Arab Emirates",
     flag: "🇦🇪",
     city: "Dubai",
-    tagline: "Tax-free wealth structuring for UAE-based NRIs",
+    tagline: "Tax-free wealth structuring for UAE based NRIs",
     services: ["NRE/NRO Advisory", "UAE-India Flows", "Offshore Structuring"],
     color: "#059669",
   },
@@ -181,16 +181,16 @@ export const services = [
   {
     id: "mutual-fund",
     title: "Mutual Fund Advisory",
-    subtitle: "Research-driven fund selection",
+    subtitle: "Research driven fund selection",
     description: "Curated fund portfolios across equity, debt, and hybrid categories. We research and recommend; you grow.",
     icon: "TrendingUp",
-    detail: "Independent, commission-transparent advisory across 40+ AMCs.",
+    detail: "Independent, commission transparent advisory across 40+ AMCs.",
   },
   {
     id: "pms",
     title: "PMS Distribution",
     subtitle: "Professional portfolio management",
-    description: "Access India's top portfolio management services — vetted, monitored, and aligned to your risk profile.",
+    description: "Access India's top portfolio management services vetted, monitored, and aligned to your risk profile.",
     icon: "BarChart3",
     detail: "Due diligence across 100+ PMS strategies. Only the best make it to our clients.",
   },
@@ -200,28 +200,28 @@ export const services = [
     subtitle: "Fixed income with institutional discipline",
     description: "Corporate bonds, G-Secs, and structured debt instruments. Predictable income. Institutional credit analysis.",
     icon: "Shield",
-    detail: "AAA to investment-grade. Duration management. Yield curve positioning.",
+    detail: "AAA to investment grade. Duration management. Yield curve positioning.",
   },
   {
     id: "global",
     title: "Global Investing",
-    subtitle: "World-class market access",
+    subtitle: "World class market access",
     description: "US equities, international ETFs, and global thematic funds. Build true geographical diversification.",
     icon: "Globe2",
-    detail: "LRS-compliant. $250,000 annual remittance framework. Real-time execution.",
+    detail: "LRS compliant. $250,000 annual remittance framework. Real time execution.",
   },
   {
     id: "equities",
     title: "Direct Equities",
-    subtitle: "Concentrated high-conviction portfolios",
-    description: "Upto 100 stocks stock portfolios built on 12–18 month thematic research. PE-style diligence. Long-term compounding.",
+    subtitle: "Concentrated high conviction portfolios",
+    description: "Upto 100 stocks stock portfolios built on 12–18 month thematic research. PE style diligence. Long term compounding.",
     icon: "Target",
     detail: "Fundamental research. Sectoral rotation. Bottom-up stock selection.",
   },
   {
     id: "nri",
     title: "Wealth Structuring & NRI Advisory",
-    subtitle: "Cross-border wealth architecture",
+    subtitle: "Cross border wealth architecture",
     description: "NRE/NRO planning, DTAA benefits, FEMA compliance, and international remittance advisory for globally mobile HNIs.",
     icon: "Building2",
     detail: "Serving UK, UAE, USA, Singapore. Tax-efficient. Fully compliant.",
@@ -252,7 +252,7 @@ export const feeStructure = [
     subtitle: "Advisory",
     aumRange: "₹25L – ₹1Cr",
     fee: "1.5% p.a.",
-    note: "Comprehensive advisory. Minimum 1-year engagement.",
+    note: "Comprehensive advisory. Minimum 1 year engagement.",
     featured: false,
     color: "#2563EB",
   },
@@ -261,7 +261,7 @@ export const feeStructure = [
     subtitle: "Advisory",
     aumRange: "₹1Cr – ₹5Cr",
     fee: "1.0% p.a.",
-    note: "Full-suite advisory with quarterly reviews.",
+    note: "Full suite advisory with quarterly reviews.",
     featured: true,
     color: "#38BDF8",
   },
@@ -290,14 +290,14 @@ export const credentials = [
   { label: "CFA Qualified", value: 1, suffix: "", icon: "GraduationCap", description: "CFA Institute, USA" },
   { label: "Years Experience", value: 10, suffix: "+", icon: "Clock", description: "Across PE, Asset Management & Wealth" },
   { label: "PE Experience", value: 1, suffix: "", icon: "Building", description: "Private Equity Investment Analysis" },
-  { label: "Global AUM", value: 5, suffix: "Cr+", icon: "TrendingUp", description: "Assets Under Advisory" },
+  { label: "Global track record", value: 3, suffix: "+ yrs", icon: "TrendingUp", description: "Assets Under Advisory" },
   { label: "AMFI Registered", value: 1, suffix: "", icon: "Shield", description: "ARN Certified Mutual Fund Advisor" },
 ]
 
 export const founderQuote = {
-  quote: "Wealth management is not about picking the right stocks. It is about building the right framework — one that survives every market cycle, protects what matters most, and compounds quietly over decades.",
+  quote: "Wealth management is not about picking the right stocks. It is about building the right framework one that survives every market cycle, protects what matters most, and compounds quietly over decades.",
   attribution: "",
-  title: "Founder & Chief Investment Officer, Fintelect One",
+  title: "Founder & CEO, Fintelect One",
   credentials: "CA | CFA | 10+ Years",
 }
 
@@ -305,7 +305,7 @@ export const processSteps = [
   {
     number: "01",
     title: "Discovery Call",
-    description: "A confidential 45-minute conversation to understand your financial goals, current portfolio, and global lifestyle.",
+    description: "A confidential 45 minute conversation to understand your financial goals, current portfolio, and global lifestyle.",
     duration: "45 minutes",
     icon: "MessageCircle",
   },
@@ -313,21 +313,21 @@ export const processSteps = [
     number: "02",
     title: "Financial Diagnosis",
     description: "Comprehensive analysis of your existing portfolio, tax structure, risk exposure, and alignment gaps.",
-    duration: "3–5 days",
+    duration: "3 to 5 days",
     icon: "Search",
   },
   {
     number: "03",
     title: "Portfolio Blueprint",
-    description: "A bespoke investment policy statement and portfolio architecture — built specifically for your goals.",
-    duration: "1–2 weeks",
+    description: "A bespoke investment policy statement and portfolio architecture built specifically for your goals.",
+    duration: "1 to 2 weeks",
     icon: "FileText",
   },
   {
     number: "04",
     title: "Seamless Onboarding",
     description: "KYC, account setup, and portfolio implementation. Managed entirely by our team with minimal disruption.",
-    duration: "2–5 days",
+    duration: "2 to 5 days",
     icon: "CheckCircle",
   },
   {
@@ -344,7 +344,7 @@ export const coverageCountries = ["India", "United Kingdom", "United Arab Emirat
 export const institutionalTimeline = [
   { year: "2016", event: "Founded with AMFI registration." },
   { year: "2023", event: "Converted into Corporate Structure. Launched direct equity advisory." },
-  { year: "2024", event: "Crossed ₹5 Cr AUM. Launched the Global Investing desk, cleared RIA." },
+  { year: "2024", event: "Crossed ₹5 Cr AUM. Launched the Global Investing desk." },
   { year: "2025", event: "Expanded to NRI advisory across continents." },
   { year: "2026", event: "₹Entered into AIF, PMS, and Fixed Income Securities." },
 ]

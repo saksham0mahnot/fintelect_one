@@ -243,8 +243,8 @@ const GlobalMap = () => {
         <div className="grid grid-cols-2 md:grid-cols-4 gap-4 mt-12 pt-12" style={{ borderTop: '1px solid rgba(37,99,235,0.1)' }}>
           {[
             { label: 'Active Since', value: '2022' },
-            { label: 'Track Record', value: '3-Year' },
-            { label: 'Research Cycle', value: '12–18 Months' },
+            { label: 'Track Record', value: '3+ Year' },
+            { label: 'Research Cycle', value: '12-18 Months' },
             { label: 'Markets Covered', value: '5+ Regions' },
           ].map((item) => (
             <motion.div

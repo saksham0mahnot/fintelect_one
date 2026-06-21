@@ -46,7 +46,7 @@ const NRIWealth = () => {
             transition={{ duration: 0.7, delay: 0.2 }}
             style={{ color: '#475569', lineHeight: '1.75' }}
           >
-            Whether you live in London, Dubai, New York, or Singapore —
+            Whether you live in London, Dubai, New York, or Singapore
             your Indian wealth is managed with precision, compliance, and care.
           </motion.p>
         </div>
@@ -169,8 +169,8 @@ const NRIWealth = () => {
           style={{ borderTop: '1px solid rgba(37,99,235,0.1)' }}
         >
           {[
-            { title: 'DTAA Expertise', desc: 'Navigate double taxation agreements across jurisdictions to maximize your post-tax returns.' },
-            { title: 'FEMA Compliance', desc: 'Fully compliant cross-border remittances under LRS and NRE/NRO frameworks.' },
+            { title: 'DTAA Expertise', desc: 'Navigate double taxation agreements across jurisdictions to maximize your post tax returns.' },
+            { title: 'FEMA Compliance', desc: 'Fully compliant cross border remittances under LRS and NRE/NRO frameworks.' },
             { title: 'Global Portfolio Bridge', desc: 'Seamlessly link your India portfolio with international investments under one advisory framework.' },
           ].map((f, i) => (
             <motion.div

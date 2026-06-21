@@ -61,7 +61,7 @@ const FounderQuote = () => {
     'Wealth management is not',
     'about picking the right stocks.',
     'It is about building the',
-    'right framework — one that',
+    'right framework one that',
     'survives every market cycle.',
   ]
 
@@ -112,7 +112,7 @@ const FounderQuote = () => {
                   {line}
                   {/* Highlight key phrase */}
                   {i === 2 && (
-                    <span className="text-gradient-blue"> right framework</span>
+                    <span className="text-gradient-blue" style={{ fontStyle: "italic" }}> right framework</span>
                   )}
                 </div>
               </div>

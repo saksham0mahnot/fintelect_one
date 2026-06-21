@@ -222,7 +222,7 @@ const Hero = () => {
           className="text-lg md:text-xl max-w-2xl mb-12"
           style={{ color: '#475569', lineHeight: '1.7', opacity: 0 }}
         >
-          We bring private-equity thinking to personal wealth — serving discerning investors
+          We bring private equity thinking to personal wealth serving discerning investors
           and NRI families across India, UK, UAE, USA, and Singapore.
         </p>
 

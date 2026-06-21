@@ -17,9 +17,10 @@ const Footer = () => {
       style={{
         background: '#EEF3FF',
         borderTop: '1px solid rgba(37,99,235,0.1)',
+        paddingTop: '1rem',
       }}
     >
-      <div className="container-premium py-16">
+      <div className="container-premium pt-16 pb-16">
         {/* Top row */}
         <div className="flex flex-col md:flex-row md:items-start justify-between gap-12 mb-16 pb-16"
           style={{ borderBottom: '1px solid rgba(37,99,235,0.1)' }}>
@@ -80,11 +81,11 @@ const Footer = () => {
 
         {/* Regulatory disclaimer */}
         <div
-          className="mt-8 pt-8 text-xs leading-relaxed"
+          className="mt-8 pt-8 pb-8 text-xs leading-relaxed"
           style={{
             color: '#94A3B8',
             borderTop: '1px solid rgba(37,99,235,0.08)',
-            maxWidth: '80ch',
+            maxWidth: '100ch',
           }}
         >
           Mutual Fund investments are subject to market risks. Read all scheme related documents carefully before investing.
