@@ -61,8 +61,8 @@ const FounderQuote = () => {
     'Wealth management is not',
     'about picking the right stocks.',
     'It is about building the',
-    'right framework one that',
-    'survives every market cycle.',
+    'one that survives every',
+    'market cycle.',
   ]
 
   return (
@@ -88,16 +88,16 @@ const FounderQuote = () => {
             Founder's Philosophy
           </motion.div>
 
-          {/* Quote */}
+          {/* Desktop Quote (Split line animation) */}
           <div
             ref={quoteRef}
+            className="hidden md:block"
             style={{ perspective: '800px' }}
           >
             {quoteLines.map((line, i) => (
               <div
                 key={i}
                 className="overflow-hidden"
-                style={{ marginBottom: i < quoteLines.length - 1 ? '0' : '0' }}
               >
                 <div
                   className="quote-line founder-quote text-slate-900"
@@ -112,11 +112,27 @@ const FounderQuote = () => {
                   {line}
                   {/* Highlight key phrase */}
                   {i === 2 && (
-                    <span className="text-gradient-blue" style={{ fontStyle: "italic" }}> right framework</span>
+                    <span className="text-gradient-blue" style={{ fontStyle: "italic" }}> right framework,</span>
                   )}
                 </div>
               </div>
             ))}
+          </div>
+
+          {/* Mobile Quote (Flowing block text) */}
+          <div className="block md:hidden">
+            <h3
+              className="founder-quote text-slate-900"
+              style={{
+                fontSize: 'clamp(1.75rem, 5vw, 2.5rem)',
+                lineHeight: '1.25',
+                letterSpacing: '-0.02em',
+              }}
+            >
+              Wealth management is not about picking the right stocks. It is about building the{' '}
+              <span className="text-gradient-blue" style={{ fontStyle: 'italic' }}>right framework</span>,
+              one that survives every market cycle.
+            </h3>
           </div>
 
           {/* Accent line */}

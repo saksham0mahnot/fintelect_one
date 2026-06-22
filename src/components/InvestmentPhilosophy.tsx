@@ -1,4 +1,4 @@
-import { useRef, useEffect } from 'react'
+import { useRef, useEffect, useState } from 'react'
 import { gsap } from 'gsap'
 import { ScrollTrigger } from 'gsap/ScrollTrigger'
 import { philosophyPillars } from '../data/content'
@@ -10,8 +10,19 @@ const InvestmentPhilosophy = () => {
   const sectionRef = useRef<HTMLDivElement>(null)
   const pinnedRef = useRef<HTMLDivElement>(null)
   const mapGroupRef = useRef<SVGGElement>(null)
+  const [isMobile, setIsMobile] = useState(false)
 
   useEffect(() => {
+    const handleResize = () => {
+      setIsMobile(window.innerWidth < 1024)
+    }
+    handleResize()
+    window.addEventListener('resize', handleResize)
+    return () => window.removeEventListener('resize', handleResize)
+  }, [])
+
+  useEffect(() => {
+    if (isMobile) return
     if (!sectionRef.current || !pinnedRef.current) return
 
     const totalHeight = philosophyPillars.length * window.innerHeight
@@ -105,20 +116,21 @@ const InvestmentPhilosophy = () => {
     }, sectionRef.current || undefined)
 
     return () => ctx.revert()
-  }, [])
+  }, [isMobile])
 
   return (
     <section
       ref={sectionRef}
       id="philosophy"
       style={{
-        height: `${(philosophyPillars.length + 1) * 100}vh`,
-        background: '#1C2B4A', // Pproposal-aligned deep navy background
+        height: isMobile ? 'auto' : `${(philosophyPillars.length + 1) * 100}vh`,
+        background: '#1C2B4A', // proposal-aligned deep navy background
+        padding: isMobile ? '6rem 0' : '0',
       }}
     >
       <div
         ref={pinnedRef}
-        className="h-screen flex items-center relative overflow-hidden"
+        className={isMobile ? 'relative w-full' : 'h-screen flex items-center relative overflow-hidden'}
         style={{ background: '#1C2B4A' }}
       >
         {/* ── Background Dotted World Map & Grid ── */}
@@ -206,7 +218,7 @@ const InvestmentPhilosophy = () => {
               </p>
 
               {/* Progress indicators */}
-              <div className="flex gap-3 mt-12">
+              <div className={isMobile ? "hidden" : "flex gap-3 mt-12"}>
                 {philosophyPillars.map((_, i) => (
                   <div
                     key={i}
@@ -234,14 +246,14 @@ const InvestmentPhilosophy = () => {
 
             {/* Right — Dynamic pillars */}
             <div
-              className="relative min-h-[400px] w-full flex items-center"
+              className={isMobile ? "flex flex-col gap-6 mt-12 w-full" : "relative min-h-[400px] w-full flex items-center"}
             >
               {philosophyPillars.map((pillar, i) => (
                 <div
                   key={i}
-                  className="philosophy-card bg-white border border-white/50 rounded-3xl absolute left-0 right-0 shadow-2xl"
+                  className={isMobile ? "philosophy-card bg-white border border-white/50 rounded-3xl shadow-2xl relative w-full" : "philosophy-card bg-white border border-white/50 rounded-3xl absolute left-0 right-0 shadow-2xl"}
                   style={{
-                    padding: '3rem',
+                    padding: isMobile ? '2rem' : '3rem',
                     boxSizing: 'border-box',
                   }}
                 >

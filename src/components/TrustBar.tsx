@@ -88,22 +88,15 @@ const TrustBar = ({ metrics }: TrustBarProps) => {
   return (
     <div
       ref={ref}
-      className="glass border-subtle rounded-sm mt-8"
+      className="glass border-subtle rounded-sm mt-8 grid grid-cols-2 lg:grid-cols-4"
       style={{
-        padding: '1.5rem 2rem',
-        display: 'grid',
-        gridTemplateColumns: `repeat(${metrics.length}, 1fr)`,
-        gap: '0',
+        padding: '1rem',
       }}
     >
       {metrics.map((metric, i) => (
         <div
           key={metric.label}
-          className="flex flex-col items-start"
-          style={{
-            padding: '0.5rem 1.5rem',
-            borderRight: i < metrics.length - 1 ? '1px solid rgba(0,0,0,0.06)' : 'none',
-          }}
+          className="flex flex-col items-start py-4 px-6 lg:py-2 lg:px-6 metric-item"
         >
           <div className="flex items-baseline gap-1 mb-1">
             {metric.prefix && (
@@ -136,6 +129,31 @@ const TrustBar = ({ metrics }: TrustBarProps) => {
           </span>
         </div>
       ))}
+      <style>{`
+        /* Mobile / Tablet (2 columns, 2 rows) */
+        @media (max-width: 1023px) {
+          .metric-item {
+            border-right: 1px solid rgba(37, 99, 235, 0.1);
+            border-bottom: 1px solid rgba(37, 99, 235, 0.1);
+          }
+          .metric-item:nth-child(2n) {
+            border-right: none;
+          }
+          .metric-item:nth-child(n+3) {
+            border-bottom: none;
+          }
+        }
+        /* Desktop (4 columns, 1 row) */
+        @media (min-width: 1024px) {
+          .metric-item {
+            border-right: 1px solid rgba(37, 99, 235, 0.1);
+            border-bottom: none;
+          }
+          .metric-item:last-child {
+            border-right: none;
+          }
+        }
+      `}</style>
     </div>
   )
 }

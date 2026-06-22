@@ -164,10 +164,10 @@ const InstitutionalStory = () => {
           <div className="relative">
             {/* Timeline line */}
             <div
-              className="absolute top-1.5 left-0 right-0 h-px"
+              className="absolute top-1.5 left-0 right-0 h-px hidden lg:block"
               style={{ background: 'rgba(37,99,235,0.1)' }}
             />
-            <div className="grid grid-cols-2 md:grid-cols-5 gap-8">
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-8">
               {institutionalTimeline.map((item, i) => (
                 <motion.div
                   key={i}

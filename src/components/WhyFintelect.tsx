@@ -82,7 +82,7 @@ const WhyFintelect = () => {
         display: 'flex',
         flexDirection: 'column',
         justifyContent: 'center',
-        padding: '6rem 4rem',
+        padding: '6rem 0',
         boxSizing: 'border-box',
       }}
     >
@@ -222,7 +222,7 @@ const WhyFintelect = () => {
 
         @media (max-width: 1024px) {
           #why {
-            padding: 4rem 2rem !important;
+            padding: 4rem 0 !important;
           }
           .why-content-wrapper {
             flex-direction: column;

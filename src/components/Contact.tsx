@@ -7,6 +7,8 @@ const Contact = () => {
   const canvasRef = useRef<HTMLCanvasElement>(null)
   const [formData, setFormData] = useState({ name: '', email: '', message: '' })
   const [submitted, setSubmitted] = useState(false)
+  const [isSubmitting, setIsSubmitting] = useState(false)
+  const [submitError, setSubmitError] = useState<string | null>(null)
 
   // Animated grid background
   useEffect(() => {
@@ -74,9 +76,34 @@ const Contact = () => {
     }
   }, [])
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault()
-    setSubmitted(true)
+    setIsSubmitting(true)
+    setSubmitError(null)
+
+    const accessKey = import.meta.env.VITE_WEB3FORMS_ACCESS_KEY
+
+    const formDataObj = new FormData(e.currentTarget)
+    formDataObj.append("access_key", accessKey || "YOUR_ACCESS_KEY_HERE")
+
+    try {
+      const response = await fetch("https://api.web3forms.com/submit", {
+        method: "POST",
+        body: formDataObj
+      })
+
+      const result = await response.json()
+      if (result.success) {
+        setSubmitted(true)
+        setFormData({ name: '', email: '', message: '' })
+      } else {
+        setSubmitError(result.message || "Failed to submit form. Please check your credentials.")
+      }
+    } catch (error) {
+      setSubmitError("Failed to submit form. Please check your network connection.")
+    } finally {
+      setIsSubmitting(false)
+    }
   }
 
   return (
@@ -99,7 +126,7 @@ const Contact = () => {
           Get In Touch
         </motion.div>
 
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-24">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-24">
           {/* Left — Info */}
           <div>
             <motion.h2
@@ -195,7 +222,7 @@ const Contact = () => {
           >
             {submitted ? (
               <div
-                className="glass-premium rounded-sm p-12 flex flex-col items-start justify-center h-full text-slate-900"
+                className="glass-premium rounded-sm p-6 sm:p-12 flex flex-col items-start justify-center h-full text-slate-900"
                 style={{ minHeight: '400px' }}
               >
                 <div className="text-5xl mb-6" style={{ color: '#2563EB' }}>✓</div>
@@ -208,7 +235,7 @@ const Contact = () => {
             ) : (
               <form
                 onSubmit={handleSubmit}
-                className="glass-premium rounded-sm p-10 space-y-6"
+                className="glass-premium rounded-sm p-6 sm:p-10 space-y-6"
               >
                 <div>
                   <label className="text-xs tracking-wider uppercase block mb-2" style={{ color: '#64748B' }}>
@@ -216,6 +243,7 @@ const Contact = () => {
                   </label>
                   <input
                     type="text"
+                    name="name"
                     required
                     value={formData.name}
                     onChange={(e) => setFormData({ ...formData, name: e.target.value })}
@@ -238,6 +266,7 @@ const Contact = () => {
                   </label>
                   <input
                     type="email"
+                    name="email"
                     required
                     value={formData.email}
                     onChange={(e) => setFormData({ ...formData, email: e.target.value })}
@@ -259,6 +288,7 @@ const Contact = () => {
                     Message (optional)
                   </label>
                   <textarea
+                    name="message"
                     value={formData.message}
                     onChange={(e) => setFormData({ ...formData, message: e.target.value })}
                     rows={4}
@@ -275,11 +305,18 @@ const Contact = () => {
                   />
                 </div>
 
+                {submitError && (
+                  <div className="text-sm p-3 rounded-md bg-red-50 text-red-600 border border-red-200" style={{ fontFamily: 'DM Sans, sans-serif' }}>
+                    {submitError}
+                  </div>
+                )}
+
                 <button
                   type="submit"
-                  className="btn-primary w-full flex items-center justify-center gap-2"
+                  disabled={isSubmitting}
+                  className={`btn-primary w-full flex items-center justify-center gap-2 ${isSubmitting ? 'opacity-70 cursor-not-allowed' : ''}`}
                 >
-                  Schedule a Conversation
+                  {isSubmitting ? 'Sending...' : 'Schedule a Conversation'}
                   <ArrowUpRight size={16} />
                 </button>
 

@@ -28,7 +28,7 @@ const GlobalMap = () => {
   return (
     <div className="relative" style={{ background: '#EEF3FF' }}>
       {/* SVG World Map */}
-      <div className="relative overflow-hidden" style={{ height: '55vh', minHeight: '400px' }}>
+      <div className="hidden lg:block relative overflow-hidden" style={{ height: '55vh', minHeight: '400px' }}>
         <svg
           viewBox={`0 0 ${SVG_W} ${SVG_H}`}
           className="w-full h-full"
@@ -171,7 +171,7 @@ const GlobalMap = () => {
       </div>
 
       {/* Region info panel */}
-      <div className="container-premium py-12" style={{ marginTop: "50px" }}>
+      <div className="container-premium py-12 lg:mt-12">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-start">
           {/* Region nav */}
           <div>

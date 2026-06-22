@@ -57,7 +57,7 @@ const FeeStructure = () => {
         </div>
 
         {/* ── Fee Columns Grid (3 Columns Max) ── */}
-        <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 max-w-6xl mx-auto">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-6xl mx-auto">
 
           {/* ┌────────────────────────────────────────┐
               │  COLUMN 1 — Emerging Wealth            │
@@ -163,7 +163,7 @@ const FeeStructure = () => {
               │  COLUMN 3 — Significant Wealth          │
               └────────────────────────────────────────┘ */}
           <motion.div
-            className="bg-white border border-slate-200/80 rounded-[28px] p-8 md:p-10 flex flex-col justify-between shadow-[0_8px_30px_rgba(0,0,0,0.015)] hover:shadow-[0_12_45px_rgba(37,99,235,0.04)] hover:border-blue-100 transition-all duration-500 relative"
+            className="bg-white border border-slate-200/80 rounded-[28px] p-8 md:p-10 flex flex-col justify-between shadow-[0_8px_30px_rgba(0,0,0,0.015)] hover:shadow-[0_12_45px_rgba(37,99,235,0.04)] hover:border-blue-100 transition-all duration-500 relative md:col-span-2 lg:col-span-1"
             initial={{ opacity: 0, y: 40 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, margin: '-50px' }}

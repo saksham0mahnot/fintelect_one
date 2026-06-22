@@ -54,22 +54,21 @@ const NRIWealth = () => {
         {/* Country selector + panel */}
         <div className="grid grid-cols-1 lg:grid-cols-3 gap-0">
           {/* Country tabs (left) */}
-          <div className="flex flex-row lg:flex-col gap-0 border-b lg:border-b-0 lg:border-r" style={{ borderColor: 'rgba(37,99,235,0.15)' }}>
+          <div className="flex flex-row lg:flex-col gap-0 overflow-x-auto lg:overflow-x-visible border-b lg:border-b-0 lg:border-r hide-scrollbar" style={{ borderColor: 'rgba(37,99,235,0.15)' }}>
             {nriCountries.map((c, i) => (
               <button
                 key={c.code}
                 onClick={() => setActive(i)}
-                className="flex items-center gap-4 py-6 px-8 text-left w-full transition-all duration-300 relative"
+                className="flex items-center gap-4 py-4 lg:py-6 px-6 lg:px-8 text-left flex-shrink-0 w-auto lg:w-full border-r lg:border-r-0 lg:border-b last:border-r-0 lg:last:border-b-0 border-blue-500/10 transition-all duration-300 relative"
                 style={{
                   background: active === i ? 'rgba(37,99,235,0.06)' : 'transparent',
-                  borderBottom: i < nriCountries.length - 1 ? '1px solid rgba(37,99,235,0.1)' : 'none',
                 }}
               >
                 {/* Active indicator */}
                 {active === i && (
                   <motion.div
                     layoutId="country-indicator"
-                    className="absolute left-0 top-0 bottom-0 w-0.5"
+                    className="absolute left-0 right-0 bottom-0 lg:bottom-0 lg:right-auto lg:top-0 h-0.5 lg:h-auto lg:w-0.5"
                     style={{ background: '#2563EB' }}
                     transition={{ type: 'spring', bounce: 0, duration: 0.5 }}
                   />
@@ -92,7 +91,7 @@ const NRIWealth = () => {
           </div>
 
           {/* Detail panel (right) */}
-          <div className="lg:col-span-2 p-10 lg:p-16">
+          <div className="lg:col-span-2 p-6 sm:p-10 lg:p-16">
             <AnimatePresence mode="wait">
               <motion.div
                 key={country.code}
@@ -137,10 +136,10 @@ const NRIWealth = () => {
                       initial={{ opacity: 0, x: 20 }}
                       animate={{ opacity: 1, x: 0 }}
                       transition={{ delay: i * 0.1 + 0.2 }}
-                      className="flex items-center gap-4"
+                      className="flex items-start gap-4"
                     >
                       <div
-                        className="w-1.5 h-1.5 rounded-full flex-shrink-0"
+                        className="w-1.5 h-1.5 rounded-full flex-shrink-0 mt-2"
                         style={{ background: country.color }}
                       />
                       <span style={{ color: '#475569', fontSize: '1rem' }}>{service}</span>
@@ -150,7 +149,7 @@ const NRIWealth = () => {
 
                 {/* CTA */}
                 <motion.button
-                  className="btn-outline mt-10"
+                  className="btn-outline mt-10 w-full sm:w-auto"
                   initial={{ opacity: 0 }}
                   animate={{ opacity: 1 }}
                   transition={{ delay: 0.5 }}
@@ -179,8 +178,7 @@ const NRIWealth = () => {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ delay: i * 0.15, duration: 0.6 }}
-              className="p-8"
-              style={{ borderRight: i < 2 ? '1px solid rgba(37,99,235,0.1)' : 'none' }}
+              className="p-6 sm:p-8 border-b md:border-b-0 md:border-r last:border-b-0 md:last:border-r-0 border-blue-500/10"
             >
               <h4 className="text-slate-900 font-semibold mb-3 text-lg">{f.title}</h4>
               <p style={{ color: '#475569', lineHeight: '1.7', fontSize: '0.9rem' }}>{f.desc}</p>
@@ -188,6 +186,16 @@ const NRIWealth = () => {
           ))}
         </div>
       </div>
+      <style>{`
+        .hide-scrollbar::-webkit-scrollbar {
+          display: none;
+        }
+        .hide-scrollbar {
+          -ms-overflow-style: none;
+          scrollbar-width: none;
+          -webkit-overflow-scrolling: touch;
+        }
+      `}</style>
     </section>
   )
 }

@@ -140,16 +140,16 @@ const Services = () => {
                       style={{ overflow: 'hidden' }}
                     >
                       <div
-                        className="px-16 pb-8 flex items-start gap-8"
+                        className="px-4 md:px-16 pb-6 md:pb-8 flex flex-col sm:flex-row items-start gap-4 md:gap-8"
                         style={{ borderTop: '1px solid rgba(37,99,235,0.07)' }}
                       >
-                        <div className="pt-6 flex-1">
+                        <div className="pt-4 sm:pt-6 flex-1">
                           <p style={{ color: '#475569', lineHeight: '1.8' }}>
                             {service.detail}
                           </p>
                         </div>
                         <button
-                          className="mt-6 flex items-center gap-2 text-sm text-blue-600 hover:text-blue-800 transition-colors"
+                          className="mt-2 sm:mt-6 flex items-center gap-2 text-sm text-blue-600 hover:text-blue-800 transition-colors flex-shrink-0"
                           onClick={(e) => {
                             e.stopPropagation()
                             document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' })

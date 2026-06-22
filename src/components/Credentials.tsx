@@ -49,8 +49,6 @@ const Credentials = () => {
         >
           {credentials.map((cred, i) => {
             const Icon = iconMap[cred.icon] || Award
-            const col = i % 3
-            const row = Math.floor(i / 3)
 
             return (
               <motion.div
@@ -59,10 +57,8 @@ const Credentials = () => {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ delay: i * 0.1, duration: 0.6 }}
-                className="group p-8 md:p-10 relative"
+                className="group p-8 md:p-10 relative cred-item"
                 style={{
-                  borderRight: col < 2 ? '1px solid rgba(37,99,235,0.1)' : 'none',
-                  borderBottom: row < 1 ? '1px solid rgba(37,99,235,0.1)' : 'none',
                   background: 'transparent',
                   transition: 'background 0.4s ease',
                 }}
@@ -143,6 +139,34 @@ const Credentials = () => {
           ))}
         </motion.div>
       </div>
+      <style>{`
+        /* Mobile (2 columns) */
+        @media (max-width: 767px) {
+          .cred-item {
+            border-right: 1px solid rgba(37,99,235,0.1);
+            border-bottom: 1px solid rgba(37,99,235,0.1);
+          }
+          .cred-item:nth-child(2n) {
+            border-right: none;
+          }
+          .cred-item:nth-child(n+5) {
+            border-bottom: none;
+          }
+        }
+        /* Desktop/Tablet (3 columns) */
+        @media (min-width: 768px) {
+          .cred-item {
+            border-right: 1px solid rgba(37,99,235,0.1);
+            border-bottom: 1px solid rgba(37,99,235,0.1);
+          }
+          .cred-item:nth-child(3n) {
+            border-right: none;
+          }
+          .cred-item:nth-child(n+4) {
+            border-bottom: none;
+          }
+        }
+      `}</style>
     </section>
   )
 }

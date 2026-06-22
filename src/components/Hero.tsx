@@ -178,7 +178,7 @@ const Hero = () => {
       <div className="absolute bottom-0 left-0 right-0 h-48 bg-gradient-to-t from-[#FFFFFF] to-transparent z-0" />
 
       {/* Content */}
-      <div className="relative z-10 container-premium pt-64 pb-20">
+      <div className="relative z-10 container-premium pt-24 pb-16 md:pt-36 lg:pt-44 md:pb-20">
         {/* Label */}
         {/* <motion.div
           className="section-label mb-10 mt-14"
@@ -192,9 +192,9 @@ const Hero = () => {
         {/* Headline */}
         <h1
           ref={headlineRef}
-          className="font-serif text-slate-900 mb-8 mt-24"
+          className="font-serif text-slate-900 mb-8"
           style={{
-            fontSize: 'clamp(3rem, 6vw, 7rem)',
+            fontSize: 'clamp(2.25rem, 6vw, 7rem)',
             lineHeight: '1.05',
             letterSpacing: '-0.02em',
             maxWidth: '14ch',
