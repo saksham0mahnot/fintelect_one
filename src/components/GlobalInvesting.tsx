@@ -30,7 +30,7 @@ const GlobalInvesting = () => {
               maxWidth: '16ch',
             }}
           >
-            Your wealth belongs in the world's best markets.
+            Your wealth belongs in the <span style={{ fontStyle: 'italic', color: '#083abe' }}>world's best</span> markets.
           </motion.h2>
 
           <motion.p

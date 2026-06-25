@@ -1,6 +1,7 @@
 import { useState } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
 import { nriCountries } from '../data/content'
+import { getLenis } from '../hooks/useLenis'
 
 const NRIWealth = () => {
   const [active, setActive] = useState(0)
@@ -35,7 +36,7 @@ const NRIWealth = () => {
               maxWidth: '18ch',
             }}
           >
-            Wealth management that follows you across borders.
+            Wealth management that <span style={{ fontStyle: 'italic', color: '#083abe' }}>follows you</span> across borders.
           </motion.h2>
 
           <motion.p
@@ -91,7 +92,7 @@ const NRIWealth = () => {
           </div>
 
           {/* Detail panel (right) */}
-          <div className="lg:col-span-2 p-6 sm:p-10 lg:p-16">
+          <div className="lg:col-span-2 px-6 pb-8 pt-0 sm:px-10 sm:pb-10 sm:pt-2 lg:px-16 lg:pb-16 lg:pt-4">
             <AnimatePresence mode="wait">
               <motion.div
                 key={country.code}
@@ -153,7 +154,14 @@ const NRIWealth = () => {
                   initial={{ opacity: 0 }}
                   animate={{ opacity: 1 }}
                   transition={{ delay: 0.5 }}
-                  onClick={() => document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' })}
+                  onClick={() => {
+                    const lenis = getLenis()
+                    if (lenis) {
+                      lenis.scrollTo('#contact')
+                    } else {
+                      document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' })
+                    }
+                  }}
                 >
                   Speak to an NRI Specialist
                 </motion.button>

@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
 import { Menu, X } from 'lucide-react'
+import { getLenis } from '../hooks/useLenis'
 
 const navItems = [
   { label: 'Story', href: '#story' },
@@ -24,7 +25,12 @@ const Navbar = () => {
   const scrollTo = (href: string) => {
     setMenuOpen(false)
     setTimeout(() => {
-      document.querySelector(href)?.scrollIntoView({ behavior: 'smooth' })
+      const lenis = getLenis()
+      if (lenis) {
+        lenis.scrollTo(href)
+      } else {
+        document.querySelector(href)?.scrollIntoView({ behavior: 'smooth' })
+      }
     }, 100)
   }
 

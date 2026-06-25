@@ -6,6 +6,7 @@ import {
   ChevronRight, ArrowUpRight
 } from 'lucide-react'
 import { services } from '../data/content'
+import { getLenis } from '../hooks/useLenis'
 
 const iconMap: Record<string, LucideIcon> = {
   TrendingUp, BarChart3, Shield, Globe2, Target, Building2, Vault,
@@ -42,7 +43,7 @@ const Services = () => {
               maxWidth: '16ch',
             }}
           >
-            Every <span style={{ color: '#2563EB', fontStyle: 'italic' }}>service built </span> for institutional grade outcomes.
+            Every <span style={{ color: '#083abe', fontStyle: 'italic' }}>service built </span> for institutional grade outcomes.
           </motion.h2>
 
           <motion.p
@@ -74,9 +75,11 @@ const Services = () => {
                 transition={{ delay: i * 0.08, duration: 0.6 }}
                 onHoverStart={() => setHovered(service.id)}
                 onHoverEnd={() => setHovered(null)}
-                onClick={() => setExpanded(expanded === service.id ? null : service.id)}
               >
-                <div className="flex items-center gap-8 py-8 px-2 cursor-pointer">
+                <div
+                  className="flex items-center gap-8 py-8 px-2 cursor-pointer"
+                  onClick={() => setExpanded(expanded === service.id ? null : service.id)}
+                >
                   {/* Number */}
                   <div
                     className="hidden md:block flex-shrink-0 text-right"
@@ -152,7 +155,12 @@ const Services = () => {
                           className="mt-2 sm:mt-6 flex items-center gap-2 text-sm text-blue-600 hover:text-blue-800 transition-colors flex-shrink-0"
                           onClick={(e) => {
                             e.stopPropagation()
-                            document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' })
+                            const lenis = getLenis()
+                            if (lenis) {
+                              lenis.scrollTo('#contact')
+                            } else {
+                              document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' })
+                            }
                           }}
                         >
                           Enquire <ArrowUpRight size={14} />

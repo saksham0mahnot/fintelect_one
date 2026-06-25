@@ -96,7 +96,7 @@ const WhyFintelect = () => {
             style={{ fontSize: 'clamp(1.5rem, 2.6vw, 2.6rem)', lineHeight: 1.1, letterSpacing: '-0.025em', color: '#0F172A' }}
           >
             Not a product pusher.{' '}
-            <span style={{ color: '#2563EB' }}><span style={{ fontStyle: 'italic' }}>a wealth architect.</span></span>
+            <span style={{ color: '#083abe' }}><span style={{ fontStyle: 'italic' }}>a wealth architect.</span></span>
           </h2>
           <br />
           <h4>A different kind of wealth relationship.. <br />
@@ -141,7 +141,7 @@ const WhyFintelect = () => {
                   <h3
                     className="why-point-title font-display"
                     style={{
-                      color: isSelected ? cardColor : '#0F172A',
+                      color: isSelected ? '#2563EB' : '#0F172A',
                     }}
                   >
                     {pt.title}

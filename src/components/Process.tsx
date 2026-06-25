@@ -5,6 +5,7 @@ import { ScrollTrigger } from 'gsap/ScrollTrigger'
 import type { LucideIcon } from 'lucide-react'
 import { MessageCircle, Search, FileText, CheckCircle, RefreshCw } from 'lucide-react'
 import { processSteps } from '../data/content'
+import { getLenis } from '../hooks/useLenis'
 
 gsap.registerPlugin(ScrollTrigger)
 
@@ -62,7 +63,7 @@ const Process = () => {
             maxWidth: '20ch',
           }}
         >
-          A 5 Step journey from conversation to stewardship.
+          A 5 Step journey<span style={{ fontStyle: 'italic', color: '#083abe' }}> from conversation </span> to stewardship.
         </motion.h2>
 
         {/* Process steps */}
@@ -168,7 +169,14 @@ const Process = () => {
           </p>
           <button
             className="btn-primary"
-            onClick={() => document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' })}
+            onClick={() => {
+              const lenis = getLenis()
+              if (lenis) {
+                lenis.scrollTo('#contact')
+              } else {
+                document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' })
+              }
+            }}
           >
             Start with a Discovery Call
           </button>

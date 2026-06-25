@@ -38,7 +38,7 @@ const Credentials = () => {
             maxWidth: '20ch',
           }}
         >
-          Institutional credentials. Personal accountability.
+          Institutional <span style={{ fontStyle: 'italic', color: '#083abe' }}>credentials. </span> Personal accountability.
         </motion.h2>
 
         {/* Credentials grid */}

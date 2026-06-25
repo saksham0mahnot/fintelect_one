@@ -18,6 +18,10 @@ export function useLenis() {
       touchMultiplier: 2,
     })
 
+    if (typeof window !== 'undefined') {
+      (window as any).__lenisInstance = lenisInstance
+    }
+
     function raf(time: number) {
       lenisInstance?.raf(time)
       rafRef.current = requestAnimationFrame(raf)
@@ -28,6 +32,9 @@ export function useLenis() {
     return () => {
       cancelAnimationFrame(rafRef.current)
       lenisInstance?.destroy()
+      if (typeof window !== 'undefined') {
+        delete (window as any).__lenisInstance
+      }
       lenisInstance = null
     }
   }, [])
@@ -36,5 +43,8 @@ export function useLenis() {
 }
 
 export function getLenis() {
+  if (typeof window !== 'undefined') {
+    return lenisInstance || (window as any).__lenisInstance || null
+  }
   return lenisInstance
 }

@@ -42,7 +42,7 @@ const FeeStructure = () => {
               maxWidth: '18ch',
             }}
           >
-            Transparent pricing. No surprises. No conflicts.
+            Transparent pricing. No surprises. <span style={{ fontStyle: 'italic', color: '#083abe' }}>No conflicts.</span>
           </motion.h2>
           <motion.p
             className="text-base max-w-sm"
